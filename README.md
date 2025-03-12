@@ -12,4 +12,5 @@ Additionally, the application includes data visualization features for pharmaceu
 <img src="Screenshot_5.png" alt="Menu aplikacji" width=100%>
 <img src="Screenshot_6.png" alt="Menu aplikacji" width=100%>
 <img src="Screenshot_7.png" alt="Menu aplikacji" width=100%>
+<img src="Screenshot_8.png" alt="Menu aplikacji" width=100%>
 
