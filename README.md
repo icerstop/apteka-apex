@@ -5,5 +5,5 @@ The application operates from the pharmacist’s perspective, granting access to
 Additionally, the application includes data visualization features for pharmaceutical statistics, such as the most frequently prescribed medications. It also incorporates geolocation functionality using JavaScript, displaying the locations of pharmacies on a map.
 
 
-<img src="Screenshot_1.png" alt="Logo aplikacji" width="200">
+<img src="Screenshot_1.png" alt="Logo aplikacji" width=100%>
 
