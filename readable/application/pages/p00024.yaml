@@ -1,0 +1,477 @@
+---
+# ====== Page: Statystyki Pacjentów ==========================
+id: 24
+identification: 
+  name: Statystyki Pacjentów
+  alias: STATYSTYKI-PACJENCI
+  title: Statystyki Pacjentów
+
+appearance: 
+  page-mode: Normal
+  page-template: Theme Default
+  template-options: 
+  - '#DEFAULT#'
+
+navigation-menu: 
+  override-user-interface-level: false
+
+navigation: 
+  cursor-focus: Do not focus cursor
+  warn-on-unsaved-changes: true
+
+security: 
+  authentication: Page Requires Authentication
+  deep-linking: Application Default
+  page-access-protection: Arguments Must Have Checksum
+  form-auto-complete: Off
+  browser-cache: Application Default
+
+session-management: 
+  rejoin-sessions: Application Default
+
+advanced: 
+  enable-duplicate-page-submissions: Yes - Enable page to be re-posted
+  reload-on-submit: Only for Success
+
+server-cache: 
+  caching: Disabled
+
+regions: 
+- # ====== Region: Wiek Pacjentów ==============================
+  id: 194526218685862743
+  identification: 
+    name: Wiek Pacjentów
+    title: Wiek Pacjentów
+    type: Chart
+
+  source: 
+    location: None
+
+  layout: 
+    sequence: 30
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Standard
+    template-options: 
+    - '#DEFAULT#'
+    - t-Region--scrollBody
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  security: 
+    escape-special-characters: true
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    id: 194526309404862744
+    chart: 
+      type: Bubble
+
+    layout: 
+      height: 400
+
+    data-cursor: 
+      cursor: Automatic
+      behavior: Automatic
+      dim-on-hover: true
+
+    multi-series-chart-data: 
+      fill-gaps-in-chart-data: true
+      sort-order: Label - Ascending
+
+    settings: 
+      zoom-and-scroll: No
+
+    animation: 
+      on-display: Automatic
+      on-data-change: Automatic
+
+    tooltip: 
+      show: true
+      show-series-name: true
+      show-group-name: true
+      show-value: true
+
+    legend: 
+      show: false
+
+    series: 
+    - # ====== Series: Wiek Pacjentów ==============================
+      id: 194526455762862745
+      identification: 
+        name: Wiek Pacjentów
+
+      execution: 
+        sequence: 10
+
+      source: 
+        location: Local Database
+        type: SQL Query
+        sql-query: |
+          SELECT
+              EXTRACT(YEAR FROM SYSDATE) - EXTRACT(YEAR FROM data_urodzenia) AS wiek,
+              COUNT(*) AS liczba_pacjentow
+          FROM
+              Pacjenci
+          GROUP BY
+              EXTRACT(YEAR FROM SYSDATE) - EXTRACT(YEAR FROM data_urodzenia)
+          ORDER BY
+              wiek;
+          
+
+      column-mapping: 
+        label: WIEK
+        x: WIEK
+        y: LICZBA_PACJENTOW
+
+      line: 
+        style: Solid
+
+      marker: 
+        show: Automatic
+        shape: Automatic
+
+      label: 
+        show: false
+
+    axes: 
+    - # ====== Axis: x =============================================
+      id: 194526571418862746
+      identification: 
+        name: x
+        show-axis: true
+
+      value: 
+        format-scaling: Automatic
+        baseline-scaling: Zero
+        scale: Linear
+
+      major-ticks: 
+        show: Yes
+
+      minor-ticks: 
+        show: false
+
+      tick-label: 
+        show: true
+        rotation: true
+        position: Outside
+
+    - # ====== Axis: y =============================================
+      id: 194526641251862747
+      identification: 
+        name: y
+        show-axis: true
+
+      value: 
+        format: Decimal
+        decimal-places: 0
+        format-scaling: None
+        baseline-scaling: Zero
+        scale: Linear
+
+      appearance: 
+        position: Automatic
+
+      major-ticks: 
+        show: Yes
+
+      minor-ticks: 
+        show: false
+
+      tick-label: 
+        show: true
+
+- # ====== Region: Breadcrumb ==================================
+  id: 219074829775236831
+  identification: 
+    name: Breadcrumb
+    type: Breadcrumb
+
+  source: 
+    breadcrumb: Breadcrumb # 180651755834957693
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: REGION_POSITION_01
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Title Bar
+    template-options: 
+    - '#DEFAULT#'
+    - t-BreadcrumbRegion--useBreadcrumbTitle
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    appearance: 
+      breadcrumb-template: Breadcrumb
+      template-options: 
+      - '#DEFAULT#'
+
+- # ====== Region: Płeć Pacjentów ==============================
+  id: 219075509579236832
+  identification: 
+    name: Płeć Pacjentów
+    title: Płeć Pacjentów
+    type: Chart
+
+  source: 
+    location: None
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Standard
+    template-options: 
+    - '#DEFAULT#'
+    - t-Region--scrollBody
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  security: 
+    escape-special-characters: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    id: 219075965813236833
+    chart: 
+      type: Pie
+
+    layout: 
+      height: 400
+
+    data-cursor: 
+      cursor: Automatic
+      behavior: Automatic
+      dim-on-hover: true
+
+    settings: 
+      pie-selection-effect: Highlight
+
+    value: 
+      pie-chart-other-threshold: 0
+      format: Decimal
+      decimal-places: 0
+      format-scaling: None
+
+    animation: 
+      on-display: Automatic
+      on-data-change: Automatic
+
+    tooltip: 
+      show: true
+      show-series-name: true
+      show-value: true
+
+    legend: 
+      show: true
+      position: Automatic
+      hide-and-show-behavior: Rescale
+
+    series: 
+    - # ====== Series: Płeć Pacjentów ==============================
+      id: 219077618702236834
+      identification: 
+        name: Płeć Pacjentów
+
+      execution: 
+        sequence: 10
+
+      source: 
+        location: Local Database
+        type: SQL Query
+        sql-query: |
+          SELECT 
+              CASE 
+                  WHEN UPPER(SUBSTR(IMIE, -1)) = 'A' THEN 'Kobieta'
+                  ELSE 'Mężczyzna'
+              END AS PLEC,
+              COUNT(*) AS LICZBA
+          FROM PACJENCI
+          GROUP BY 
+              CASE 
+                  WHEN UPPER(SUBSTR(IMIE, -1)) = 'A' THEN 'Kobieta'
+                  ELSE 'Mężczyzna'
+              END;
+          
+
+      column-mapping: 
+        series-name: PLEC
+        label: PLEC
+        value: LICZBA
+
+      label: 
+        show: true
+        position: Automatic
+        display-as: Label
+
+      performance: 
+        maximum-rows-to-process: 20
+
+- # ====== Region: Grupy Wiekowe Pacjentów =====================
+  id: 219078223572236836
+  identification: 
+    name: Grupy Wiekowe Pacjentów
+    title: Grupy Wiekowe Pacjentów
+    type: Chart
+
+  source: 
+    location: None
+
+  layout: 
+    sequence: 20
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Standard
+    template-options: 
+    - '#DEFAULT#'
+    - t-Region--scrollBody
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  security: 
+    escape-special-characters: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    id: 219078664840236836
+    chart: 
+      type: Pie
+
+    data-cursor: 
+      cursor: Automatic
+      behavior: Automatic
+      dim-on-hover: true
+
+    settings: 
+      pie-selection-effect: Highlight
+
+    value: 
+      pie-chart-other-threshold: 0
+      format-scaling: Automatic
+
+    animation: 
+      on-display: Automatic
+      on-data-change: Automatic
+
+    tooltip: 
+      show: true
+      show-series-name: true
+      show-value: true
+
+    legend: 
+      show: false
+
+    series: 
+    - # ====== Series: Wiek Pacjentów ==============================
+      id: 219079197087236836
+      identification: 
+        name: Wiek Pacjentów
+
+      execution: 
+        sequence: 10
+
+      source: 
+        location: Local Database
+        type: SQL Query
+        sql-query: |
+          SELECT 
+              CASE 
+                  WHEN TRUNC(MONTHS_BETWEEN(SYSDATE, DATA_URODZENIA) / 12) < 13 THEN 'Dzieci'
+                  WHEN TRUNC(MONTHS_BETWEEN(SYSDATE, DATA_URODZENIA) / 12) BETWEEN 13 AND 19 THEN 'Nastolatkowie'
+                  WHEN TRUNC(MONTHS_BETWEEN(SYSDATE, DATA_URODZENIA) / 12) BETWEEN 20 AND 35 THEN 'Młodzi dorośli'
+                  WHEN TRUNC(MONTHS_BETWEEN(SYSDATE, DATA_URODZENIA) / 12) BETWEEN 36 AND 64 THEN 'Dorośli'
+                  ELSE 'Seniorzy'
+              END AS GRUPA_WIEKOWA,
+              COUNT(*) AS LICZBA
+          FROM PACJENCI
+          GROUP BY 
+              CASE 
+                  WHEN TRUNC(MONTHS_BETWEEN(SYSDATE, DATA_URODZENIA) / 12) < 13 THEN 'Dzieci'
+                  WHEN TRUNC(MONTHS_BETWEEN(SYSDATE, DATA_URODZENIA) / 12) BETWEEN 13 AND 19 THEN 'Nastolatkowie'
+                  WHEN TRUNC(MONTHS_BETWEEN(SYSDATE, DATA_URODZENIA) / 12) BETWEEN 20 AND 35 THEN 'Młodzi dorośli'
+                  WHEN TRUNC(MONTHS_BETWEEN(SYSDATE, DATA_URODZENIA) / 12) BETWEEN 36 AND 64 THEN 'Dorośli'
+                  ELSE 'Seniorzy'
+              END
+          ORDER BY LICZBA DESC;
+          
+
+      column-mapping: 
+        series-name: GRUPA_WIEKOWA
+        label: GRUPA_WIEKOWA
+        value: LICZBA
+
+      label: 
+        show: true
+        position: Automatic
+        display-as: Label
+
+      performance: 
+        maximum-rows-to-process: 20
+

@@ -1,0 +1,758 @@
+---
+# ====== Page: Farmaceuci ====================================
+id: 5
+identification: 
+  name: Farmaceuci
+  alias: FARMACEUCI
+  title: Farmaceuci
+
+appearance: 
+  page-mode: Modal Dialog
+  dialog-template: Drawer
+  template-options: 
+  - '#DEFAULT#'
+  - js-dialog-class-t-Drawer--pullOutEnd
+
+dialog: 
+  chained: false
+
+navigation-menu: 
+  override-user-interface-level: false
+
+navigation: 
+  cursor-focus: Do not focus cursor
+  warn-on-unsaved-changes: true
+
+security: 
+  authentication: Page Requires Authentication
+  deep-linking: Application Default
+  page-access-protection: Arguments Must Have Checksum
+  form-auto-complete: Off
+  browser-cache: Application Default
+
+session-management: 
+  rejoin-sessions: Application Default
+
+advanced: 
+  enable-duplicate-page-submissions: Yes - Enable page to be re-posted
+  reload-on-submit: Only for Success
+
+server-cache: 
+  caching: Disabled
+
+regions: 
+- # ====== Region: Farmaceuci ==================================
+  id: 180974308609958312
+  identification: 
+    name: Farmaceuci
+    type: Form
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: FARMACEUCI
+    include-rowid-column: false
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Blank with Attributes
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    edit: 
+      enabled: true
+      allowed-operations: 
+      - Add Row
+      - Update Row
+      - Delete Row
+      lost-update-type: Row Values
+
+- # ====== Region: Buttons =====================================
+  id: 180978537912958318
+  identification: 
+    name: Buttons
+    type: Static Content
+
+  layout: 
+    sequence: 20
+    parent-region: No Parent
+    slot: REGION_POSITION_03
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Buttons Container
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    settings: 
+      output-as: Text (escape special characters)
+      show-line-breaks: true
+
+page-items: 
+- # ====== Page Item: P5_FARMACEUTA_ID =========================
+  id: 180974751232958313
+  identification: 
+    name: P5_FARMACEUTA_ID
+    type: Hidden
+
+  settings: 
+    value-protected: true
+
+  layout: 
+    sequence: 20
+    region: Farmaceuci # 180974308609958312
+    slot: BODY
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Farmaceuci # 180974308609958312
+    column: FARMACEUTA_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: true
+
+  session-state: 
+    data-type: VARCHAR2
+    storage: Per Request (Memory Only)
+
+  security: 
+    session-state-protection: Checksum Required - Session Level
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P5_IMIE ==================================
+  id: 180975116207958313
+  identification: 
+    name: P5_IMIE
+    type: Text Field
+
+  label: 
+    label: Imie
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: None
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 30
+    region: Farmaceuci # 180974308609958312
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 100
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Farmaceuci # 180974308609958312
+    column: IMIE
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P5_NAZWISKO ==============================
+  id: 180975530663958314
+  identification: 
+    name: P5_NAZWISKO
+    type: Text Field
+
+  label: 
+    label: Nazwisko
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: None
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 40
+    region: Farmaceuci # 180974308609958312
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 100
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Farmaceuci # 180974308609958312
+    column: NAZWISKO
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P5_NUMER_TELEFONU ========================
+  id: 180975955473958314
+  identification: 
+    name: P5_NUMER_TELEFONU
+    type: Text Field
+
+  label: 
+    label: Numer Telefonu
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: Leading and Trailing
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 50
+    region: Farmaceuci # 180974308609958312
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 255
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Farmaceuci # 180974308609958312
+    column: NUMER_TELEFONU
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P5_APTEKA_ID =============================
+  id: 180976398823958315
+  identification: 
+    name: P5_APTEKA_ID
+    type: Select List
+
+  label: 
+    label: Apteka
+    alignment: Left
+
+  settings: 
+    page-action-on-selection: None
+
+  multiple-values: 
+    type: No
+
+  layout: 
+    sequence: 60
+    region: Farmaceuci # 180974308609958312
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    height: 1
+
+  validation: 
+    value-required: false
+
+  list-of-values: 
+    type: Shared Component
+    list-of-values: APTEKI.NAZWA # 180976452729958315
+    display-extra-values: true
+    display-null-value: false
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Farmaceuci # 180974308609958312
+    column: APTEKA_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+buttons: 
+- # ====== Button: CANCEL ======================================
+  id: 180978979480958319
+  identification: 
+    button-name: CANCEL
+    label: Anuluj
+
+  layout: 
+    sequence: 10
+    region: Buttons # 180978537912958318
+    slot: CLOSE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Defined by Dynamic Action
+    execute-validations: true
+
+- # ====== Button: DELETE ======================================
+  id: 180980336673958320
+  identification: 
+    button-name: DELETE
+    label: Usuń
+
+  layout: 
+    sequence: 20
+    region: Buttons # 180978537912958318
+    slot: DELETE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+    - t-Button--danger
+    - t-Button--simple
+
+  behavior: 
+    action: Submit Page
+    execute-validations: false
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL DELETE action
+
+  confirmation: 
+    message: '&APP_TEXT$DELETE_MSG!RAW.'
+    style: Danger
+
+  server-side-condition: 
+    type: Item is NOT NULL
+    item: P5_FARMACEUTA_ID
+
+- # ====== Button: SAVE ========================================
+  id: 180980712577958321
+  identification: 
+    button-name: SAVE
+    label: Zapisz zmiany
+
+  layout: 
+    sequence: 30
+    region: Buttons # 180978537912958318
+    slot: NEXT
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: true
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: true
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL UPDATE action
+
+  server-side-condition: 
+    type: Item is NOT NULL
+    item: P5_FARMACEUTA_ID
+
+- # ====== Button: CREATE ======================================
+  id: 180981118713958321
+  identification: 
+    button-name: CREATE
+    label: Utwórz
+
+  layout: 
+    sequence: 40
+    region: Buttons # 180978537912958318
+    slot: NEXT
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: true
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: true
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL INSERT action
+
+  server-side-condition: 
+    type: Item is NULL
+    item: P5_FARMACEUTA_ID
+
+dynamic-actions: 
+- # ====== Dynamic Action: Cancel Dialog =======================
+  id: 180979055220958319
+  identification: 
+    name: Cancel Dialog
+
+  execution: 
+    sequence: 10
+    event-scope: Static
+    type: Immediate
+
+  when: 
+    event: Click
+    selection-type: Button
+    button: CANCEL # 180978979480958319
+
+  actions: 
+  - # ====== Action: Cancel Dialog ===============================
+    id: 180979871931958320
+    identification: 
+      action: Cancel Dialog
+
+    execution: 
+      sequence: 10
+      event: Cancel Dialog # 180979055220958319
+      fire-when-event-result-is: True
+      fire-on-initialization: false
+
+validations: 
+- # ====== Validation: not_null ================================
+  id: 212634693033800101
+  identification: 
+    name: not_null
+
+  execution: 
+    sequence: 10
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P5_IMIE IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Imię' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P5_IMIE # 180975116207958313
+
+- # ====== Validation: isnotNull ===============================
+  id: 212634741320800102
+  identification: 
+    name: isnotNull
+
+  execution: 
+    sequence: 20
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P5_NAZWISKO IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'nazwisko' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P5_NAZWISKO # 180975530663958314
+
+- # ====== Validation: isNotNull_ ==============================
+  id: 212634998983800104
+  identification: 
+    name: isNotNull_
+
+  execution: 
+    sequence: 40
+
+  validation: 
+    type: Item is NOT NULL
+    item: P5_APTEKA_ID
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Apteka' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P5_APTEKA_ID # 180976398823958315
+
+- # ====== Validation: tylko_litery ============================
+  id: 283865839544945608
+  identification: 
+    name: tylko_litery
+
+  execution: 
+    sequence: 50
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P5_IMIE, '^[[:alpha:]]+$')"
+    always-execute: false
+
+  error: 
+    error-message: Imię musi składać się wyłącznie z liter!
+    display-location: Inline with Field and in Notification
+    associated-item: P5_IMIE # 180975116207958313
+
+- # ====== Validation: litery_only =============================
+  id: 283865997414945609
+  identification: 
+    name: litery_only
+
+  execution: 
+    sequence: 60
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P5_NAZWISKO, '^[[:alpha:]]+$')"
+    always-execute: false
+
+  error: 
+    error-message: Nazwisko musi składać się wyłącznie z liter!
+    display-location: Inline with Field and in Notification
+    associated-item: P5_NAZWISKO # 180975530663958314
+
+- # ====== Validation: 9_cyfr ==================================
+  id: 283866002016945610
+  identification: 
+    name: 9_cyfr
+
+  execution: 
+    sequence: 70
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P5_NUMER_TELEFONU, '^[0-9]{9}$')"
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Numer Telefonu' musi składać się się z 9 cyfr
+    display-location: Inline with Field and in Notification
+    associated-item: P5_NUMER_TELEFONU # 180975955473958314
+
+- # ====== Validation: New =====================================
+  id: 341244591426118119
+  identification: 
+    name: New
+
+  execution: 
+    sequence: 80
+
+  validation: 
+    type: Item is NOT NULL
+    item: P5_NUMER_TELEFONU
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Numer Telefonu' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P5_NUMER_TELEFONU # 180975955473958314
+
+processes: 
+- # ====== Process: Initialize form Farmaceuci =================
+  id: 180981578975958321
+  identification: 
+    name: Initialize form Farmaceuci
+    type: Form - Initialization
+    execution-chain: None
+    form-region: Farmaceuci # 180974308609958312
+
+  execution: 
+    sequence: 10
+    point: Before Header
+    run-process: Once Per Page Visit (default)
+
+- # ====== Process: Process form Farmaceuci ====================
+  id: 180981989136958322
+  identification: 
+    name: Process form Farmaceuci
+    type: Form - Automatic Row Processing (DML)
+    execution-chain: None
+    form-region: Farmaceuci # 180974308609958312
+
+  settings: 
+    target-type: Region Source
+    prevent-lost-updates: true
+    lock-row: Yes
+    return-primary-key(s)-after-insert: true
+
+  execution: 
+    sequence: 10
+    point: Processing
+    run-process: Once Per Page Visit (default)
+
+  error: 
+    display-location: Inline in Notification
+
+- # ====== Process: Close Dialog ===============================
+  id: 180982393643958323
+  identification: 
+    name: Close Dialog
+    type: Close Dialog
+    execution-chain: None
+
+  settings: 
+    show-success-messages: true
+
+  execution: 
+    sequence: 50
+    point: Processing
+    run-process: Once Per Page Visit (default)
+
+  error: 
+    display-location: Inline in Notification
+
+  server-side-condition: 
+    type: Request is contained in Value
+    value: CREATE,SAVE,DELETE
+

@@ -1,0 +1,334 @@
+---
+- # ====== List of Values: APTEKI.NAZWA ========================
+  id: 180976452729958315
+  identification: 
+    name: APTEKI.NAZWA
+
+  subscription: 
+    version-number: 446762489
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: APTEKI
+
+  column-mapping: 
+    return: APTEKA_ID
+    display: NAZWA
+    default-sort: NAZWA
+    sort-direction: Ascending (Nulls Last)
+
+- # ====== List of Values: SZPITALE.NAZWA ======================
+  id: 180991455985958365
+  identification: 
+    name: SZPITALE.NAZWA
+
+  subscription: 
+    version-number: 446762507
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: SZPITALE
+
+  column-mapping: 
+    return: SZPITAL_ID
+    display: NAZWA
+    default-sort: NAZWA
+    sort-direction: Ascending (Nulls Last)
+
+- # ====== List of Values: RECEPTY.STATUS ======================
+  id: 181007497032958417
+  identification: 
+    name: RECEPTY.STATUS
+
+  subscription: 
+    version-number: 452321496
+
+  source: 
+    location: Local Database
+    type: SQL Query
+    sql-query: |
+      SELECT DISTINCT STATUS
+      FROM RECEPTY;
+      
+
+  column-mapping: 
+    return: STATUS
+    display: STATUS
+    default-sort: STATUS
+    sort-direction: Ascending (Nulls Last)
+
+- # ====== List of Values: FARMACEUCI.IMIE =====================
+  id: 181039066711958516
+  identification: 
+    name: FARMACEUCI.IMIE
+
+  subscription: 
+    version-number: 448882639
+
+  source: 
+    location: Local Database
+    type: SQL Query
+    sql-query: SELECT IMIE || ' ' || NAZWISKO AS IMIE_NAZWISKO, FARMACEUTA_ID FROM FARMACEUCI
+
+  column-mapping: 
+    return: FARMACEUTA_ID
+    display: IMIE_NAZWISKO
+    default-sort: Use Order By from Query
+
+- # ====== List of Values: PACJENCI.IMIE =======================
+  id: 181054884840958566
+  identification: 
+    name: PACJENCI.IMIE
+
+  subscription: 
+    version-number: 452296979
+
+  source: 
+    location: Local Database
+    type: SQL Query
+    sql-query: SELECT IMIE || ' ' || NAZWISKO AS IMIE_NAZWISKO, PACJENT_ID FROM PACJENCI
+
+  column-mapping: 
+    return: PACJENT_ID
+    display: IMIE_NAZWISKO
+    default-sort: Use Order By from Query
+
+- # ====== List of Values: LEKARZE.IMIE ========================
+  id: 181055566037958568
+  identification: 
+    name: LEKARZE.IMIE
+
+  subscription: 
+    version-number: 452378013
+
+  source: 
+    location: Local Database
+    type: SQL Query
+    sql-query: select IMIE || ' ' || NAZWISKO AS IMIE_NAZWISKO, LEKARZ_ID FROM LEKARZE
+
+  column-mapping: 
+    return: LEKARZ_ID
+    display: IMIE_NAZWISKO
+    default-sort: Use Order By from Query
+
+- # ====== List of Values: LEKI.NAZWA ==========================
+  id: 181101438371958715
+  identification: 
+    name: LEKI.NAZWA
+
+  subscription: 
+    version-number: 453132348
+
+  source: 
+    location: Local Database
+    type: SQL Query
+    sql-query: |
+      select nazwa as nazwa_leku, lek_id from leki
+      
+
+  column-mapping: 
+    return: LEK_ID
+    display: NAZWA_LEKU
+    default-sort: Use Order By from Query
+
+- # ====== List of Values: SZPITALE.TYPY =======================
+  id: 213216481140165304
+  identification: 
+    name: SZPITALE.TYPY
+
+  subscription: 
+    version-number: 452328969
+
+  source: 
+    location: Static Values
+
+  entries: 
+  - # ====== Entry: Specjalistyczny ==============================
+    id: 213216706767165313
+    entry: 
+      sequence: 1
+      display: Specjalistyczny
+      return: Specjalistyczny
+
+  - # ====== Entry: Dziecięcy ====================================
+    id: 213217163048165318
+    entry: 
+      sequence: 2
+      display: Dziecięcy
+      return: Dziecięcy
+
+  - # ====== Entry: Publiczny ====================================
+    id: 213217534094165319
+    entry: 
+      sequence: 3
+      display: Publiczny
+      return: Publiczny
+
+  - # ====== Entry: Prywatny =====================================
+    id: 213217996242165319
+    entry: 
+      sequence: 4
+      display: Prywatny
+      return: Prywatny
+
+  - # ====== Entry: Hospicjum ====================================
+    id: 213218352001165320
+    entry: 
+      sequence: 5
+      display: Hospicjum
+      return: Hospicjum
+
+- # ====== List of Values: ZAMOWIENIA.STATUS ===================
+  id: 251781241890063196
+  identification: 
+    name: ZAMOWIENIA.STATUS
+
+  subscription: 
+    version-number: 458054625
+
+  source: 
+    location: Static Values
+
+  entries: 
+  - # ====== Entry: Zrealizowane =================================
+    id: 251781527022063196
+    entry: 
+      sequence: 1
+      display: Zrealizowane
+      return: Zrealizowane
+
+  - # ====== Entry: Oczekujące ===================================
+    id: 251781936412063197
+    entry: 
+      sequence: 2
+      display: Oczekujące
+      return: Oczekujące
+
+  - # ====== Entry: W trakcie ====================================
+    id: 251782358209063199
+    entry: 
+      sequence: 3
+      display: W trakcie
+      return: W trakcie
+
+- # ====== List of Values: LEKARZE.SPECJALIZACJE ===============
+  id: 259585116310439713
+  identification: 
+    name: LEKARZE.SPECJALIZACJE
+
+  subscription: 
+    version-number: 458795785
+
+  source: 
+    location: Static Values
+
+  entries: 
+  - # ====== Entry: Kardiologia ==================================
+    id: 259585470298439724
+    entry: 
+      sequence: 1
+      display: Kardiologia
+      return: Kardiologia
+
+  - # ====== Entry: Onkologia ====================================
+    id: 259585846261439725
+    entry: 
+      sequence: 2
+      display: Onkologia
+      return: Onkologia
+
+  - # ====== Entry: Fizjoterapia =================================
+    id: 259586282821439725
+    entry: 
+      sequence: 3
+      display: Fizjoterapia
+      return: Fizjoterapia
+
+  - # ====== Entry: Ortopedia ====================================
+    id: 259586646721439726
+    entry: 
+      sequence: 4
+      display: Ortopedia
+      return: Ortopedia
+
+  - # ====== Entry: Pediatria ====================================
+    id: 259587003415439726
+    entry: 
+      sequence: 5
+      display: Pediatria
+      return: Pediatria
+
+  - # ====== Entry: Chirurgia ====================================
+    id: 259587450761439726
+    entry: 
+      sequence: 6
+      display: Chirurgia
+      return: Chirurgia
+
+  - # ====== Entry: Endokrynologia ===============================
+    id: 259587822528439727
+    entry: 
+      sequence: 7
+      display: Endokrynologia
+      return: Endokrynologia
+
+  - # ====== Entry: Neurologia ===================================
+    id: 259588288573439727
+    entry: 
+      sequence: 8
+      display: Neurologia
+      return: Neurologia
+
+  - # ====== Entry: Dermatologia =================================
+    id: 259588689538439727
+    entry: 
+      sequence: 9
+      display: Dermatologia
+      return: Dermatologia
+
+  - # ====== Entry: Gastroenterologia ============================
+    id: 259589086095439728
+    entry: 
+      sequence: 10
+      display: Gastroenterologia
+      return: Gastroenterologia
+
+  - # ====== Entry: Ginekologia ==================================
+    id: 259589441198439728
+    entry: 
+      sequence: 11
+      display: Ginekologia
+      return: Ginekologia
+
+  - # ====== Entry: Urologia =====================================
+    id: 259589864356439728
+    entry: 
+      sequence: 12
+      display: Urologia
+      return: Urologia
+
+  - # ====== Entry: Anestezjologia ===============================
+    id: 259590253666439729
+    entry: 
+      sequence: 13
+      display: Anestezjologia
+      return: Anestezjologia
+
+  - # ====== Entry: Geriatria ====================================
+    id: 259590654168439729
+    entry: 
+      sequence: 14
+      display: Geriatria
+      return: Geriatria
+
+  - # ====== Entry: Okulistyka ===================================
+    id: 259591007733439729
+    entry: 
+      sequence: 15
+      display: Okulistyka
+      return: Okulistyka
+

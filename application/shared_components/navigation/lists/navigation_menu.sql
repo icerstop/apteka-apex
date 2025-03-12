@@ -1,0 +1,214 @@
+prompt --application/shared_components/navigation/lists/navigation_menu
+begin
+--   Manifest
+--     LIST: Navigation Menu
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2024.05.31'
+,p_release=>'24.1.4'
+,p_default_workspace_id=>67541494403004847
+,p_default_application_id=>292
+,p_default_id_offset=>0
+,p_default_owner=>'WKSP_WS155865'
+);
+wwv_flow_imp_shared.create_list(
+ p_id=>wwv_flow_imp.id(180652296000957695)
+,p_name=>'Navigation Menu'
+,p_list_status=>'PUBLIC'
+,p_version_scn=>472659014
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(180959095050958209)
+,p_list_item_display_sequence=>10
+,p_list_item_link_text=>'Home'
+,p_list_item_link_target=>'f?p=&APP_ID.:1:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-home'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(180960515903958216)
+,p_list_item_display_sequence=>20
+,p_list_item_link_text=>'Apteki'
+,p_list_item_link_target=>'f?p=&APP_ID.:2:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-plus-square'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(219383547417464701)
+,p_list_item_display_sequence=>160
+,p_list_item_link_text=>'Mapa Aptek'
+,p_list_item_link_target=>'f?p=&APP_ID.:27:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-map-marker'
+,p_parent_list_item_id=>wwv_flow_imp.id(180960515903958216)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'27'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(180973750659958281)
+,p_list_item_display_sequence=>30
+,p_list_item_link_text=>'Farmaceuci'
+,p_list_item_link_target=>'f?p=&APP_ID.:4:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-user-md'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(180988220879958330)
+,p_list_item_display_sequence=>40
+,p_list_item_link_text=>'Lekarze'
+,p_list_item_link_target=>'f?p=&APP_ID.:6:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-stethoscope'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181003966668958383)
+,p_list_item_display_sequence=>50
+,p_list_item_link_text=>'Leki'
+,p_list_item_link_target=>'f?p=&APP_ID.:8:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-medication-pill'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(219103242490285453)
+,p_list_item_display_sequence=>140
+,p_list_item_link_text=>unistr('Statystyki Lek\00F3w')
+,p_list_item_link_target=>'f?p=&APP_ID.:25:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-dashboard'
+,p_parent_list_item_id=>wwv_flow_imp.id(181003966668958383)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'25'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181020671202958432)
+,p_list_item_display_sequence=>60
+,p_list_item_link_text=>'Pacjenci'
+,p_list_item_link_target=>'f?p=&APP_ID.:10:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-heart'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(219074436400236830)
+,p_list_item_display_sequence=>130
+,p_list_item_link_text=>'Statystyki Pacjenci'
+,p_list_item_link_target=>'f?p=&APP_ID.:24:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-dashboard'
+,p_parent_list_item_id=>wwv_flow_imp.id(181020671202958432)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'24'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(306381925607554828)
+,p_list_item_display_sequence=>210
+,p_list_item_link_text=>'Informacje Pacjenta'
+,p_list_item_link_target=>'f?p=&APP_ID.:32:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-file-o'
+,p_parent_list_item_id=>wwv_flow_imp.id(181020671202958432)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'32'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181037103106958483)
+,p_list_item_display_sequence=>70
+,p_list_item_link_text=>'Realizacje Recept'
+,p_list_item_link_target=>'f?p=&APP_ID.:12:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-file-prescription'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181051608659958532)
+,p_list_item_display_sequence=>80
+,p_list_item_link_text=>'Recepty'
+,p_list_item_link_target=>'f?p=&APP_ID.:14:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-file-medical'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(217046725422291592)
+,p_list_item_display_sequence=>120
+,p_list_item_link_text=>'Statystyki Recept'
+,p_list_item_link_target=>'f?p=&APP_ID.:22:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-dashboard'
+,p_parent_list_item_id=>wwv_flow_imp.id(181051608659958532)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'22'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(349335122897463242)
+,p_list_item_display_sequence=>220
+,p_list_item_link_text=>'Terminy Realizacji Recept'
+,p_list_item_link_target=>'f?p=&APP_ID.:29:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-calendar-o'
+,p_parent_list_item_id=>wwv_flow_imp.id(181051608659958532)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'29'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181068759769958583)
+,p_list_item_display_sequence=>90
+,p_list_item_link_text=>unistr('Rodzice Pacjent\00F3w')
+,p_list_item_link_target=>'f?p=&APP_ID.:16:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-person-standing'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181084008222958634)
+,p_list_item_display_sequence=>100
+,p_list_item_link_text=>'Szpitale'
+,p_list_item_link_target=>'f?p=&APP_ID.:18:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-hospital-o'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(219251867730334390)
+,p_list_item_display_sequence=>150
+,p_list_item_link_text=>'Mapa Szpitali'
+,p_list_item_link_target=>'f?p=&APP_ID.:26:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-map-marker'
+,p_parent_list_item_id=>wwv_flow_imp.id(181084008222958634)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'26'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181098329756958680)
+,p_list_item_display_sequence=>110
+,p_list_item_link_text=>unistr('Zam\00F3wienia')
+,p_list_item_link_target=>'f?p=&APP_ID.:20:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-ambulance'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(249645555589819237)
+,p_list_item_display_sequence=>170
+,p_list_item_link_text=>unistr('Sk\0142adanie Zam\00F3wienia')
+,p_list_item_link_target=>'f?p=&APP_ID.:28:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-forms'
+,p_parent_list_item_id=>wwv_flow_imp.id(181098329756958680)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'28'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(255332173786876681)
+,p_list_item_display_sequence=>200
+,p_list_item_link_text=>unistr('Statystyki Zam\00F3wie\0144')
+,p_list_item_link_target=>'f?p=&APP_ID.:30:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-bar-chart'
+,p_parent_list_item_id=>wwv_flow_imp.id(181098329756958680)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'30'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(254165078013712718)
+,p_list_item_display_sequence=>180
+,p_list_item_link_text=>'MZ.GOV.PL'
+,p_list_item_link_target=>'https://www.mz.gov.pl'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(254207298952723288)
+,p_list_item_display_sequence=>190
+,p_list_item_link_text=>'NFZ.GOV.PL'
+,p_list_item_link_target=>'https://www.nfz.gov.pl/'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp.component_end;
+end;
+/

@@ -1,0 +1,355 @@
+---
+# ====== Page: Mapa Aptek ====================================
+id: 27
+identification: 
+  name: Mapa Aptek
+  alias: MAPA-APTEK
+  title: Mapa Aptek
+
+appearance: 
+  page-mode: Normal
+  page-template: Theme Default
+  template-options: 
+  - '#DEFAULT#'
+
+navigation-menu: 
+  override-user-interface-level: false
+
+navigation: 
+  cursor-focus: Do not focus cursor
+  warn-on-unsaved-changes: false
+
+security: 
+  authentication: Page Requires Authentication
+  deep-linking: Application Default
+  page-access-protection: Arguments Must Have Checksum
+  form-auto-complete: Off
+  browser-cache: Application Default
+
+session-management: 
+  rejoin-sessions: Application Default
+
+advanced: 
+  enable-duplicate-page-submissions: Yes - Enable page to be re-posted
+  reload-on-submit: Only for Success
+
+server-cache: 
+  caching: Disabled
+
+regions: 
+- # ====== Region: Breadcrumb ==================================
+  id: 219383981897464702
+  identification: 
+    name: Breadcrumb
+    type: Breadcrumb
+
+  source: 
+    breadcrumb: Breadcrumb # 180651755834957693
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: REGION_POSITION_01
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Title Bar
+    template-options: 
+    - '#DEFAULT#'
+    - t-BreadcrumbRegion--useBreadcrumbTitle
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    appearance: 
+      breadcrumb-template: Breadcrumb
+      template-options: 
+      - '#DEFAULT#'
+
+- # ====== Region: Mapa Aptek ==================================
+  id: 219384661161464704
+  identification: 
+    name: Mapa Aptek
+    type: Map
+
+  source: 
+    location: Local Database
+    type: SQL Query
+    sql-query: |
+      SELECT 
+          'Apteka' AS TYPE,
+          NAZWA AS TITLE,
+          CAST(LATITUDE AS NUMBER) AS LATITUDE,
+          CAST(LONGITUDE AS NUMBER) AS LONGITUDE,
+          ADRES AS DESCRIPTION
+      FROM APTEKI
+      UNION ALL
+      SELECT 
+          'Twoja lokalizacja' AS TYPE,
+          'Moja lokalizacja' AS TITLE,
+          CAST(:P27_LATITUDE AS NUMBER) AS LATITUDE,
+          CAST(:P27_LONGITUDE AS NUMBER) AS LONGITUDE,
+          'To jest Twoja obecna lokalizacja' AS DESCRIPTION
+      FROM DUAL
+      WHERE :P27_LATITUDE IS NOT NULL AND :P27_LONGITUDE IS NOT NULL
+      
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Blank with Attributes (No Grid)
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    static-id: mapa_aptek
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    id: 219385082273464704
+    map: 
+      background: Default
+      height: 640
+
+    controls: 
+      navigation-bar: Zoom and Compass
+      navigation-bar-position: End
+      options: 
+      - Scale Bar
+      - Infinite Map
+      - Rectangle Zoom
+
+    initial-position-and-zoom: 
+      type: Based on Spatial Results
+
+    legend: 
+      show: true
+      position: End
+
+    attributes: 
+      messages-position: Below
+      unit-system: Metric
+
+    performance: 
+      lazy-loading: true
+
+    layers: 
+    - # ====== Layer: Mapa Aptek ===================================
+      id: 219385550951464706
+      identification: 
+        name: Mapa Aptek
+        layer-type: Points
+
+      layout: 
+        sequence: 10
+
+      source: 
+        location: Region Source
+        use-spatial-index: false
+
+      column-mapping: 
+        geometry-column-data-type: Longitude/Latitude
+        longitude-column: LONGITUDE
+        latitude-column: LATITUDE
+
+      point-objects: 
+        style: SVG
+        shape: Default
+
+      point-clustering: 
+        enable: false
+
+      tooltip: 
+        advanced-formatting: false
+
+      info-window: 
+        advanced-formatting: false
+
+      legend: 
+        show: true
+        enable-to-hide: true
+
+page-items: 
+- # ====== Page Item: P27_LATITUDE =============================
+  id: 220192509261588502
+  identification: 
+    name: P27_LATITUDE
+    type: Hidden
+
+  settings: 
+    value-protected: false
+
+  layout: 
+    sequence: 20
+    region: Mapa Aptek # 219384661161464704
+    slot: BODY
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    type: Null
+    used: Only when current value in session state is null
+
+  session-state: 
+    data-type: VARCHAR2
+    storage: Per Session (Persistent)
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P27_LONGITUDE ============================
+  id: 220192696785588503
+  identification: 
+    name: P27_LONGITUDE
+    type: Hidden
+
+  settings: 
+    value-protected: false
+
+  layout: 
+    sequence: 30
+    region: Mapa Aptek # 219384661161464704
+    slot: BODY
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    type: Null
+    used: Only when current value in session state is null
+
+  session-state: 
+    data-type: VARCHAR2
+    storage: Per Session (Persistent)
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+buttons: 
+- # ====== Button: Lokalizacja =================================
+  id: 212639428763800149
+  identification: 
+    button-name: Lokalizacja
+    label: Lokalizacja
+
+  layout: 
+    sequence: 10
+    region: Mapa Aptek # 219384661161464704
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    alignment: Left center
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Defined by Dynamic Action
+    execute-validations: true
+
+dynamic-actions: 
+- # ====== Dynamic Action: Lokalizacja =========================
+  id: 212639553178800150
+  identification: 
+    name: Lokalizacja
+
+  execution: 
+    sequence: 10
+    event-scope: Static
+    type: Immediate
+
+  when: 
+    event: Click
+    selection-type: Button
+    button: Lokalizacja # 212639428763800149
+
+  actions: 
+  - # ====== Action: Execute JavaScript Code =====================
+    id: 220192439432588501
+    identification: 
+      action: Execute JavaScript Code
+
+    settings: 
+      code: |
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+        
+                // Przypisanie wartości do ukrytych pól w APEX
+                $s("P27_LATITUDE", latitude);
+                $s("P27_LONGITUDE", longitude);
+        
+                // Odświeżenie regionu mapy
+                apex.region("mapa_aptek").refresh();
+            }, function (error) {
+                alert("Nie udało się pobrać lokalizacji użytkownika: " + error.message);
+            });
+        } else {
+            alert("Geolokalizacja nie jest wspierana przez Twoją przeglądarkę.");
+        }
+        
+
+    execution: 
+      sequence: 10
+      event: Lokalizacja # 212639553178800150
+      fire-when-event-result-is: True
+      fire-on-initialization: false
+
+  - # ====== Action: Refresh =====================================
+    id: 220192713038588504
+    identification: 
+      action: Refresh
+
+    affected-elements: 
+      selection-type: Region
+      region: Mapa Aptek # 219384661161464704
+
+    execution: 
+      sequence: 20
+      event: Lokalizacja # 212639553178800150
+      fire-when-event-result-is: True
+      fire-on-initialization: false
+

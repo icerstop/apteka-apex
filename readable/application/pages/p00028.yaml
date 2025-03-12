@@ -1,0 +1,873 @@
+---
+# ====== Page: Składanie Zamówienia ==========================
+id: 28
+identification: 
+  name: Składanie Zamówienia
+  alias: SKŁADANIE-ZAMÓWIENIA
+  title: Składanie Zamówienia
+
+appearance: 
+  page-mode: Normal
+  page-template: Theme Default
+  template-options: 
+  - '#DEFAULT#'
+
+navigation-menu: 
+  override-user-interface-level: false
+
+navigation: 
+  cursor-focus: Do not focus cursor
+  warn-on-unsaved-changes: true
+
+security: 
+  authentication: Page Requires Authentication
+  deep-linking: Application Default
+  page-access-protection: Arguments Must Have Checksum
+  form-auto-complete: Off
+  browser-cache: Application Default
+
+session-management: 
+  rejoin-sessions: Application Default
+
+advanced: 
+  enable-duplicate-page-submissions: Yes - Enable page to be re-posted
+  reload-on-submit: Only for Success
+
+server-cache: 
+  caching: Disabled
+
+regions: 
+- # ====== Region: Breadcrumb ==================================
+  id: 249645952339819238
+  identification: 
+    name: Breadcrumb
+    type: Breadcrumb
+
+  source: 
+    breadcrumb: Breadcrumb # 180651755834957693
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: REGION_POSITION_01
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Title Bar
+    template-options: 
+    - '#DEFAULT#'
+    - t-BreadcrumbRegion--useBreadcrumbTitle
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    appearance: 
+      breadcrumb-template: Breadcrumb
+      template-options: 
+      - '#DEFAULT#'
+
+- # ====== Region: Składanie Zamówienia ========================
+  id: 249646663551819253
+  identification: 
+    name: Składanie Zamówienia
+    type: Form
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: ZAMOWIENIA
+    include-rowid-column: false
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Standard
+    template-options: 
+    - '#DEFAULT#'
+    - t-Region--scrollBody
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    edit: 
+      enabled: true
+      allowed-operations: 
+      - Add Row
+      - Update Row
+      - Delete Row
+      lost-update-type: Row Values
+
+page-items: 
+- # ====== Page Item: P28_ZAMOWIENIE_ID ========================
+  id: 249647003755819254
+  identification: 
+    name: P28_ZAMOWIENIE_ID
+    type: Hidden
+
+  settings: 
+    value-protected: true
+
+  layout: 
+    sequence: 10
+    region: Składanie Zamówienia # 249646663551819253
+    slot: BODY
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Składanie Zamówienia # 249646663551819253
+    column: ZAMOWIENIE_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: true
+
+  session-state: 
+    data-type: VARCHAR2
+    storage: Per Request (Memory Only)
+
+  security: 
+    session-state-protection: Checksum Required - Session Level
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P28_DATA_ZAMOWIENIA ======================
+  id: 249647462388819259
+  identification: 
+    name: P28_DATA_ZAMOWIENIA
+    type: Date Picker
+
+  label: 
+    label: Data Zamówienia
+    alignment: Left
+
+  settings: 
+    show-time: false
+    display-as: Popup
+    minimum-date: None
+    maximum-date: None
+    multiple-months: No
+    use-defaults: true
+
+  layout: 
+    sequence: 20
+    region: Składanie Zamówienia # 249646663551819253
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 255
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Składanie Zamówienia # 249646663551819253
+    column: DATA_ZAMOWIENIA
+    data-type: DATE
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P28_DATA_REALIZACJI ======================
+  id: 249647807095819259
+  identification: 
+    name: P28_DATA_REALIZACJI
+    type: Date Picker
+
+  label: 
+    label: Data Realizacji
+    alignment: Right
+
+  settings: 
+    show-time: false
+    display-as: Popup
+    minimum-date: None
+    maximum-date: None
+    multiple-months: No
+    use-defaults: true
+
+  layout: 
+    sequence: 30
+    region: Składanie Zamówienia # 249646663551819253
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Optional - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 255
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Składanie Zamówienia # 249646663551819253
+    column: DATA_REALIZACJI
+    data-type: DATE
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P28_STATUS_ZAMOWIENIA ====================
+  id: 249648292856819260
+  identification: 
+    name: P28_STATUS_ZAMOWIENIA
+    type: Select List
+
+  label: 
+    label: Status Zamówienia
+    alignment: Left
+
+  settings: 
+    page-action-on-selection: None
+
+  multiple-values: 
+    type: No
+
+  layout: 
+    sequence: 40
+    region: Składanie Zamówienia # 249646663551819253
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    height: 1
+
+  validation: 
+    value-required: false
+
+  list-of-values: 
+    type: Shared Component
+    list-of-values: ZAMOWIENIA.STATUS # 251781241890063196
+    display-extra-values: true
+    display-null-value: true
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Składanie Zamówienia # 249646663551819253
+    column: STATUS_ZAMOWIENIA
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P28_ILOSC ================================
+  id: 249648687922819260
+  identification: 
+    name: P28_ILOSC
+    type: Text Field
+
+  label: 
+    label: Ilość
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: Leading and Trailing
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 50
+    region: Składanie Zamówienia # 249646663551819253
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 255
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Składanie Zamówienia # 249646663551819253
+    column: ILOSC
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P28_LEK_ID ===============================
+  id: 249649006046819261
+  identification: 
+    name: P28_LEK_ID
+    type: Select List
+
+  label: 
+    label: Lek
+    alignment: Left
+
+  settings: 
+    page-action-on-selection: None
+
+  multiple-values: 
+    type: No
+
+  layout: 
+    sequence: 60
+    region: Składanie Zamówienia # 249646663551819253
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    height: 1
+
+  validation: 
+    value-required: false
+
+  list-of-values: 
+    type: Shared Component
+    list-of-values: LEKI.NAZWA # 181101438371958715
+    display-extra-values: true
+    display-null-value: true
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Składanie Zamówienia # 249646663551819253
+    column: LEK_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P28_APTEKA_ID ============================
+  id: 249649431843819262
+  identification: 
+    name: P28_APTEKA_ID
+    type: Select List
+
+  label: 
+    label: Apteka
+    alignment: Left
+
+  settings: 
+    page-action-on-selection: None
+
+  multiple-values: 
+    type: No
+
+  layout: 
+    sequence: 70
+    region: Składanie Zamówienia # 249646663551819253
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    height: 1
+
+  validation: 
+    value-required: false
+
+  list-of-values: 
+    type: Shared Component
+    list-of-values: APTEKI.NAZWA # 180976452729958315
+    display-extra-values: true
+    display-null-value: true
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Składanie Zamówienia # 249646663551819253
+    column: APTEKA_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+buttons: 
+- # ====== Button: CANCEL ======================================
+  id: 249651954643819265
+  identification: 
+    button-name: CANCEL
+    label: Cancel
+
+  layout: 
+    sequence: 10
+    region: Składanie Zamówienia # 249646663551819253
+    slot: CLOSE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Redirect to Page in this Application
+    target: 
+      url: 'f?p=&APP_ID.:20:&APP_SESSION.::&DEBUG.:::'
+      page: 20 # Zamowienia
+
+    warn-on-unsaved-changes: Do Not Check
+
+- # ====== Button: DELETE ======================================
+  id: 249652507202819266
+  identification: 
+    button-name: DELETE
+    label: Delete
+
+  layout: 
+    sequence: 20
+    region: Składanie Zamówienia # 249646663551819253
+    slot: DELETE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: false
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL DELETE action
+
+  confirmation: 
+    message: '&APP_TEXT$DELETE_MSG!RAW.'
+    style: Danger
+
+  server-side-condition: 
+    type: Item is NOT NULL
+    item: P28_ZAMOWIENIE_ID
+
+- # ====== Button: SAVE ========================================
+  id: 249652917883819266
+  identification: 
+    button-name: SAVE
+    label: Apply Changes
+
+  layout: 
+    sequence: 30
+    region: Składanie Zamówienia # 249646663551819253
+    slot: CHANGE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: true
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: true
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL UPDATE action
+
+  server-side-condition: 
+    type: Item is NOT NULL
+    item: P28_ZAMOWIENIE_ID
+
+- # ====== Button: CREATE ======================================
+  id: 249653330640819266
+  identification: 
+    button-name: CREATE
+    label: Złóż Zamówienie
+
+  layout: 
+    sequence: 40
+    region: Składanie Zamówienia # 249646663551819253
+    slot: CREATE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: true
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: true
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL INSERT action
+
+  server-side-condition: 
+    type: Item is NULL
+    item: P28_ZAMOWIENIE_ID
+
+validations: 
+- # ====== Validation: New =====================================
+  id: 220193424754588511
+  identification: 
+    name: New
+
+  execution: 
+    sequence: 10
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P28_DATA_ZAMOWIENIA <= SYSDATE'
+    always-execute: false
+
+  error: 
+    error-message: Data Zamówienia nie może być późniejsza niż dzisiejsza data
+    display-location: Inline with Field and in Notification
+    associated-item: P28_DATA_ZAMOWIENIA # 249647462388819259
+
+- # ====== Validation: New_1 ===================================
+  id: 220193597610588512
+  identification: 
+    name: New_1
+
+  execution: 
+    sequence: 20
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: 'NVL(:P28_DATA_REALIZACJI, SYSDATE) >= NVL(:P28_DATA_ZAMOWIENIA, SYSDATE)'
+    always-execute: false
+
+  error: 
+    error-message: Data Realizacji nie może być wcześniejsza niż Data Zamówienia
+    display-location: Inline with Field and in Notification
+    associated-item: P28_DATA_REALIZACJI # 249647807095819259
+
+- # ====== Validation: New_3 ===================================
+  id: 220193744004588514
+  identification: 
+    name: New_3
+
+  execution: 
+    sequence: 40
+
+  validation: 
+    type: Item is NOT NULL or zero
+    item: P28_ILOSC
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Ilość' nie może być puste lub wynosić 0
+    display-location: Inline with Field and in Notification
+    associated-item: P28_ILOSC # 249648687922819260
+
+- # ====== Validation: New_2 ===================================
+  id: 220194198571588518
+  identification: 
+    name: New_2
+
+  execution: 
+    sequence: 50
+
+  validation: 
+    type: Item is NOT NULL
+    item: P28_STATUS_ZAMOWIENIA
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Status Zamówienia' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P28_STATUS_ZAMOWIENIA # 249648292856819260
+
+- # ====== Validation: New_4 ===================================
+  id: 220194287680588519
+  identification: 
+    name: New_4
+
+  execution: 
+    sequence: 60
+
+  validation: 
+    type: Item is NOT NULL
+    item: P28_LEK_ID
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Lek' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P28_LEK_ID # 249649006046819261
+
+- # ====== Validation: New_5 ===================================
+  id: 220194359961588520
+  identification: 
+    name: New_5
+
+  execution: 
+    sequence: 70
+
+  validation: 
+    type: Item is NOT NULL
+    item: P28_APTEKA_ID
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Apteka' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P28_APTEKA_ID # 249649431843819262
+
+- # ====== Validation: New_6 ===================================
+  id: 220194477168588521
+  identification: 
+    name: New_6
+
+  execution: 
+    sequence: 80
+
+  validation: 
+    type: Item is numeric
+    item: P28_ILOSC
+    always-execute: false
+
+  error: 
+    error-message: W polu 'Ilość' wpisz liczbę
+    display-location: Inline with Field and in Notification
+    associated-item: P28_ILOSC # 249648687922819260
+
+- # ====== Validation: New_7 ===================================
+  id: 220194547542588522
+  identification: 
+    name: New_7
+
+  execution: 
+    sequence: 90
+
+  validation: 
+    type: Item is NOT NULL
+    item: P28_DATA_ZAMOWIENIA
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Data Zamówienia' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P28_DATA_ZAMOWIENIA # 249647462388819259
+
+processes: 
+- # ====== Process: Initialize form Składanie Zamówienia =======
+  id: 249654171476819267
+  identification: 
+    name: Initialize form Składanie Zamówienia
+    type: Form - Initialization
+    execution-chain: None
+    form-region: Składanie Zamówienia # 249646663551819253
+
+  execution: 
+    sequence: 10
+    point: Before Header
+    run-process: Once Per Page Visit (default)
+
+- # ====== Process: Process form Składanie Zamówienia ==========
+  id: 249654562805819268
+  identification: 
+    name: Process form Składanie Zamówienia
+    type: Form - Automatic Row Processing (DML)
+    execution-chain: None
+    form-region: Składanie Zamówienia # 249646663551819253
+
+  settings: 
+    target-type: Region Source
+    prevent-lost-updates: true
+    lock-row: Yes
+    return-primary-key(s)-after-insert: true
+
+  execution: 
+    sequence: 10
+    point: Processing
+    run-process: Once Per Page Visit (default)
+
+  error: 
+    display-location: Inline in Notification
+
+branches: 
+- # ====== Branch: Go To Page 20 ===============================
+  id: 249653668763819267
+  identification: 
+    name: Go To Page 20
+
+  execution: 
+    sequence: 1
+    point: After Processing
+
+  behavior: 
+    type: Page or URL (Redirect)
+    target: 
+      url: 'f?p=&APP_ID.:20:&APP_SESSION.::&DEBUG.:::&success_msg=#SUCCESS_MSG#'
+      page: 20 # Zamowienia
+

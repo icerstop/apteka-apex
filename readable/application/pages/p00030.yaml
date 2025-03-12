@@ -1,0 +1,527 @@
+---
+# ====== Page: Statystyki Zamówień ===========================
+id: 30
+identification: 
+  name: Statystyki Zamówień
+  alias: STATYSTYKI-ZAMÓWIEŃ
+  title: Statystyki Zamówień
+
+appearance: 
+  page-mode: Normal
+  page-template: Theme Default
+  template-options: 
+  - '#DEFAULT#'
+
+navigation-menu: 
+  override-user-interface-level: false
+
+navigation: 
+  cursor-focus: Do not focus cursor
+  warn-on-unsaved-changes: true
+
+security: 
+  authentication: Page Requires Authentication
+  deep-linking: Application Default
+  page-access-protection: Arguments Must Have Checksum
+  form-auto-complete: Off
+  browser-cache: Application Default
+
+session-management: 
+  rejoin-sessions: Application Default
+
+advanced: 
+  enable-duplicate-page-submissions: Yes - Enable page to be re-posted
+  reload-on-submit: Only for Success
+
+server-cache: 
+  caching: Disabled
+
+regions: 
+- # ====== Region: New =========================================
+  id: 194524185663862722
+  identification: 
+    name: New
+    type: Static Content
+
+  source: 
+    html-code: <h2>10 Najdroższych Zamówień</h2>
+
+  layout: 
+    sequence: 10
+    parent-region: 10 Najdroższych Zamówień # 220194964359588526
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: None
+    render-components: Above Content
+
+  advanced: 
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    settings: 
+      output-as: HTML
+      expand-shortcuts: false
+
+- # ====== Region: 10 Najdroższych Zamówień ====================
+  id: 220194964359588526
+  identification: 
+    name: 10 Najdroższych Zamówień
+    title: 10 Najdroższych Zamówień
+    type: Interactive Report
+
+  source: 
+    location: Local Database
+    type: SQL Query
+    sql-query: |
+      SELECT zamowienie_id,
+             wartosc_zamowienia
+      FROM (
+          SELECT z.zamowienie_id,
+                 SUM(z.ilosc * l.cena) AS wartosc_zamowienia
+          FROM Zamowienia z
+          JOIN Leki l ON z.lek_id = l.lek_id
+          GROUP BY z.zamowienie_id
+          ORDER BY SUM(z.ilosc * l.cena) DESC
+      )
+      WHERE ROWNUM <= 10;
+      
+
+  layout: 
+    sequence: 50
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: false
+    column: Automatic
+    new-column: false
+    column-span: Automatic
+
+  appearance: 
+    template: Interactive Report
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  server-cache: 
+    caching: Disabled
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    id: 220195048607588527
+    link: 
+      link-column: Exclude Link Column
+
+    pagination: 
+      type: Row Ranges X to Y
+      display-position: Bottom - Right
+
+    performance: 
+      lazy-loading: false
+      maximum-rows-to-process: 1000000
+
+    search-bar: 
+      include-search-bar: false
+
+    heading: 
+      fixed-to: Page
+
+    icon-view: 
+      show: false
+
+    detail-view: 
+      show: false
+
+    saved-reports: 
+    - # ====== Saved Report: Primary Report ========================
+      id: 256002430264969460
+      identification: 
+        name: Primary Report
+        alias: 2560025
+
+    columns: 
+    - # ====== Column: ZAMOWIENIE_ID ===============================
+      id: 220195185124588528
+      identification: 
+        column-name: ZAMOWIENIE_ID
+        type: Plain Text
+
+      heading: 
+        heading: Zamowienie Id
+        alignment: end
+
+      single-row-view: 
+        use-column-heading: true
+
+      layout: 
+        sequence: 10
+        column-alignment: end
+
+      accessibility: 
+        value-identifies-row: false
+
+      source: 
+        primary-key: false
+
+      column-filter: 
+        type: Default Based on Column Type
+
+      enable-users-to: 
+        hide: true
+        sort: true
+        filter: true
+        highlight: true
+        control-break: true
+        aggregate: true
+        compute: true
+        chart: true
+        group-by: true
+        pivot: true
+
+      security: 
+        escape-special-characters: true
+
+    - # ====== Column: WARTOSC_ZAMOWIENIA ==========================
+      id: 220195295616588529
+      identification: 
+        column-name: WARTOSC_ZAMOWIENIA
+        type: Plain Text
+
+      heading: 
+        heading: Wartosc Zamowienia
+        alignment: end
+
+      single-row-view: 
+        use-column-heading: true
+
+      layout: 
+        sequence: 20
+        column-alignment: end
+
+      accessibility: 
+        value-identifies-row: false
+
+      source: 
+        primary-key: false
+
+      column-filter: 
+        type: Default Based on Column Type
+
+      enable-users-to: 
+        hide: true
+        sort: true
+        filter: true
+        highlight: true
+        control-break: true
+        aggregate: true
+        compute: true
+        chart: true
+        group-by: true
+        pivot: true
+
+      security: 
+        escape-special-characters: true
+
+- # ====== Region: Łączna Suma Wartości Zamówień ===============
+  id: 220195440668588531
+  identification: 
+    name: Łączna Suma Wartości Zamówień
+    title: Łączna Suma Wartości Zamówień
+    type: Dynamic Content
+
+  source: 
+    language: PL/SQL
+    pl/sql-function-body-returning-a-clob: |
+      DECLARE
+        v_sum   NUMBER;
+        v_html  CLOB;
+      BEGIN
+        -- 1. Pobierz łączną kwotę (SUM) do zmiennej:
+        SELECT SUM(z.ilosc * l.cena)
+          INTO v_sum
+          FROM Zamowienia z
+          JOIN Leki l ON z.lek_id = l.lek_id;
+          
+        -- 2. Zbuduj fragment HTML:
+        v_html := '<p>'
+          || TO_CHAR(v_sum, '999G999G999D99')
+          || '</p>';
+          
+        -- 3. Wyświetl HTML w regionie
+        htp.prn(v_html);
+      END;
+      
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Standard
+    template-options: 
+    - '#DEFAULT#'
+    - t-Region--scrollBody
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  server-cache: 
+    caching: Disabled
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    performance: 
+      lazy-loading: false
+
+- # ====== Region: Średnia Wartość Zamówienia ==================
+  id: 220195560823588532
+  identification: 
+    name: Średnia Wartość Zamówienia
+    title: Średnia Wartość Zamówienia
+    type: Dynamic Content
+
+  source: 
+    language: PL/SQL
+    pl/sql-function-body-returning-a-clob: |
+      DECLARE
+        v_avg   NUMBER;
+        v_html  CLOB;
+      BEGIN
+        -- 1. Oblicz średnią wartość zamówienia:
+        SELECT AVG(x.wartosc_zamowienia)
+          INTO v_avg
+          FROM (
+            SELECT z.zamowienie_id,
+                   SUM(z.ilosc * l.cena) AS wartosc_zamowienia
+              FROM Zamowienia z
+              JOIN Leki l ON z.lek_id = l.lek_id
+             GROUP BY z.zamowienie_id
+          ) x;
+          
+        -- 2. Zbuduj HTML:
+        v_html := '<p>'
+          || TO_CHAR(v_avg, '999G999G999D99')
+          || '</p>';
+          
+        -- 3. Wyświetl
+        htp.prn(v_html);
+      END;
+      
+
+  layout: 
+    sequence: 20
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: false
+    column: Automatic
+    new-column: false
+    column-span: Automatic
+
+  appearance: 
+    template: Standard
+    template-options: 
+    - '#DEFAULT#'
+    - t-Region--scrollBody
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  server-cache: 
+    caching: Disabled
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    performance: 
+      lazy-loading: false
+
+- # ====== Region: Breadcrumb ==================================
+  id: 255332561137876682
+  identification: 
+    name: Breadcrumb
+    type: Breadcrumb
+
+  source: 
+    breadcrumb: Breadcrumb # 180651755834957693
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: REGION_POSITION_01
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Title Bar
+    template-options: 
+    - '#DEFAULT#'
+    - t-BreadcrumbRegion--useBreadcrumbTitle
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    appearance: 
+      breadcrumb-template: Breadcrumb
+      template-options: 
+      - '#DEFAULT#'
+
+- # ====== Region: Status Zamówień =============================
+  id: 255333285037876683
+  identification: 
+    name: Status Zamówień
+    title: Status Zamówień
+    type: Chart
+
+  source: 
+    location: None
+
+  layout: 
+    sequence: 30
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: false
+    column: Automatic
+    new-column: false
+    column-span: Automatic
+
+  appearance: 
+    template: Standard
+    template-options: 
+    - '#DEFAULT#'
+    - t-Region--scrollBody
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  security: 
+    escape-special-characters: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    id: 255333628565876683
+    chart: 
+      type: Pie
+
+    layout: 
+      height: 400
+
+    data-cursor: 
+      cursor: Automatic
+      behavior: Automatic
+      dim-on-hover: true
+
+    settings: 
+      pie-selection-effect: Highlight
+
+    value: 
+      pie-chart-other-threshold: 0
+      format: Decimal
+      decimal-places: 0
+      format-scaling: None
+
+    animation: 
+      on-display: Automatic
+      on-data-change: Automatic
+
+    tooltip: 
+      show: true
+      show-series-name: true
+      show-value: true
+
+    legend: 
+      show: true
+      position: Automatic
+      hide-and-show-behavior: Rescale
+
+    series: 
+    - # ====== Series: Series 1 ====================================
+      id: 255335304656876686
+      identification: 
+        name: Series 1
+
+      execution: 
+        sequence: 10
+
+      source: 
+        location: Local Database
+        type: SQL Query
+        sql-query: |
+          SELECT status_zamowienia, COUNT(*) AS liczba_zamówień
+          FROM Zamowienia
+          GROUP BY status_zamowienia;
+          
+
+      column-mapping: 
+        label: STATUS_ZAMOWIENIA
+        value: LICZBA_ZAMÓWIEŃ
+
+      label: 
+        show: true
+        position: Automatic
+        display-as: Label
+
+      performance: 
+        maximum-rows-to-process: 20
+

@@ -1,0 +1,420 @@
+prompt --application/pages/page_00003
+begin
+--   Manifest
+--     PAGE: 00003
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2024.05.31'
+,p_release=>'24.1.4'
+,p_default_workspace_id=>67541494403004847
+,p_default_application_id=>292
+,p_default_id_offset=>0
+,p_default_owner=>'WKSP_WS155865'
+);
+wwv_flow_imp_page.create_page(
+ p_id=>3
+,p_name=>'Apteki'
+,p_alias=>'APTEKI'
+,p_page_mode=>'MODAL'
+,p_step_title=>'Apteki'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>wwv_flow_imp.id(180652524658957697)
+,p_page_template_options=>'#DEFAULT#:js-dialog-class-t-Drawer--pullOutEnd'
+,p_dialog_chained=>'N'
+,p_protection_level=>'C'
+,p_page_component_map=>'02'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(180961221450958254)
+,p_plug_name=>'Apteki'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(180688443351957763)
+,p_plug_display_sequence=>10
+,p_query_type=>'TABLE'
+,p_query_table=>'APTEKI'
+,p_include_rowid_column=>false
+,p_is_editable=>true
+,p_edit_operations=>'i:u:d'
+,p_lost_update_check_type=>'VALUES'
+,p_plug_source_type=>'NATIVE_FORM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(180964488722958265)
+,p_plug_name=>'Buttons'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(180691282792957766)
+,p_plug_display_sequence=>20
+,p_plug_display_point=>'REGION_POSITION_03'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'TEXT',
+  'show_line_breaks', 'Y')).to_clob
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(180964825997958265)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_imp.id(180964488722958265)
+,p_button_name=>'CANCEL'
+,p_button_action=>'DEFINED_BY_DA'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(180828667132957905)
+,p_button_image_alt=>'Anuluj'
+,p_button_position=>'CLOSE'
+,p_warn_on_unsaved_changes=>null
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(180966286093958269)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_imp.id(180964488722958265)
+,p_button_name=>'DELETE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#:t-Button--danger:t-Button--simple'
+,p_button_template_id=>wwv_flow_imp.id(180828667132957905)
+,p_button_image_alt=>unistr('Usu\0144')
+,p_button_position=>'DELETE'
+,p_button_execute_validations=>'N'
+,p_confirm_message=>'&APP_TEXT$DELETE_MSG!RAW.'
+,p_confirm_style=>'danger'
+,p_button_condition=>'P3_APTEKA_ID'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_database_action=>'DELETE'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(180966696180958269)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_imp.id(180964488722958265)
+,p_button_name=>'SAVE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(180828667132957905)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Zapisz zmiany'
+,p_button_position=>'NEXT'
+,p_button_condition=>'P3_APTEKA_ID'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_database_action=>'UPDATE'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(180967067091958270)
+,p_button_sequence=>40
+,p_button_plug_id=>wwv_flow_imp.id(180964488722958265)
+,p_button_name=>'CREATE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(180828667132957905)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>unistr('Utw\00F3rz')
+,p_button_position=>'NEXT'
+,p_button_condition=>'P3_APTEKA_ID'
+,p_button_condition_type=>'ITEM_IS_NULL'
+,p_database_action=>'INSERT'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(180961635794958255)
+,p_name=>'P3_APTEKA_ID'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_is_primary_key=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(180961221450958254)
+,p_item_source_plug_id=>wwv_flow_imp.id(180961221450958254)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'Apteka ID'
+,p_source=>'APTEKA_ID'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_imp.id(180827472801957900)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attribute_01=>'Y'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(180962080991958259)
+,p_name=>'P3_NAZWA'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(180961221450958254)
+,p_item_source_plug_id=>wwv_flow_imp.id(180961221450958254)
+,p_prompt=>'Nazwa'
+,p_source=>'NAZWA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>100
+,p_field_template=>wwv_flow_imp.id(180827472801957900)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(180962434944958260)
+,p_name=>'P3_ADRES'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(180961221450958254)
+,p_item_source_plug_id=>wwv_flow_imp.id(180961221450958254)
+,p_prompt=>'Adres'
+,p_source=>'ADRES'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>100
+,p_field_template=>wwv_flow_imp.id(180827472801957900)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(180962819247958260)
+,p_name=>'P3_NUMER_TELEFONU'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(180961221450958254)
+,p_item_source_plug_id=>wwv_flow_imp.id(180961221450958254)
+,p_prompt=>'Numer Telefonu'
+,p_source=>'NUMER_TELEFONU'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_field_template=>wwv_flow_imp.id(180826122711957897)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(341243455469118108)
+,p_name=>'P3_LATITUDE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(180961221450958254)
+,p_item_source_plug_id=>wwv_flow_imp.id(180961221450958254)
+,p_prompt=>unistr('Szeroko\015B\0107 Geograficzna')
+,p_source=>'LATITUDE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>wwv_flow_imp.id(180826122711957897)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(341243629375118110)
+,p_name=>'P3_LONGITUDE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_imp.id(180961221450958254)
+,p_item_source_plug_id=>wwv_flow_imp.id(180961221450958254)
+,p_prompt=>unistr('D\0142ugo\015B\0107 Geograficzna')
+,p_source=>'LONGITUDE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>wwv_flow_imp.id(180826122711957897)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(183284645276062124)
+,p_validation_name=>'is_not_null'
+,p_validation_sequence=>10
+,p_validation=>':P3_NAZWA IS NOT NULL'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('Pole ''Nazwa'' nie mo\017Ce by\0107 puste')
+,p_associated_item=>wwv_flow_imp.id(180962080991958259)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(183284792553062125)
+,p_validation_name=>'is_not_null_'
+,p_validation_sequence=>20
+,p_validation=>':P3_ADRES IS NOT NULL'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('Pole ''Adres'' nie mo\017Ce by\0107 puste')
+,p_associated_item=>wwv_flow_imp.id(180962434944958260)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(183284940579062127)
+,p_validation_name=>'tylko_cyfry'
+,p_validation_sequence=>40
+,p_validation=>'P3_NUMER_TELEFONU'
+,p_validation_type=>'ITEM_IS_NUMERIC'
+,p_error_message=>unistr('Pole ''Numer Telefonu'' musi sk\0142ada\0107 si\0119 z cyfr')
+,p_always_execute=>'Y'
+,p_associated_item=>wwv_flow_imp.id(180962819247958260)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(283865646331945606)
+,p_validation_name=>'same_litery'
+,p_validation_sequence=>50
+,p_validation=>'REGEXP_LIKE(:P3_NAZWA, ''^[[:alpha:]]+$'')'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('Nazwa apteki musi sk\0142ada\0107 si\0119 wy\0142\0105cznie z liter!')
+,p_associated_item=>wwv_flow_imp.id(180962080991958259)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(283865745304945607)
+,p_validation_name=>'9_cyfr'
+,p_validation_sequence=>60
+,p_validation=>'REGEXP_LIKE(:P3_NUMER_TELEFONU, ''^[0-9]{9}$'')'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('Numer telefonu musi miec dok\0142adnie 9 cyfr!')
+,p_associated_item=>wwv_flow_imp.id(180962819247958260)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(341243753979118111)
+,p_validation_name=>'New'
+,p_validation_sequence=>70
+,p_validation=>'P3_NUMER_TELEFONU'
+,p_validation_type=>'ITEM_NOT_NULL'
+,p_error_message=>unistr('Pole ''Numer Telefonu'' nie mo\017Ce by\0107 puste')
+,p_associated_item=>wwv_flow_imp.id(180962819247958260)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(341243987359118113)
+,p_validation_name=>'New_1'
+,p_validation_sequence=>80
+,p_validation=>'P3_LONGITUDE'
+,p_validation_type=>'ITEM_NOT_NULL'
+,p_error_message=>unistr('Pole ''D\0142ugo\015B\0107 Geograficzna'' nie mo\017Ce by\0107 puste')
+,p_associated_item=>wwv_flow_imp.id(341243629375118110)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(341244093803118114)
+,p_validation_name=>'New_2'
+,p_validation_sequence=>90
+,p_validation=>'P3_LATITUDE'
+,p_validation_type=>'ITEM_NOT_NULL'
+,p_error_message=>unistr('Pole ''Szeroko\015B\0107 Geograficzna'' nie mo\017Ce by\0107 puste')
+,p_associated_item=>wwv_flow_imp.id(341243455469118108)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(341244138957118115)
+,p_validation_name=>'New_3'
+,p_validation_sequence=>100
+,p_validation=>'REGEXP_LIKE(:P3_LATITUDE, ''^\d+(\.\d+)?$'')'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('Pole ''Szeroko\015B\0107 Geograficzna'' musi sk\0142ada\0107 si\0119 z liczb i by\0107 w zakresie [-90, 90]')
+,p_associated_item=>wwv_flow_imp.id(341243455469118108)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(341244225964118116)
+,p_validation_name=>'New_4'
+,p_validation_sequence=>110
+,p_validation=>'REGEXP_LIKE(:P3_LONGITUDE, ''^\d+(\.\d+)?$'')'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('Pole ''D\0142ugo\015B\0107 Geograficzna'' musi sk\0142ada\0107 si\0119 z liczb i by\0107 w zakresie [-180, 180]')
+,p_associated_item=>wwv_flow_imp.id(341243629375118110)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(341244333325118117)
+,p_validation_name=>'New_5'
+,p_validation_sequence=>120
+,p_validation=>'TO_NUMBER(:P3_LATITUDE) BETWEEN -90 AND 90'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('Pole ''Szeroko\015B\0107 Geograficzna'' musi sk\0142ada\0107 si\0119 z liczb i by\0107 w zakresie [-90, 90]')
+,p_associated_item=>wwv_flow_imp.id(341243455469118108)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(341244446639118118)
+,p_validation_name=>'New_6'
+,p_validation_sequence=>130
+,p_validation=>'TO_NUMBER(:P3_LONGITUDE) BETWEEN -180 AND 180'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('Pole ''D\0142ugo\015B\0107 Geograficzna'' musi sk\0142ada\0107 si\0119 z liczb i by\0107 w zakresie [-180, 180]')
+,p_associated_item=>wwv_flow_imp.id(341243629375118110)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(180964976203958265)
+,p_name=>'Cancel Dialog'
+,p_event_sequence=>10
+,p_triggering_element_type=>'BUTTON'
+,p_triggering_button_id=>wwv_flow_imp.id(180964825997958265)
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'click'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(180965732372958268)
+,p_event_id=>wwv_flow_imp.id(180964976203958265)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_DIALOG_CANCEL'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(180967847792958270)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_imp.id(180961221450958254)
+,p_process_type=>'NATIVE_FORM_DML'
+,p_process_name=>'Process form Apteki'
+,p_attribute_01=>'REGION_SOURCE'
+,p_attribute_05=>'Y'
+,p_attribute_06=>'Y'
+,p_attribute_08=>'Y'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>180967847792958270
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(180968236754958271)
+,p_process_sequence=>50
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_CLOSE_WINDOW'
+,p_process_name=>'Close Dialog'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when=>'CREATE,SAVE,DELETE'
+,p_process_when_type=>'REQUEST_IN_CONDITION'
+,p_internal_uid=>180968236754958271
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(180967412995958270)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_imp.id(180961221450958254)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>'Initialize form Apteki'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>180967412995958270
+);
+wwv_flow_imp.component_end;
+end;
+/

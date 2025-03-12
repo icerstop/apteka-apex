@@ -1,0 +1,102 @@
+prompt --application/shared_components/navigation/lists/page_navigation
+begin
+--   Manifest
+--     LIST: Page Navigation
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2024.05.31'
+,p_release=>'24.1.4'
+,p_default_workspace_id=>67541494403004847
+,p_default_application_id=>292
+,p_default_id_offset=>0
+,p_default_owner=>'WKSP_WS155865'
+);
+wwv_flow_imp_shared.create_list(
+ p_id=>wwv_flow_imp.id(181213013375958894)
+,p_name=>'Page Navigation'
+,p_list_status=>'PUBLIC'
+,p_version_scn=>462604832
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181213448553958895)
+,p_list_item_display_sequence=>20
+,p_list_item_link_text=>'Apteki'
+,p_list_item_link_target=>'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181213836169958895)
+,p_list_item_display_sequence=>30
+,p_list_item_link_text=>'Farmaceuci'
+,p_list_item_link_target=>'f?p=&APP_ID.:4:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181214225578958896)
+,p_list_item_display_sequence=>40
+,p_list_item_link_text=>'Lekarze'
+,p_list_item_link_target=>'f?p=&APP_ID.:6:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181214654768958896)
+,p_list_item_display_sequence=>50
+,p_list_item_link_text=>'Leki'
+,p_list_item_link_target=>'f?p=&APP_ID.:8:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181215041681958896)
+,p_list_item_display_sequence=>60
+,p_list_item_link_text=>'Pacjenci'
+,p_list_item_link_target=>'f?p=&APP_ID.:10:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181215455437958897)
+,p_list_item_display_sequence=>70
+,p_list_item_link_text=>'Realizacje Recept'
+,p_list_item_link_target=>'f?p=&APP_ID.:12:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181215869085958897)
+,p_list_item_display_sequence=>80
+,p_list_item_link_text=>'Recepty'
+,p_list_item_link_target=>'f?p=&APP_ID.:14:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181216248087958897)
+,p_list_item_display_sequence=>90
+,p_list_item_link_text=>unistr('Rodzice Pacjent\00F3w')
+,p_list_item_link_target=>'f?p=&APP_ID.:16:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181216617661958898)
+,p_list_item_display_sequence=>100
+,p_list_item_link_text=>'Szpitale'
+,p_list_item_link_target=>'f?p=&APP_ID.:18:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(181217039271958898)
+,p_list_item_display_sequence=>110
+,p_list_item_link_text=>unistr('Zam\00F3wienia')
+,p_list_item_link_target=>'f?p=&APP_ID.:20:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_imp.component_end;
+end;
+/

@@ -1,0 +1,1040 @@
+---
+# ====== Page: Szpitale ======================================
+id: 19
+identification: 
+  name: Szpitale
+  alias: SZPITALE
+  title: Szpitale
+
+appearance: 
+  page-mode: Modal Dialog
+  dialog-template: Drawer
+  template-options: 
+  - '#DEFAULT#'
+  - js-dialog-class-t-Drawer--pullOutEnd
+
+dialog: 
+  chained: false
+
+navigation-menu: 
+  override-user-interface-level: false
+
+navigation: 
+  cursor-focus: Do not focus cursor
+  warn-on-unsaved-changes: true
+
+security: 
+  authentication: Page Requires Authentication
+  deep-linking: Application Default
+  page-access-protection: Arguments Must Have Checksum
+  form-auto-complete: Off
+  browser-cache: Application Default
+
+session-management: 
+  rejoin-sessions: Application Default
+
+advanced: 
+  enable-duplicate-page-submissions: Yes - Enable page to be re-posted
+  reload-on-submit: Only for Success
+
+server-cache: 
+  caching: Disabled
+
+regions: 
+- # ====== Region: Szpitale ====================================
+  id: 181084757687958665
+  identification: 
+    name: Szpitale
+    type: Form
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: SZPITALE
+    include-rowid-column: false
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Blank with Attributes
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    edit: 
+      enabled: true
+      allowed-operations: 
+      - Add Row
+      - Update Row
+      - Delete Row
+      lost-update-type: Row Values
+
+- # ====== Region: Buttons =====================================
+  id: 181088690938958669
+  identification: 
+    name: Buttons
+    type: Static Content
+
+  layout: 
+    sequence: 20
+    parent-region: No Parent
+    slot: REGION_POSITION_03
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Buttons Container
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    settings: 
+      output-as: Text (escape special characters)
+      show-line-breaks: true
+
+page-items: 
+- # ====== Page Item: P19_SZPITAL_ID ===========================
+  id: 181085139941958665
+  identification: 
+    name: P19_SZPITAL_ID
+    type: Hidden
+
+  settings: 
+    value-protected: true
+
+  layout: 
+    sequence: 10
+    region: Szpitale # 181084757687958665
+    slot: BODY
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Szpitale # 181084757687958665
+    column: SZPITAL_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: true
+
+  session-state: 
+    data-type: VARCHAR2
+    storage: Per Request (Memory Only)
+
+  security: 
+    session-state-protection: Checksum Required - Session Level
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P19_NAZWA ================================
+  id: 181085590164958666
+  identification: 
+    name: P19_NAZWA
+    type: Text Field
+
+  label: 
+    label: Nazwa
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: None
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 20
+    region: Szpitale # 181084757687958665
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 100
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Szpitale # 181084757687958665
+    column: NAZWA
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P19_ADRES ================================
+  id: 181085947902958666
+  identification: 
+    name: P19_ADRES
+    type: Text Field
+
+  label: 
+    label: Adres
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: None
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 30
+    region: Szpitale # 181084757687958665
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 100
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Szpitale # 181084757687958665
+    column: ADRES
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P19_NUMER_TELEFONU =======================
+  id: 181086377314958667
+  identification: 
+    name: P19_NUMER_TELEFONU
+    type: Text Field
+
+  label: 
+    label: Numer Telefonu
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: Leading and Trailing
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 40
+    region: Szpitale # 181084757687958665
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 255
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Szpitale # 181084757687958665
+    column: NUMER_TELEFONU
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P19_TYP_SZPITALA =========================
+  id: 181086791425958667
+  identification: 
+    name: P19_TYP_SZPITALA
+    type: Select List
+
+  label: 
+    label: Typ Szpitala
+    alignment: Left
+
+  settings: 
+    page-action-on-selection: None
+
+  multiple-values: 
+    type: No
+
+  layout: 
+    sequence: 50
+    region: Szpitale # 181084757687958665
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    height: 1
+
+  validation: 
+    value-required: false
+
+  list-of-values: 
+    type: Shared Component
+    list-of-values: SZPITALE.TYPY # 213216481140165304
+    display-extra-values: true
+    display-null-value: true
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Szpitale # 181084757687958665
+    column: TYP_SZPITALA
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P19_LONGITUDE ============================
+  id: 194526974886862750
+  identification: 
+    name: P19_LONGITUDE
+    type: Text Field
+
+  label: 
+    label: Długość Geograficzna
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: Leading and Trailing
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 60
+    region: Szpitale # 181084757687958665
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Optional - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 30
+
+  validation: 
+    value-required: false
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Szpitale # 181084757687958665
+    column: LONGITUDE
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P19_LATITUDE =============================
+  id: 341242716147118101
+  identification: 
+    name: P19_LATITUDE
+    type: Text Field
+
+  label: 
+    label: Szerokość Geograficzna
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: Leading and Trailing
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 70
+    region: Szpitale # 181084757687958665
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Optional - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 30
+
+  validation: 
+    value-required: false
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Szpitale # 181084757687958665
+    column: LATITUDE
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+buttons: 
+- # ====== Button: CANCEL ======================================
+  id: 181089018404958670
+  identification: 
+    button-name: CANCEL
+    label: Anuluj
+
+  layout: 
+    sequence: 10
+    region: Buttons # 181088690938958669
+    slot: CLOSE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Defined by Dynamic Action
+    execute-validations: true
+
+- # ====== Button: DELETE ======================================
+  id: 181090489827958671
+  identification: 
+    button-name: DELETE
+    label: Usuń
+
+  layout: 
+    sequence: 20
+    region: Buttons # 181088690938958669
+    slot: DELETE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+    - t-Button--danger
+    - t-Button--simple
+
+  behavior: 
+    action: Submit Page
+    execute-validations: false
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL DELETE action
+
+  confirmation: 
+    message: '&APP_TEXT$DELETE_MSG!RAW.'
+    style: Danger
+
+  server-side-condition: 
+    type: Item is NOT NULL
+    item: P19_SZPITAL_ID
+
+- # ====== Button: SAVE ========================================
+  id: 181090825686958671
+  identification: 
+    button-name: SAVE
+    label: Zapisz zmiany
+
+  layout: 
+    sequence: 30
+    region: Buttons # 181088690938958669
+    slot: NEXT
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: true
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: true
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL UPDATE action
+
+  server-side-condition: 
+    type: Item is NOT NULL
+    item: P19_SZPITAL_ID
+
+- # ====== Button: CREATE ======================================
+  id: 181091285073958672
+  identification: 
+    button-name: CREATE
+    label: Dodaj szpital
+
+  layout: 
+    sequence: 40
+    region: Buttons # 181088690938958669
+    slot: NEXT
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: true
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: true
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL INSERT action
+
+  server-side-condition: 
+    type: Item is NULL
+    item: P19_SZPITAL_ID
+
+dynamic-actions: 
+- # ====== Dynamic Action: Cancel Dialog =======================
+  id: 181089122409958670
+  identification: 
+    name: Cancel Dialog
+
+  execution: 
+    sequence: 10
+    event-scope: Static
+    type: Immediate
+
+  when: 
+    event: Click
+    selection-type: Button
+    button: CANCEL # 181089018404958670
+
+  actions: 
+  - # ====== Action: Cancel Dialog ===============================
+    id: 181089943002958671
+    identification: 
+      action: Cancel Dialog
+
+    execution: 
+      sequence: 10
+      event: Cancel Dialog # 181089122409958670
+      fire-when-event-result-is: True
+      fire-on-initialization: false
+
+validations: 
+- # ====== Validation: Nazwa szpitala nie może być pusta =======
+  id: 283865324743945603
+  identification: 
+    name: Nazwa szpitala nie może być pusta
+
+  execution: 
+    sequence: 10
+
+  validation: 
+    type: Function Body (returning Boolean)
+    language: PL/SQL
+    pl/sql-function-body: |
+      BEGIN
+        IF :P19_NAZWA IS NULL OR TRIM(:P19_NAZWA) = '' THEN
+          RETURN FALSE;
+        ELSE
+          RETURN TRUE;
+        END IF;
+      END;
+    always-execute: true
+
+  error: 
+    error-message: Nazwa szpitala nie może być pusta.
+    display-location: Inline with Field and in Notification
+
+- # ====== Validation: Adres szpitala nie może być pusty =======
+  id: 283865410084945604
+  identification: 
+    name: Adres szpitala nie może być pusty
+
+  execution: 
+    sequence: 20
+
+  validation: 
+    type: Function Body (returning Boolean)
+    language: PL/SQL
+    pl/sql-function-body: |
+      BEGIN
+        IF :P19_ADRES IS NULL OR TRIM(:P19_ADRES) = '' THEN
+          RETURN FALSE;
+        ELSE
+          RETURN TRUE;
+        END IF;
+      END;
+    always-execute: false
+
+  error: 
+    error-message: Adres szpitala nie może być pusty.
+    display-location: Inline with Field and in Notification
+
+- # ====== Validation: null2 ===================================
+  id: 283869938423945649
+  identification: 
+    name: null2
+
+  execution: 
+    sequence: 40
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P19_NAZWA IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Nazwa' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P19_NAZWA # 181085590164958666
+
+- # ====== Validation: null3 ===================================
+  id: 283870079194945650
+  identification: 
+    name: null3
+
+  execution: 
+    sequence: 50
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P19_adres IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Adres' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P19_ADRES # 181085947902958666
+
+- # ====== Validation: null4 ===================================
+  id: 318002902464437601
+  identification: 
+    name: null4
+
+  execution: 
+    sequence: 60
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P19_numer_telefonu IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: |
+      Pole 'Numer Telefonu' nie może być puste
+      
+    display-location: Inline with Field and in Notification
+    associated-item: P19_NUMER_TELEFONU # 181086377314958667
+
+- # ====== Validation: null5 ===================================
+  id: 318003053788437602
+  identification: 
+    name: null5
+
+  execution: 
+    sequence: 70
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P19_typ_szpitala IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Typ Szpitala' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P19_TYP_SZPITALA # 181086791425958667
+
+- # ====== Validation: 9cfyr ===================================
+  id: 318003178980437603
+  identification: 
+    name: 9cfyr
+
+  execution: 
+    sequence: 80
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P19_NUMER_TELEFONU, '^[0-9]{9}$')"
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Numer Telefonu' musi zawierać 9 cyfr
+    display-location: Inline with Field and in Notification
+    associated-item: P19_NUMER_TELEFONU # 181086377314958667
+
+- # ====== Validation: litery ==================================
+  id: 318003262982437604
+  identification: 
+    name: litery
+
+  execution: 
+    sequence: 90
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P19_typ_szpitala, '^[[:alpha:]]+$')"
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Typ Szpitala' musi składać się z liter
+    display-location: Inline with Field and in Notification
+    associated-item: P19_TYP_SZPITALA # 181086791425958667
+
+- # ====== Validation: tylkoLitery1 ============================
+  id: 318003301332437605
+  identification: 
+    name: tylkoLitery1
+
+  execution: 
+    sequence: 100
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P19_nazwa, '^[[:alpha:] ]+$')"
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Nazwa' może składać się tylko z liter.
+    display-location: Inline with Field and in Notification
+    associated-item: P19_NAZWA # 181085590164958666
+
+- # ====== Validation: New =====================================
+  id: 341242801123118102
+  identification: 
+    name: New
+
+  execution: 
+    sequence: 110
+
+  validation: 
+    type: Item is NOT NULL
+    item: P19_LONGITUDE
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Długość Geograficzna' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P19_LONGITUDE # 194526974886862750
+
+- # ====== Validation: New_1 ===================================
+  id: 341242926141118103
+  identification: 
+    name: New_1
+
+  execution: 
+    sequence: 120
+
+  validation: 
+    type: Item is NOT NULL
+    item: P19_LATITUDE
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Szerokość Geograficzna' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P19_LATITUDE # 341242716147118101
+
+- # ====== Validation: New_2 ===================================
+  id: 341243047018118104
+  identification: 
+    name: New_2
+
+  execution: 
+    sequence: 130
+
+  validation: 
+    type: Item is numeric
+    item: P19_LONGITUDE
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Długość Geograficzna' musi składać się z liczb i być w zakresie [-180, 180]
+    display-location: Inline with Field and in Notification
+    associated-item: P19_LONGITUDE # 194526974886862750
+
+- # ====== Validation: New_3 ===================================
+  id: 341243192496118105
+  identification: 
+    name: New_3
+
+  execution: 
+    sequence: 10
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P19_LONGITUDE >= -180 AND :P19_LONGITUDE <= 180'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Długość Geograficzna' musi składać się z liczb i być w zakresie [-180, 180]
+    display-location: Inline with Field and in Notification
+    associated-item: P19_LONGITUDE # 194526974886862750
+
+- # ====== Validation: New_4 ===================================
+  id: 341243260096118106
+  identification: 
+    name: New_4
+
+  execution: 
+    sequence: 140
+
+  validation: 
+    type: Item is numeric
+    item: P19_LATITUDE
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Szerokość Geograficzna' musi składać się z liczb i być w zakresie [-90, 90]
+    display-location: Inline with Field and in Notification
+    associated-item: P19_LATITUDE # 341242716147118101
+
+- # ====== Validation: New_5 ===================================
+  id: 341243396686118107
+  identification: 
+    name: New_5
+
+  execution: 
+    sequence: 150
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P19_LATITUDEE >= -90 AND :P19_LATITUDE <= 90'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Szerokość Geograficzna' musi składać się z liczb i być w zakresie [-90, 90]
+    display-location: Inline with Field and in Notification
+    associated-item: P19_LATITUDE # 341242716147118101
+
+processes: 
+- # ====== Process: Initialize form Szpitale ===================
+  id: 181091681017958672
+  identification: 
+    name: Initialize form Szpitale
+    type: Form - Initialization
+    execution-chain: None
+    form-region: Szpitale # 181084757687958665
+
+  execution: 
+    sequence: 10
+    point: Before Header
+    run-process: Once Per Page Visit (default)
+
+- # ====== Process: Process form Szpitale ======================
+  id: 181092014202958673
+  identification: 
+    name: Process form Szpitale
+    type: Form - Automatic Row Processing (DML)
+    execution-chain: None
+    form-region: Szpitale # 181084757687958665
+
+  settings: 
+    target-type: Region Source
+    prevent-lost-updates: true
+    lock-row: Yes
+    return-primary-key(s)-after-insert: true
+
+  execution: 
+    sequence: 10
+    point: Processing
+    run-process: Once Per Page Visit (default)
+
+  error: 
+    display-location: Inline in Notification
+
+- # ====== Process: Close Dialog ===============================
+  id: 181092460629958673
+  identification: 
+    name: Close Dialog
+    type: Close Dialog
+    execution-chain: None
+
+  settings: 
+    show-success-messages: true
+
+  execution: 
+    sequence: 50
+    point: Processing
+    run-process: Once Per Page Visit (default)
+
+  error: 
+    display-location: Inline in Notification
+
+  server-side-condition: 
+    type: Request is contained in Value
+    value: CREATE,SAVE,DELETE
+

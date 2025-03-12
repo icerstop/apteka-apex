@@ -1,0 +1,905 @@
+---
+# ====== Page: Apteki ========================================
+id: 3
+identification: 
+  name: Apteki
+  alias: APTEKI
+  title: Apteki
+
+appearance: 
+  page-mode: Modal Dialog
+  dialog-template: Drawer
+  template-options: 
+  - '#DEFAULT#'
+  - js-dialog-class-t-Drawer--pullOutEnd
+
+dialog: 
+  chained: false
+
+navigation-menu: 
+  override-user-interface-level: false
+
+navigation: 
+  cursor-focus: Do not focus cursor
+  warn-on-unsaved-changes: true
+
+security: 
+  authentication: Page Requires Authentication
+  deep-linking: Application Default
+  page-access-protection: Arguments Must Have Checksum
+  form-auto-complete: Off
+  browser-cache: Application Default
+
+session-management: 
+  rejoin-sessions: Application Default
+
+advanced: 
+  enable-duplicate-page-submissions: Yes - Enable page to be re-posted
+  reload-on-submit: Only for Success
+
+server-cache: 
+  caching: Disabled
+
+regions: 
+- # ====== Region: Apteki ======================================
+  id: 180961221450958254
+  identification: 
+    name: Apteki
+    type: Form
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: APTEKI
+    include-rowid-column: false
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Blank with Attributes
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    edit: 
+      enabled: true
+      allowed-operations: 
+      - Add Row
+      - Update Row
+      - Delete Row
+      lost-update-type: Row Values
+
+- # ====== Region: Buttons =====================================
+  id: 180964488722958265
+  identification: 
+    name: Buttons
+    type: Static Content
+
+  layout: 
+    sequence: 20
+    parent-region: No Parent
+    slot: REGION_POSITION_03
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Buttons Container
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    settings: 
+      output-as: Text (escape special characters)
+      show-line-breaks: true
+
+page-items: 
+- # ====== Page Item: P3_APTEKA_ID =============================
+  id: 180961635794958255
+  identification: 
+    name: P3_APTEKA_ID
+    type: Hidden
+
+  settings: 
+    value-protected: true
+
+  layout: 
+    sequence: 10
+    region: Apteki # 180961221450958254
+    slot: BODY
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Apteki # 180961221450958254
+    column: APTEKA_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: true
+
+  session-state: 
+    data-type: VARCHAR2
+    storage: Per Request (Memory Only)
+
+  security: 
+    session-state-protection: Checksum Required - Session Level
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P3_NAZWA =================================
+  id: 180962080991958259
+  identification: 
+    name: P3_NAZWA
+    type: Text Field
+
+  label: 
+    label: Nazwa
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: None
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 20
+    region: Apteki # 180961221450958254
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 100
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Apteki # 180961221450958254
+    column: NAZWA
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P3_ADRES =================================
+  id: 180962434944958260
+  identification: 
+    name: P3_ADRES
+    type: Text Field
+
+  label: 
+    label: Adres
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: None
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 30
+    region: Apteki # 180961221450958254
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 100
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Apteki # 180961221450958254
+    column: ADRES
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P3_NUMER_TELEFONU ========================
+  id: 180962819247958260
+  identification: 
+    name: P3_NUMER_TELEFONU
+    type: Text Field
+
+  label: 
+    label: Numer Telefonu
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: Leading and Trailing
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 40
+    region: Apteki # 180961221450958254
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Optional - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 255
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Apteki # 180961221450958254
+    column: NUMER_TELEFONU
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P3_LATITUDE ==============================
+  id: 341243455469118108
+  identification: 
+    name: P3_LATITUDE
+    type: Text Field
+
+  label: 
+    label: Szerokość Geograficzna
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: Leading and Trailing
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 50
+    region: Apteki # 180961221450958254
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Optional - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 30
+
+  validation: 
+    value-required: false
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Apteki # 180961221450958254
+    column: LATITUDE
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P3_LONGITUDE =============================
+  id: 341243629375118110
+  identification: 
+    name: P3_LONGITUDE
+    type: Text Field
+
+  label: 
+    label: Długość Geograficzna
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: Leading and Trailing
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 60
+    region: Apteki # 180961221450958254
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Optional - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 30
+
+  validation: 
+    value-required: false
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Apteki # 180961221450958254
+    column: LONGITUDE
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+buttons: 
+- # ====== Button: CANCEL ======================================
+  id: 180964825997958265
+  identification: 
+    button-name: CANCEL
+    label: Anuluj
+
+  layout: 
+    sequence: 10
+    region: Buttons # 180964488722958265
+    slot: CLOSE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Defined by Dynamic Action
+    execute-validations: true
+
+- # ====== Button: DELETE ======================================
+  id: 180966286093958269
+  identification: 
+    button-name: DELETE
+    label: Usuń
+
+  layout: 
+    sequence: 20
+    region: Buttons # 180964488722958265
+    slot: DELETE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+    - t-Button--danger
+    - t-Button--simple
+
+  behavior: 
+    action: Submit Page
+    execute-validations: false
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL DELETE action
+
+  confirmation: 
+    message: '&APP_TEXT$DELETE_MSG!RAW.'
+    style: Danger
+
+  server-side-condition: 
+    type: Item is NOT NULL
+    item: P3_APTEKA_ID
+
+- # ====== Button: SAVE ========================================
+  id: 180966696180958269
+  identification: 
+    button-name: SAVE
+    label: Zapisz zmiany
+
+  layout: 
+    sequence: 30
+    region: Buttons # 180964488722958265
+    slot: NEXT
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: true
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: true
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL UPDATE action
+
+  server-side-condition: 
+    type: Item is NOT NULL
+    item: P3_APTEKA_ID
+
+- # ====== Button: CREATE ======================================
+  id: 180967067091958270
+  identification: 
+    button-name: CREATE
+    label: Utwórz
+
+  layout: 
+    sequence: 40
+    region: Buttons # 180964488722958265
+    slot: NEXT
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: true
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: true
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL INSERT action
+
+  server-side-condition: 
+    type: Item is NULL
+    item: P3_APTEKA_ID
+
+dynamic-actions: 
+- # ====== Dynamic Action: Cancel Dialog =======================
+  id: 180964976203958265
+  identification: 
+    name: Cancel Dialog
+
+  execution: 
+    sequence: 10
+    event-scope: Static
+    type: Immediate
+
+  when: 
+    event: Click
+    selection-type: Button
+    button: CANCEL # 180964825997958265
+
+  actions: 
+  - # ====== Action: Cancel Dialog ===============================
+    id: 180965732372958268
+    identification: 
+      action: Cancel Dialog
+
+    execution: 
+      sequence: 10
+      event: Cancel Dialog # 180964976203958265
+      fire-when-event-result-is: True
+      fire-on-initialization: false
+
+validations: 
+- # ====== Validation: is_not_null =============================
+  id: 183284645276062124
+  identification: 
+    name: is_not_null
+
+  execution: 
+    sequence: 10
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P3_NAZWA IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Nazwa' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P3_NAZWA # 180962080991958259
+
+- # ====== Validation: is_not_null_ ============================
+  id: 183284792553062125
+  identification: 
+    name: is_not_null_
+
+  execution: 
+    sequence: 20
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P3_ADRES IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Adres' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P3_ADRES # 180962434944958260
+
+- # ====== Validation: tylko_cyfry =============================
+  id: 183284940579062127
+  identification: 
+    name: tylko_cyfry
+
+  execution: 
+    sequence: 40
+
+  validation: 
+    type: Item is numeric
+    item: P3_NUMER_TELEFONU
+    always-execute: true
+
+  error: 
+    error-message: Pole 'Numer Telefonu' musi składać się z cyfr
+    display-location: Inline with Field and in Notification
+    associated-item: P3_NUMER_TELEFONU # 180962819247958260
+
+- # ====== Validation: same_litery =============================
+  id: 283865646331945606
+  identification: 
+    name: same_litery
+
+  execution: 
+    sequence: 50
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P3_NAZWA, '^[[:alpha:]]+$')"
+    always-execute: false
+
+  error: 
+    error-message: Nazwa apteki musi składać się wyłącznie z liter!
+    display-location: Inline with Field and in Notification
+    associated-item: P3_NAZWA # 180962080991958259
+
+- # ====== Validation: 9_cyfr ==================================
+  id: 283865745304945607
+  identification: 
+    name: 9_cyfr
+
+  execution: 
+    sequence: 60
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P3_NUMER_TELEFONU, '^[0-9]{9}$')"
+    always-execute: false
+
+  error: 
+    error-message: Numer telefonu musi miec dokładnie 9 cyfr!
+    display-location: Inline with Field and in Notification
+    associated-item: P3_NUMER_TELEFONU # 180962819247958260
+
+- # ====== Validation: New =====================================
+  id: 341243753979118111
+  identification: 
+    name: New
+
+  execution: 
+    sequence: 70
+
+  validation: 
+    type: Item is NOT NULL
+    item: P3_NUMER_TELEFONU
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Numer Telefonu' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P3_NUMER_TELEFONU # 180962819247958260
+
+- # ====== Validation: New_1 ===================================
+  id: 341243987359118113
+  identification: 
+    name: New_1
+
+  execution: 
+    sequence: 80
+
+  validation: 
+    type: Item is NOT NULL
+    item: P3_LONGITUDE
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Długość Geograficzna' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P3_LONGITUDE # 341243629375118110
+
+- # ====== Validation: New_2 ===================================
+  id: 341244093803118114
+  identification: 
+    name: New_2
+
+  execution: 
+    sequence: 90
+
+  validation: 
+    type: Item is NOT NULL
+    item: P3_LATITUDE
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Szerokość Geograficzna' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P3_LATITUDE # 341243455469118108
+
+- # ====== Validation: New_3 ===================================
+  id: 341244138957118115
+  identification: 
+    name: New_3
+
+  execution: 
+    sequence: 100
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P3_LATITUDE, '^\\d+(\\.\\d+)?$')"
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Szerokość Geograficzna' musi składać się z liczb i być w zakresie [-90, 90]
+    display-location: Inline with Field and in Notification
+    associated-item: P3_LATITUDE # 341243455469118108
+
+- # ====== Validation: New_4 ===================================
+  id: 341244225964118116
+  identification: 
+    name: New_4
+
+  execution: 
+    sequence: 110
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P3_LONGITUDE, '^\\d+(\\.\\d+)?$')"
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Długość Geograficzna' musi składać się z liczb i być w zakresie [-180, 180]
+    display-location: Inline with Field and in Notification
+    associated-item: P3_LONGITUDE # 341243629375118110
+
+- # ====== Validation: New_5 ===================================
+  id: 341244333325118117
+  identification: 
+    name: New_5
+
+  execution: 
+    sequence: 120
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: 'TO_NUMBER(:P3_LATITUDE) BETWEEN -90 AND 90'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Szerokość Geograficzna' musi składać się z liczb i być w zakresie [-90, 90]
+    display-location: Inline with Field and in Notification
+    associated-item: P3_LATITUDE # 341243455469118108
+
+- # ====== Validation: New_6 ===================================
+  id: 341244446639118118
+  identification: 
+    name: New_6
+
+  execution: 
+    sequence: 130
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: 'TO_NUMBER(:P3_LONGITUDE) BETWEEN -180 AND 180'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Długość Geograficzna' musi składać się z liczb i być w zakresie [-180, 180]
+    display-location: Inline with Field and in Notification
+    associated-item: P3_LONGITUDE # 341243629375118110
+
+processes: 
+- # ====== Process: Initialize form Apteki =====================
+  id: 180967412995958270
+  identification: 
+    name: Initialize form Apteki
+    type: Form - Initialization
+    execution-chain: None
+    form-region: Apteki # 180961221450958254
+
+  execution: 
+    sequence: 10
+    point: Before Header
+    run-process: Once Per Page Visit (default)
+
+- # ====== Process: Process form Apteki ========================
+  id: 180967847792958270
+  identification: 
+    name: Process form Apteki
+    type: Form - Automatic Row Processing (DML)
+    execution-chain: None
+    form-region: Apteki # 180961221450958254
+
+  settings: 
+    target-type: Region Source
+    prevent-lost-updates: true
+    lock-row: Yes
+    return-primary-key(s)-after-insert: true
+
+  execution: 
+    sequence: 10
+    point: Processing
+    run-process: Once Per Page Visit (default)
+
+  error: 
+    display-location: Inline in Notification
+
+- # ====== Process: Close Dialog ===============================
+  id: 180968236754958271
+  identification: 
+    name: Close Dialog
+    type: Close Dialog
+    execution-chain: None
+
+  settings: 
+    show-success-messages: true
+
+  execution: 
+    sequence: 50
+    point: Processing
+    run-process: Once Per Page Visit (default)
+
+  error: 
+    display-location: Inline in Notification
+
+  server-side-condition: 
+    type: Request is contained in Value
+    value: CREATE,SAVE,DELETE
+

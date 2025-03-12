@@ -1,0 +1,929 @@
+---
+- # ====== List: Navigation Menu ===============================
+  id: 180652296000957695
+  identification: 
+    name: Navigation Menu
+
+  subscription: 
+    version-number: 472659014
+
+  source: 
+    type: Static Values
+
+  entries: 
+  - # ====== Entry: Home =========================================
+    id: 180959095050958209
+    label: 
+      label: Home
+
+    icon: 
+      image/icon-css-classes: fa-home
+
+    layout: 
+      sequence: 10
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:1:&SESSION.::&DEBUG.::::'
+        page: 1 # Home
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Apteki =======================================
+    id: 180960515903958216
+    label: 
+      label: Apteki
+
+    icon: 
+      image/icon-css-classes: fa-plus-square
+
+    layout: 
+      sequence: 20
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:2:&SESSION.::&DEBUG.::::'
+        page: 2 # Apteki
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Farmaceuci ===================================
+    id: 180973750659958281
+    label: 
+      label: Farmaceuci
+
+    icon: 
+      image/icon-css-classes: fa-user-md
+
+    layout: 
+      sequence: 30
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:4:&SESSION.::&DEBUG.::::'
+        page: 4 # Farmaceuci
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Lekarze ======================================
+    id: 180988220879958330
+    label: 
+      label: Lekarze
+
+    icon: 
+      image/icon-css-classes: fa-stethoscope
+
+    layout: 
+      sequence: 40
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:6:&SESSION.::&DEBUG.::::'
+        page: 6 # Lekarze
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Leki =========================================
+    id: 181003966668958383
+    label: 
+      label: Leki
+
+    icon: 
+      image/icon-css-classes: fa-medication-pill
+
+    layout: 
+      sequence: 50
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:8:&SESSION.::&DEBUG.::::'
+        page: 8 # Leki
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Pacjenci =====================================
+    id: 181020671202958432
+    label: 
+      label: Pacjenci
+
+    icon: 
+      image/icon-css-classes: fa-heart
+
+    layout: 
+      sequence: 60
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:10:&SESSION.::&DEBUG.::::'
+        page: 10 # Pacjenci
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Realizacje Recept ============================
+    id: 181037103106958483
+    label: 
+      label: Realizacje Recept
+
+    icon: 
+      image/icon-css-classes: fa-file-prescription
+
+    layout: 
+      sequence: 70
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:12:&SESSION.::&DEBUG.::::'
+        page: 12 # Realizacjerecept
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Recepty ======================================
+    id: 181051608659958532
+    label: 
+      label: Recepty
+
+    icon: 
+      image/icon-css-classes: fa-file-medical
+
+    layout: 
+      sequence: 80
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:14:&SESSION.::&DEBUG.::::'
+        page: 14 # Recepty
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Rodzice Pacjentów ============================
+    id: 181068759769958583
+    label: 
+      label: Rodzice Pacjentów
+
+    icon: 
+      image/icon-css-classes: fa-person-standing
+
+    layout: 
+      sequence: 90
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:16:&SESSION.::&DEBUG.::::'
+        page: 16 # Rodzicepacjentow
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Szpitale =====================================
+    id: 181084008222958634
+    label: 
+      label: Szpitale
+
+    icon: 
+      image/icon-css-classes: fa-hospital-o
+
+    layout: 
+      sequence: 100
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:18:&SESSION.::&DEBUG.::::'
+        page: 18 # Szpitale
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Zamówienia ===================================
+    id: 181098329756958680
+    label: 
+      label: Zamówienia
+
+    icon: 
+      image/icon-css-classes: fa-ambulance
+
+    layout: 
+      sequence: 110
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:20:&SESSION.::&DEBUG.::::'
+        page: 20 # Zamowienia
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Statystyki Recept ============================
+    id: 217046725422291592
+    label: 
+      label: Statystyki Recept
+
+    icon: 
+      image/icon-css-classes: fa-dashboard
+
+    layout: 
+      sequence: 120
+      parent-entry: Recepty # 181051608659958532
+
+    is-current: 
+      type: Pages
+      pages: 
+      - 22
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:22:&APP_SESSION.::&DEBUG.:::'
+        page: 22 # Statystyki Recept
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Statystyki Pacjenci ==========================
+    id: 219074436400236830
+    label: 
+      label: Statystyki Pacjenci
+
+    icon: 
+      image/icon-css-classes: fa-dashboard
+
+    layout: 
+      sequence: 130
+      parent-entry: Pacjenci # 181020671202958432
+
+    is-current: 
+      type: Pages
+      pages: 
+      - 24
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:24:&APP_SESSION.::&DEBUG.:::'
+        page: 24 # Statystyki Pacjentów
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Statystyki Leków =============================
+    id: 219103242490285453
+    label: 
+      label: Statystyki Leków
+
+    icon: 
+      image/icon-css-classes: fa-dashboard
+
+    layout: 
+      sequence: 140
+      parent-entry: Leki # 181003966668958383
+
+    is-current: 
+      type: Pages
+      pages: 
+      - 25
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:25:&SESSION.::&DEBUG.::::'
+        page: 25 # Statystyki Leków
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Mapa Szpitali ================================
+    id: 219251867730334390
+    label: 
+      label: Mapa Szpitali
+
+    icon: 
+      image/icon-css-classes: fa-map-marker
+
+    layout: 
+      sequence: 150
+      parent-entry: Szpitale # 181084008222958634
+
+    is-current: 
+      type: Pages
+      pages: 
+      - 26
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:26:&APP_SESSION.::&DEBUG.:::'
+        page: 26 # Mapa Szpitali
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Mapa Aptek ===================================
+    id: 219383547417464701
+    label: 
+      label: Mapa Aptek
+
+    icon: 
+      image/icon-css-classes: fa-map-marker
+
+    layout: 
+      sequence: 160
+      parent-entry: Apteki # 180960515903958216
+
+    is-current: 
+      type: Pages
+      pages: 
+      - 27
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:27:&APP_SESSION.::&DEBUG.:::'
+        page: 27 # Mapa Aptek
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Składanie Zamówienia =========================
+    id: 249645555589819237
+    label: 
+      label: Składanie Zamówienia
+
+    icon: 
+      image/icon-css-classes: fa-forms
+
+    layout: 
+      sequence: 170
+      parent-entry: Zamówienia # 181098329756958680
+
+    is-current: 
+      type: Pages
+      pages: 
+      - 28
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:28:&APP_SESSION.::&DEBUG.:::'
+        page: 28 # Składanie Zamówienia
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: MZ.GOV.PL ====================================
+    id: 254165078013712718
+    label: 
+      label: MZ.GOV.PL
+
+    layout: 
+      sequence: 180
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 'https://www.mz.gov.pl'
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: NFZ.GOV.PL ===================================
+    id: 254207298952723288
+    label: 
+      label: NFZ.GOV.PL
+
+    layout: 
+      sequence: 190
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 'https://www.nfz.gov.pl/'
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Statystyki Zamówień ==========================
+    id: 255332173786876681
+    label: 
+      label: Statystyki Zamówień
+
+    icon: 
+      image/icon-css-classes: fa-bar-chart
+
+    layout: 
+      sequence: 200
+      parent-entry: Zamówienia # 181098329756958680
+
+    is-current: 
+      type: Pages
+      pages: 
+      - 30
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:30:&APP_SESSION.::&DEBUG.:::'
+        page: 30 # Statystyki Zamówień
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Informacje Pacjenta ==========================
+    id: 306381925607554828
+    label: 
+      label: Informacje Pacjenta
+
+    icon: 
+      image/icon-css-classes: fa-file-o
+
+    layout: 
+      sequence: 210
+      parent-entry: Pacjenci # 181020671202958432
+
+    is-current: 
+      type: Pages
+      pages: 
+      - 32
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:32:&APP_SESSION.::&DEBUG.:::'
+        page: 32 # Informacje Pacjenta
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Terminy Realizacji Recept ====================
+    id: 349335122897463242
+    label: 
+      label: Terminy Realizacji Recept
+
+    icon: 
+      image/icon-css-classes: fa-calendar-o
+
+    layout: 
+      sequence: 220
+      parent-entry: Recepty # 181051608659958532
+
+    is-current: 
+      type: Pages
+      pages: 
+      - 29
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:29:&APP_SESSION.::&DEBUG.:::'
+        page: 29 # Terminy Realizacji Recept
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+- # ====== List: Navigation Bar ================================
+  id: 180941646881958141
+  identification: 
+    name: Navigation Bar
+
+  subscription: 
+    version-number: 446762707
+
+  source: 
+    type: Static Values
+
+  entries: 
+  - # ====== Entry: &APP_USER. ===================================
+    id: 181217773253958899
+    label: 
+      label: '&APP_USER.'
+
+    icon: 
+      image/icon-css-classes: fa-user
+
+    layout: 
+      sequence: 10
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: '#'
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+      2.: has-username
+
+  - # ====== Entry: --- ==========================================
+    id: 181218277904958900
+    label: 
+      label: '---'
+
+    layout: 
+      sequence: 20
+      parent-entry: '&APP_USER.' # 181217773253958899
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: separator
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+    server-side-condition: 
+      type: User is Authenticated (not public)
+
+  - # ====== Entry: Sign Out =====================================
+    id: 181218619600958900
+    label: 
+      label: Sign Out
+
+    icon: 
+      image/icon-css-classes: fa-sign-out
+
+    layout: 
+      sequence: 30
+      parent-entry: '&APP_USER.' # 181217773253958899
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: '&LOGOUT_URL.'
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+    server-side-condition: 
+      type: User is Authenticated (not public)
+
+- # ====== List: Page Navigation ===============================
+  id: 181213013375958894
+  identification: 
+    name: Page Navigation
+
+  subscription: 
+    version-number: 462604832
+
+  source: 
+    type: Static Values
+
+  entries: 
+  - # ====== Entry: Apteki =======================================
+    id: 181213448553958895
+    label: 
+      label: Apteki
+
+    icon: 
+      image/icon-css-classes: fa-table
+
+    layout: 
+      sequence: 20
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:::'
+        page: 2 # Apteki
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Farmaceuci ===================================
+    id: 181213836169958895
+    label: 
+      label: Farmaceuci
+
+    icon: 
+      image/icon-css-classes: fa-table
+
+    layout: 
+      sequence: 30
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:4:&APP_SESSION.::&DEBUG.:::'
+        page: 4 # Farmaceuci
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Lekarze ======================================
+    id: 181214225578958896
+    label: 
+      label: Lekarze
+
+    icon: 
+      image/icon-css-classes: fa-table
+
+    layout: 
+      sequence: 40
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:6:&APP_SESSION.::&DEBUG.:::'
+        page: 6 # Lekarze
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Leki =========================================
+    id: 181214654768958896
+    label: 
+      label: Leki
+
+    icon: 
+      image/icon-css-classes: fa-table
+
+    layout: 
+      sequence: 50
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:8:&APP_SESSION.::&DEBUG.:::'
+        page: 8 # Leki
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Pacjenci =====================================
+    id: 181215041681958896
+    label: 
+      label: Pacjenci
+
+    icon: 
+      image/icon-css-classes: fa-table
+
+    layout: 
+      sequence: 60
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:10:&APP_SESSION.::&DEBUG.:::'
+        page: 10 # Pacjenci
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Realizacje Recept ============================
+    id: 181215455437958897
+    label: 
+      label: Realizacje Recept
+
+    icon: 
+      image/icon-css-classes: fa-table
+
+    layout: 
+      sequence: 70
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:12:&SESSION.::&DEBUG.::::'
+        page: 12 # Realizacjerecept
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Recepty ======================================
+    id: 181215869085958897
+    label: 
+      label: Recepty
+
+    icon: 
+      image/icon-css-classes: fa-table
+
+    layout: 
+      sequence: 80
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:14:&APP_SESSION.::&DEBUG.:::'
+        page: 14 # Recepty
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Rodzice Pacjentów ============================
+    id: 181216248087958897
+    label: 
+      label: Rodzice Pacjentów
+
+    icon: 
+      image/icon-css-classes: fa-table
+
+    layout: 
+      sequence: 90
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:16:&SESSION.::&DEBUG.::::'
+        page: 16 # Rodzicepacjentow
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Szpitale =====================================
+    id: 181216617661958898
+    label: 
+      label: Szpitale
+
+    icon: 
+      image/icon-css-classes: fa-table
+
+    layout: 
+      sequence: 100
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:18:&APP_SESSION.::&DEBUG.:::'
+        page: 18 # Szpitale
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Zamówienia ===================================
+    id: 181217039271958898
+    label: 
+      label: Zamówienia
+
+    icon: 
+      image/icon-css-classes: fa-table
+
+    layout: 
+      sequence: 110
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:20:&SESSION.::&DEBUG.::::'
+        page: 20 # Zamowienia
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+

@@ -1,0 +1,455 @@
+prompt --application/pages/page_00021
+begin
+--   Manifest
+--     PAGE: 00021
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2024.05.31'
+,p_release=>'24.1.4'
+,p_default_workspace_id=>67541494403004847
+,p_default_application_id=>292
+,p_default_id_offset=>0
+,p_default_owner=>'WKSP_WS155865'
+);
+wwv_flow_imp_page.create_page(
+ p_id=>21
+,p_name=>'Zamowienia'
+,p_alias=>'ZAMOWIENIA'
+,p_page_mode=>'MODAL'
+,p_step_title=>'Zamowienia'
+,p_autocomplete_on_off=>'OFF'
+,p_step_template=>wwv_flow_imp.id(180652524658957697)
+,p_page_template_options=>'#DEFAULT#:js-dialog-class-t-Drawer--pullOutEnd'
+,p_dialog_chained=>'N'
+,p_protection_level=>'C'
+,p_page_component_map=>'02'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(181098932942958711)
+,p_plug_name=>'Zamowienia'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(180688443351957763)
+,p_plug_display_sequence=>10
+,p_query_type=>'TABLE'
+,p_query_table=>'ZAMOWIENIA'
+,p_include_rowid_column=>false
+,p_is_editable=>true
+,p_edit_operations=>'i:u:d'
+,p_lost_update_check_type=>'VALUES'
+,p_plug_source_type=>'NATIVE_FORM'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(181104534024958719)
+,p_plug_name=>'Buttons'
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(180691282792957766)
+,p_plug_display_sequence=>20
+,p_plug_display_point=>'REGION_POSITION_03'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'TEXT',
+  'show_line_breaks', 'Y')).to_clob
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(181104945451958720)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_imp.id(181104534024958719)
+,p_button_name=>'CANCEL'
+,p_button_action=>'DEFINED_BY_DA'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(180828667132957905)
+,p_button_image_alt=>'Cancel'
+,p_button_position=>'CLOSE'
+,p_button_alignment=>'RIGHT'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(181106376788958722)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_imp.id(181104534024958719)
+,p_button_name=>'DELETE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#:t-Button--danger:t-Button--simple'
+,p_button_template_id=>wwv_flow_imp.id(180828667132957905)
+,p_button_image_alt=>'Delete'
+,p_button_position=>'DELETE'
+,p_button_alignment=>'RIGHT'
+,p_button_execute_validations=>'N'
+,p_confirm_message=>'&APP_TEXT$DELETE_MSG!RAW.'
+,p_confirm_style=>'danger'
+,p_button_condition=>'P21_ZAMOWIENIE_ID'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_database_action=>'DELETE'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(181106778964958722)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_imp.id(181104534024958719)
+,p_button_name=>'SAVE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(180828667132957905)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Apply Changes'
+,p_button_position=>'NEXT'
+,p_button_alignment=>'RIGHT'
+,p_button_condition=>'P21_ZAMOWIENIE_ID'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_database_action=>'UPDATE'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(283865268952945602)
+,p_button_sequence=>40
+,p_button_plug_id=>wwv_flow_imp.id(181104534024958719)
+,p_button_name=>'CREATE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(180828667132957905)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Create'
+,p_button_position=>'NEXT'
+,p_button_condition=>'P21_ZAMOWIENIE_ID'
+,p_button_condition_type=>'ITEM_IS_NULL'
+,p_database_action=>'INSERT'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(181099300444958712)
+,p_name=>'P21_ZAMOWIENIE_ID'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_is_primary_key=>true
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(181098932942958711)
+,p_item_source_plug_id=>wwv_flow_imp.id(181098932942958711)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'Zamowienie ID'
+,p_source=>'ZAMOWIENIE_ID'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_imp.id(180827472801957900)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_protection_level=>'S'
+,p_attribute_01=>'Y'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(181099777603958712)
+,p_name=>'P21_DATA_ZAMOWIENIA'
+,p_source_data_type=>'DATE'
+,p_is_required=>true
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(181098932942958711)
+,p_item_source_plug_id=>wwv_flow_imp.id(181098932942958711)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'Data Zamowienia'
+,p_source=>'DATA_ZAMOWIENIA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_cHeight=>1
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_imp.id(180827472801957900)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'POPUP'
+,p_attribute_03=>'NONE'
+,p_attribute_06=>'NONE'
+,p_attribute_09=>'N'
+,p_attribute_11=>'Y'
+,p_attribute_12=>'MONTH-PICKER:YEAR-PICKER:TODAY-BUTTON'
+,p_attribute_13=>'VISIBLE'
+,p_attribute_15=>'FOCUS'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(181100172035958713)
+,p_name=>'P21_DATA_REALIZACJI'
+,p_source_data_type=>'DATE'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(181098932942958711)
+,p_item_source_plug_id=>wwv_flow_imp.id(181098932942958711)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'Data Realizacji'
+,p_source=>'DATA_REALIZACJI'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_cHeight=>1
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_imp.id(180826122711957897)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'POPUP'
+,p_attribute_03=>'NONE'
+,p_attribute_06=>'NONE'
+,p_attribute_09=>'N'
+,p_attribute_11=>'Y'
+,p_attribute_12=>'MONTH-PICKER:YEAR-PICKER:TODAY-BUTTON'
+,p_attribute_13=>'VISIBLE'
+,p_attribute_15=>'FOCUS'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(181100527855958713)
+,p_name=>'P21_STATUS_ZAMOWIENIA'
+,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(181098932942958711)
+,p_item_source_plug_id=>wwv_flow_imp.id(181098932942958711)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'Status Zamowienia'
+,p_source=>'STATUS_ZAMOWIENIA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>100
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_imp.id(180827472801957900)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_03=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(181100926428958715)
+,p_name=>'P21_ILOSC'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(181098932942958711)
+,p_item_source_plug_id=>wwv_flow_imp.id(181098932942958711)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'Ilosc'
+,p_source=>'ILOSC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_cHeight=>1
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_imp.id(180827472801957900)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(181101397160958715)
+,p_name=>'P21_LEK_ID'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_imp.id(181098932942958711)
+,p_item_source_plug_id=>wwv_flow_imp.id(181098932942958711)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'Lek'
+,p_source=>'LEK_ID'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_named_lov=>'LEKI.NAZWA'
+,p_lov_display_null=>'YES'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_cHeight=>1
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_imp.id(180827472801957900)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'NONE'
+,p_attribute_03=>'Y'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(181102077702958716)
+,p_name=>'P21_APTEKA_ID'
+,p_source_data_type=>'NUMBER'
+,p_is_required=>true
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(181098932942958711)
+,p_item_source_plug_id=>wwv_flow_imp.id(181098932942958711)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'Apteka'
+,p_source=>'APTEKA_ID'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_named_lov=>'APTEKI.NAZWA'
+,p_lov_display_null=>'YES'
+,p_cSize=>32
+,p_cMaxlength=>255
+,p_cHeight=>1
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_imp.id(180827472801957900)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'NONE'
+,p_attribute_03=>'Y'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(283865164258945601)
+,p_validation_name=>'New'
+,p_validation_sequence=>10
+,p_validation=>':P21_DATA_ZAMOWIENIA <= SYSDATE'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('Kwota zam\00F3wienia musi by\0107 wi\0119ksza ni\017C 0, a data zam\00F3wienia nie mo\017Ce by\0107 w przysz\0142o\015Bci.')
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(318003488076437606)
+,p_validation_name=>'nul1'
+,p_validation_sequence=>20
+,p_validation=>':P21_zamowienie_id IS NOT NULL'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>'Pole ''zamowienie id'' nie moze byc puste.'
+,p_associated_item=>wwv_flow_imp.id(181099300444958712)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(318003501630437607)
+,p_validation_name=>'null2'
+,p_validation_sequence=>30
+,p_validation=>':P21_DATA_ZAMOWIENIA IS NOT NULL'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('Pole ''data zam\00F3wienia'' nie mo\017Ce by\0107 puste.')
+,p_associated_item=>wwv_flow_imp.id(181099777603958712)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(318003606144437608)
+,p_validation_name=>'null3'
+,p_validation_sequence=>40
+,p_validation=>':P21_data_realizacji IS NOT NULL'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('Pole ''data realizacji'' nie mo\017Ce by\0107 puste.')
+,p_associated_item=>wwv_flow_imp.id(181100172035958713)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(318003731876437609)
+,p_validation_name=>'null4'
+,p_validation_sequence=>50
+,p_validation=>':P21_status_zamowienia IS NOT NULL'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>'Pole ''status zamowienia'' nie moze byc puste.'
+,p_associated_item=>wwv_flow_imp.id(181100527855958713)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(318003878802437610)
+,p_validation_name=>'litery'
+,p_validation_sequence=>60
+,p_validation=>'REGEXP_LIKE(:P19_status_zamowienia, ''^[[:alpha:]]+$'')'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('Status zam\00F3wienia mo\017Ce zawiera\0107 tylko litery.')
+,p_associated_item=>wwv_flow_imp.id(181100527855958713)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(318003973525437611)
+,p_validation_name=>'null5'
+,p_validation_sequence=>70
+,p_validation=>':P21_ilosc IS NOT NULL'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('Pole ''ilo\015B\0107'' nie mo\017Ce by\0107 puste.')
+,p_associated_item=>wwv_flow_imp.id(181100926428958715)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(318004092144437612)
+,p_validation_name=>'numeric'
+,p_validation_sequence=>80
+,p_validation=>'P21_ILOSC'
+,p_validation_type=>'ITEM_IS_NUMERIC'
+,p_error_message=>unistr('Pole ''ilo\015B\0107'' musi zawiera\0107 tylko cyfry.')
+,p_associated_item=>wwv_flow_imp.id(181100926428958715)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(318004147046437613)
+,p_validation_name=>'null6'
+,p_validation_sequence=>90
+,p_validation=>':P21_lek_id IS NOT NULL'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('Pole ''lek id'' nie mo\017Ce by\0107 puste.')
+,p_associated_item=>wwv_flow_imp.id(181101397160958715)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(318004292815437614)
+,p_validation_name=>'null7'
+,p_validation_sequence=>100
+,p_validation=>':P21_apteka_id IS NOT NULL'
+,p_validation2=>'PLSQL'
+,p_validation_type=>'EXPRESSION'
+,p_error_message=>unistr('Pole ''apteka id'' nie mo\017Ce by\0107 puste.')
+,p_associated_item=>wwv_flow_imp.id(181102077702958716)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(181105076567958720)
+,p_name=>'Cancel Dialog'
+,p_event_sequence=>10
+,p_triggering_element_type=>'BUTTON'
+,p_triggering_button_id=>wwv_flow_imp.id(181104945451958720)
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'click'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(181105849119958721)
+,p_event_id=>wwv_flow_imp.id(181105076567958720)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_DIALOG_CANCEL'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(181107989039958723)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_SUBMIT'
+,p_region_id=>wwv_flow_imp.id(181098932942958711)
+,p_process_type=>'NATIVE_FORM_DML'
+,p_process_name=>'Process form Zamowienia'
+,p_attribute_01=>'REGION_SOURCE'
+,p_attribute_05=>'Y'
+,p_attribute_06=>'Y'
+,p_attribute_08=>'Y'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>181107989039958723
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(181108361677958724)
+,p_process_sequence=>50
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_CLOSE_WINDOW'
+,p_process_name=>'Close Dialog'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when=>'CREATE,SAVE,DELETE'
+,p_process_when_type=>'REQUEST_IN_CONDITION'
+,p_internal_uid=>181108361677958724
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(181107581370958723)
+,p_process_sequence=>10
+,p_process_point=>'BEFORE_HEADER'
+,p_region_id=>wwv_flow_imp.id(181098932942958711)
+,p_process_type=>'NATIVE_FORM_INIT'
+,p_process_name=>'Initialize form Zamowienia'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_internal_uid=>181107581370958723
+);
+wwv_flow_imp.component_end;
+end;
+/

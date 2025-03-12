@@ -1,0 +1,938 @@
+---
+# ====== Page: Zamowienia ====================================
+id: 21
+identification: 
+  name: Zamowienia
+  alias: ZAMOWIENIA
+  title: Zamowienia
+
+appearance: 
+  page-mode: Modal Dialog
+  dialog-template: Drawer
+  template-options: 
+  - '#DEFAULT#'
+  - js-dialog-class-t-Drawer--pullOutEnd
+
+dialog: 
+  chained: false
+
+navigation-menu: 
+  override-user-interface-level: false
+
+navigation: 
+  cursor-focus: Do not focus cursor
+  warn-on-unsaved-changes: true
+
+security: 
+  authentication: Page Requires Authentication
+  deep-linking: Application Default
+  page-access-protection: Arguments Must Have Checksum
+  form-auto-complete: Off
+  browser-cache: Application Default
+
+session-management: 
+  rejoin-sessions: Application Default
+
+advanced: 
+  enable-duplicate-page-submissions: Yes - Enable page to be re-posted
+  reload-on-submit: Only for Success
+
+server-cache: 
+  caching: Disabled
+
+regions: 
+- # ====== Region: Zamowienia ==================================
+  id: 181098932942958711
+  identification: 
+    name: Zamowienia
+    type: Form
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: ZAMOWIENIA
+    include-rowid-column: false
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Blank with Attributes
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    edit: 
+      enabled: true
+      allowed-operations: 
+      - Add Row
+      - Update Row
+      - Delete Row
+      lost-update-type: Row Values
+
+- # ====== Region: Buttons =====================================
+  id: 181104534024958719
+  identification: 
+    name: Buttons
+    type: Static Content
+
+  layout: 
+    sequence: 20
+    parent-region: No Parent
+    slot: REGION_POSITION_03
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Buttons Container
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    settings: 
+      output-as: Text (escape special characters)
+      show-line-breaks: true
+
+page-items: 
+- # ====== Page Item: P21_ZAMOWIENIE_ID ========================
+  id: 181099300444958712
+  identification: 
+    name: P21_ZAMOWIENIE_ID
+    type: Hidden
+
+  settings: 
+    value-protected: true
+
+  layout: 
+    sequence: 10
+    region: Zamowienia # 181098932942958711
+    slot: BODY
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Zamowienia # 181098932942958711
+    column: ZAMOWIENIE_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: true
+
+  session-state: 
+    data-type: VARCHAR2
+    storage: Per Request (Memory Only)
+
+  security: 
+    session-state-protection: Checksum Required - Session Level
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P21_DATA_ZAMOWIENIA ======================
+  id: 181099777603958712
+  identification: 
+    name: P21_DATA_ZAMOWIENIA
+    type: Date Picker
+
+  label: 
+    label: Data Zamowienia
+    alignment: Right
+
+  settings: 
+    show-time: false
+    display-as: Popup
+    minimum-date: None
+    maximum-date: None
+    multiple-months: No
+    use-defaults: true
+
+  layout: 
+    sequence: 20
+    region: Zamowienia # 181098932942958711
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: true
+    maximum-length: 255
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Zamowienia # 181098932942958711
+    column: DATA_ZAMOWIENIA
+    data-type: DATE
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P21_DATA_REALIZACJI ======================
+  id: 181100172035958713
+  identification: 
+    name: P21_DATA_REALIZACJI
+    type: Date Picker
+
+  label: 
+    label: Data Realizacji
+    alignment: Right
+
+  settings: 
+    show-time: false
+    display-as: Popup
+    minimum-date: None
+    maximum-date: None
+    multiple-months: No
+    use-defaults: true
+
+  layout: 
+    sequence: 30
+    region: Zamowienia # 181098932942958711
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Optional - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 255
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Zamowienia # 181098932942958711
+    column: DATA_REALIZACJI
+    data-type: DATE
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P21_STATUS_ZAMOWIENIA ====================
+  id: 181100527855958713
+  identification: 
+    name: P21_STATUS_ZAMOWIENIA
+    type: Text Field
+
+  label: 
+    label: Status Zamowienia
+    alignment: Right
+
+  settings: 
+    subtype: Text
+    trim-spaces: None
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 40
+    region: Zamowienia # 181098932942958711
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: true
+    maximum-length: 100
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Zamowienia # 181098932942958711
+    column: STATUS_ZAMOWIENIA
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P21_ILOSC ================================
+  id: 181100926428958715
+  identification: 
+    name: P21_ILOSC
+    type: Number Field
+
+  label: 
+    label: Ilosc
+    alignment: Right
+
+  settings: 
+    number-alignment: Start
+    virtual-keyboard: Decimal
+
+  layout: 
+    sequence: 50
+    region: Zamowienia # 181098932942958711
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: true
+    maximum-length: 255
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Zamowienia # 181098932942958711
+    column: ILOSC
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P21_LEK_ID ===============================
+  id: 181101397160958715
+  identification: 
+    name: P21_LEK_ID
+    type: Select List
+
+  label: 
+    label: Lek
+    alignment: Right
+
+  settings: 
+    page-action-on-selection: None
+
+  multiple-values: 
+    type: No
+
+  layout: 
+    sequence: 60
+    region: Zamowienia # 181098932942958711
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    height: 1
+
+  validation: 
+    value-required: true
+
+  list-of-values: 
+    type: Shared Component
+    list-of-values: LEKI.NAZWA # 181101438371958715
+    display-extra-values: true
+    display-null-value: true
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Zamowienia # 181098932942958711
+    column: LEK_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P21_APTEKA_ID ============================
+  id: 181102077702958716
+  identification: 
+    name: P21_APTEKA_ID
+    type: Select List
+
+  label: 
+    label: Apteka
+    alignment: Right
+
+  settings: 
+    page-action-on-selection: None
+
+  multiple-values: 
+    type: No
+
+  layout: 
+    sequence: 70
+    region: Zamowienia # 181098932942958711
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    height: 1
+
+  validation: 
+    value-required: true
+
+  list-of-values: 
+    type: Shared Component
+    list-of-values: APTEKI.NAZWA # 180976452729958315
+    display-extra-values: true
+    display-null-value: true
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Zamowienia # 181098932942958711
+    column: APTEKA_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+buttons: 
+- # ====== Button: CANCEL ======================================
+  id: 181104945451958720
+  identification: 
+    button-name: CANCEL
+    label: Cancel
+
+  layout: 
+    sequence: 10
+    region: Buttons # 181104534024958719
+    slot: CLOSE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Defined by Dynamic Action
+    execute-validations: true
+
+- # ====== Button: DELETE ======================================
+  id: 181106376788958722
+  identification: 
+    button-name: DELETE
+    label: Delete
+
+  layout: 
+    sequence: 20
+    region: Buttons # 181104534024958719
+    slot: DELETE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+    - t-Button--danger
+    - t-Button--simple
+
+  behavior: 
+    action: Submit Page
+    execute-validations: false
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL DELETE action
+
+  confirmation: 
+    message: '&APP_TEXT$DELETE_MSG!RAW.'
+    style: Danger
+
+  server-side-condition: 
+    type: Item is NOT NULL
+    item: P21_ZAMOWIENIE_ID
+
+- # ====== Button: SAVE ========================================
+  id: 181106778964958722
+  identification: 
+    button-name: SAVE
+    label: Apply Changes
+
+  layout: 
+    sequence: 30
+    region: Buttons # 181104534024958719
+    slot: NEXT
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: true
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: true
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL UPDATE action
+
+  server-side-condition: 
+    type: Item is NOT NULL
+    item: P21_ZAMOWIENIE_ID
+
+- # ====== Button: CREATE ======================================
+  id: 283865268952945602
+  identification: 
+    button-name: CREATE
+    label: Create
+
+  layout: 
+    sequence: 40
+    region: Buttons # 181104534024958719
+    slot: NEXT
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: true
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: true
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL INSERT action
+
+  server-side-condition: 
+    type: Item is NULL
+    item: P21_ZAMOWIENIE_ID
+
+dynamic-actions: 
+- # ====== Dynamic Action: Cancel Dialog =======================
+  id: 181105076567958720
+  identification: 
+    name: Cancel Dialog
+
+  execution: 
+    sequence: 10
+    event-scope: Static
+    type: Immediate
+
+  when: 
+    event: Click
+    selection-type: Button
+    button: CANCEL # 181104945451958720
+
+  actions: 
+  - # ====== Action: Cancel Dialog ===============================
+    id: 181105849119958721
+    identification: 
+      action: Cancel Dialog
+
+    execution: 
+      sequence: 10
+      event: Cancel Dialog # 181105076567958720
+      fire-when-event-result-is: True
+      fire-on-initialization: false
+
+validations: 
+- # ====== Validation: New =====================================
+  id: 283865164258945601
+  identification: 
+    name: New
+
+  execution: 
+    sequence: 10
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P21_DATA_ZAMOWIENIA <= SYSDATE'
+    always-execute: false
+
+  error: 
+    error-message: Kwota zamówienia musi być większa niż 0, a data zamówienia nie może być w przyszłości.
+    display-location: Inline with Field and in Notification
+
+- # ====== Validation: nul1 ====================================
+  id: 318003488076437606
+  identification: 
+    name: nul1
+
+  execution: 
+    sequence: 20
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P21_zamowienie_id IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'zamowienie id' nie moze byc puste.
+    display-location: Inline with Field and in Notification
+    associated-item: P21_ZAMOWIENIE_ID # 181099300444958712
+
+- # ====== Validation: null2 ===================================
+  id: 318003501630437607
+  identification: 
+    name: null2
+
+  execution: 
+    sequence: 30
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P21_DATA_ZAMOWIENIA IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'data zamówienia' nie może być puste.
+    display-location: Inline with Field and in Notification
+    associated-item: P21_DATA_ZAMOWIENIA # 181099777603958712
+
+- # ====== Validation: null3 ===================================
+  id: 318003606144437608
+  identification: 
+    name: null3
+
+  execution: 
+    sequence: 40
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P21_data_realizacji IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'data realizacji' nie może być puste.
+    display-location: Inline with Field and in Notification
+    associated-item: P21_DATA_REALIZACJI # 181100172035958713
+
+- # ====== Validation: null4 ===================================
+  id: 318003731876437609
+  identification: 
+    name: null4
+
+  execution: 
+    sequence: 50
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P21_status_zamowienia IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'status zamowienia' nie moze byc puste.
+    display-location: Inline with Field and in Notification
+    associated-item: P21_STATUS_ZAMOWIENIA # 181100527855958713
+
+- # ====== Validation: litery ==================================
+  id: 318003878802437610
+  identification: 
+    name: litery
+
+  execution: 
+    sequence: 60
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P19_status_zamowienia, '^[[:alpha:]]+$')"
+    always-execute: false
+
+  error: 
+    error-message: Status zamówienia może zawierać tylko litery.
+    display-location: Inline with Field and in Notification
+    associated-item: P21_STATUS_ZAMOWIENIA # 181100527855958713
+
+- # ====== Validation: null5 ===================================
+  id: 318003973525437611
+  identification: 
+    name: null5
+
+  execution: 
+    sequence: 70
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P21_ilosc IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'ilość' nie może być puste.
+    display-location: Inline with Field and in Notification
+    associated-item: P21_ILOSC # 181100926428958715
+
+- # ====== Validation: numeric =================================
+  id: 318004092144437612
+  identification: 
+    name: numeric
+
+  execution: 
+    sequence: 80
+
+  validation: 
+    type: Item is numeric
+    item: P21_ILOSC
+    always-execute: false
+
+  error: 
+    error-message: Pole 'ilość' musi zawierać tylko cyfry.
+    display-location: Inline with Field and in Notification
+    associated-item: P21_ILOSC # 181100926428958715
+
+- # ====== Validation: null6 ===================================
+  id: 318004147046437613
+  identification: 
+    name: null6
+
+  execution: 
+    sequence: 90
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P21_lek_id IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'lek id' nie może być puste.
+    display-location: Inline with Field and in Notification
+    associated-item: P21_LEK_ID # 181101397160958715
+
+- # ====== Validation: null7 ===================================
+  id: 318004292815437614
+  identification: 
+    name: null7
+
+  execution: 
+    sequence: 100
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P21_apteka_id IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'apteka id' nie może być puste.
+    display-location: Inline with Field and in Notification
+    associated-item: P21_APTEKA_ID # 181102077702958716
+
+processes: 
+- # ====== Process: Initialize form Zamowienia =================
+  id: 181107581370958723
+  identification: 
+    name: Initialize form Zamowienia
+    type: Form - Initialization
+    execution-chain: None
+    form-region: Zamowienia # 181098932942958711
+
+  execution: 
+    sequence: 10
+    point: Before Header
+    run-process: Once Per Page Visit (default)
+
+- # ====== Process: Process form Zamowienia ====================
+  id: 181107989039958723
+  identification: 
+    name: Process form Zamowienia
+    type: Form - Automatic Row Processing (DML)
+    execution-chain: None
+    form-region: Zamowienia # 181098932942958711
+
+  settings: 
+    target-type: Region Source
+    prevent-lost-updates: true
+    lock-row: Yes
+    return-primary-key(s)-after-insert: true
+
+  execution: 
+    sequence: 10
+    point: Processing
+    run-process: Once Per Page Visit (default)
+
+  error: 
+    display-location: Inline in Notification
+
+- # ====== Process: Close Dialog ===============================
+  id: 181108361677958724
+  identification: 
+    name: Close Dialog
+    type: Close Dialog
+    execution-chain: None
+
+  settings: 
+    show-success-messages: true
+
+  execution: 
+    sequence: 50
+    point: Processing
+    run-process: Once Per Page Visit (default)
+
+  error: 
+    display-location: Inline in Notification
+
+  server-side-condition: 
+    type: Request is contained in Value
+    value: CREATE,SAVE,DELETE
+

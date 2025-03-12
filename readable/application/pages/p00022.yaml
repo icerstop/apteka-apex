@@ -1,0 +1,887 @@
+---
+# ====== Page: Statystyki Recept =============================
+id: 22
+identification: 
+  name: Statystyki Recept
+  alias: STATYSTYKI-RECEPT
+  title: Statystyki Recept
+
+appearance: 
+  page-mode: Normal
+  page-template: Theme Default
+  template-options: 
+  - '#DEFAULT#'
+
+navigation-menu: 
+  override-user-interface-level: false
+
+navigation: 
+  cursor-focus: Do not focus cursor
+  warn-on-unsaved-changes: true
+
+security: 
+  authentication: Page Requires Authentication
+  deep-linking: Application Default
+  page-access-protection: Arguments Must Have Checksum
+  form-auto-complete: Off
+  browser-cache: Application Default
+
+session-management: 
+  rejoin-sessions: Application Default
+
+advanced: 
+  enable-duplicate-page-submissions: Yes - Enable page to be re-posted
+  reload-on-submit: Only for Success
+
+server-cache: 
+  caching: Disabled
+
+regions: 
+- # ====== Region: Recepty Miesięcznie =========================
+  id: 212636675118800121
+  identification: 
+    name: Recepty Miesięcznie
+    title: Recepty Miesięcznie
+    type: Chart
+
+  source: 
+    location: None
+
+  layout: 
+    sequence: 30
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: false
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Standard
+    template-options: 
+    - '#DEFAULT#'
+    - t-Region--scrollBody
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  security: 
+    escape-special-characters: true
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    id: 212636734044800122
+    chart: 
+      type: Bar
+
+    appearance: 
+      orientation: Vertical
+      stack: false
+
+    layout: 
+      height: 400
+
+    data-cursor: 
+      cursor: Automatic
+      behavior: Automatic
+      dim-on-hover: true
+
+    multi-series-chart-data: 
+      fill-gaps-in-chart-data: true
+      sort-order: Label - Ascending
+      render-gap-as-zero: true
+
+    settings: 
+      zoom-and-scroll: No
+
+    animation: 
+      on-display: Automatic
+      on-data-change: Automatic
+
+    tooltip: 
+      show: true
+      show-series-name: true
+      show-group-name: true
+      show-value: true
+
+    legend: 
+      show: false
+
+    series: 
+    - # ====== Series: New =========================================
+      id: 212636869452800123
+      identification: 
+        name: New
+
+      execution: 
+        sequence: 10
+
+      source: 
+        location: Local Database
+        type: SQL Query
+        sql-query: |
+          SELECT
+              TO_CHAR(data_wystawienia, 'MM') AS MIESIAC,  -- Kolumna zawierająca numer kwartału (1,2,3,4)
+              COUNT(*)                       AS LICZBA_RECEPT
+          FROM Recepty
+          GROUP BY 
+              TO_CHAR(data_wystawienia, 'MM')
+          ORDER BY 
+              TO_CHAR(data_wystawienia, 'MM');
+          
+
+      column-mapping: 
+        series-name: MIESIAC
+        label: MIESIAC
+        value: LICZBA_RECEPT
+
+      appearance: 
+        assigned-to-y2-axis: false
+
+      label: 
+        show: false
+
+    axes: 
+    - # ====== Axis: x =============================================
+      id: 212636905086800124
+      identification: 
+        name: x
+        show-axis: true
+
+      value: 
+        format-scaling: Automatic
+        baseline-scaling: Zero
+        scale: Linear
+
+      major-ticks: 
+        show: Yes
+
+      minor-ticks: 
+        show: false
+
+      tick-label: 
+        show: true
+        rotation: true
+        position: Outside
+
+    - # ====== Axis: y =============================================
+      id: 212637051331800125
+      identification: 
+        name: y
+        show-axis: true
+
+      value: 
+        format: Decimal
+        decimal-places: 0
+        format-scaling: None
+        baseline-scaling: Zero
+        scale: Linear
+
+      appearance: 
+        position: Automatic
+
+      major-ticks: 
+        show: Yes
+
+      minor-ticks: 
+        show: false
+
+      tick-label: 
+        show: true
+
+- # ====== Region: Średnia Oczekiwania Na Receptę ==============
+  id: 212638089672800135
+  identification: 
+    name: Średnia Oczekiwania Na Receptę
+    type: Dynamic Content
+
+  source: 
+    language: PL/SQL
+    pl/sql-function-body-returning-a-clob: |
+      DECLARE
+          v_avg_wait NUMBER;
+      BEGIN
+          SELECT ROUND(AVG(NVL(DATA_REALIZACJI - DATA_WYSTAWIENIA + 1, 1)), 2)
+            INTO v_avg_wait
+            FROM RECEPTY
+           WHERE STATUS = 'Zrealizowana';
+      
+          -- "Wypisujemy" treść w regionie (HTML)
+          htp.p('<h2>Średni czas realizacji wynosi: ' || v_avg_wait || ' dni</h2>');
+      END;
+      
+
+  layout: 
+    sequence: 10
+    parent-region: Czas Realizacji Recept # 217050615337291605
+    slot: SUB_REGIONS
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Interactive Report
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  server-cache: 
+    caching: Disabled
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    performance: 
+      lazy-loading: false
+
+- # ====== Region: Breadcrumb ==================================
+  id: 217047110698291593
+  identification: 
+    name: Breadcrumb
+    type: Breadcrumb
+
+  source: 
+    breadcrumb: Breadcrumb # 180651755834957693
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: REGION_POSITION_01
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Title Bar
+    template-options: 
+    - '#DEFAULT#'
+    - t-BreadcrumbRegion--useBreadcrumbTitle
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    appearance: 
+      breadcrumb-template: Breadcrumb
+      template-options: 
+      - '#DEFAULT#'
+
+- # ====== Region: Statusy Recept ==============================
+  id: 217047853648291594
+  identification: 
+    name: Statusy Recept
+    title: Statusy Recept
+    type: Chart
+
+  source: 
+    location: None
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Standard
+    template-options: 
+    - '#DEFAULT#'
+    - t-Region--scrollBody
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  security: 
+    escape-special-characters: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    id: 217048252750291595
+    chart: 
+      type: Pie
+
+    layout: 
+      height: 400
+
+    data-cursor: 
+      cursor: Automatic
+      behavior: Automatic
+      dim-on-hover: true
+
+    settings: 
+      pie-selection-effect: Highlight
+
+    value: 
+      pie-chart-other-threshold: 0
+      format: Decimal
+      decimal-places: 0
+      format-scaling: None
+
+    animation: 
+      on-display: Automatic
+      on-data-change: Automatic
+
+    tooltip: 
+      show: true
+      show-series-name: true
+      show-value: true
+
+    legend: 
+      show: true
+      position: Automatic
+      hide-and-show-behavior: Rescale
+
+    series: 
+    - # ====== Series: Statusy Recept ==============================
+      id: 217049962474291597
+      identification: 
+        name: Statusy Recept
+
+      execution: 
+        sequence: 10
+
+      source: 
+        location: Local Database
+        type: SQL Query
+        sql-query: |
+          SELECT 'Zrealizowana' AS label, COUNT(*) AS value
+          FROM RECEPTY
+          WHERE STATUS = 'Zrealizowana'
+          UNION ALL
+          SELECT 'Oczekująca' AS label, COUNT(*) AS value
+          FROM RECEPTY
+          WHERE STATUS = 'Oczekująca'
+          UNION ALL
+          SELECT 'W trakcie' AS label, COUNT(*) AS value
+          FROM RECEPTY
+          WHERE STATUS = 'W trakcie';
+          
+
+      column-mapping: 
+        label: LABEL
+        value: VALUE
+
+      label: 
+        show: true
+        position: Automatic
+        display-as: Label
+
+      performance: 
+        maximum-rows-to-process: 20
+
+- # ====== Region: Czas Realizacji Recept ======================
+  id: 217050615337291605
+  identification: 
+    name: Czas Realizacji Recept
+    title: Czas Realizacji Recept
+    type: Chart
+
+  source: 
+    location: None
+
+  layout: 
+    sequence: 20
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Standard
+    template-options: 
+    - '#DEFAULT#'
+    - t-Region--scrollBody
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  security: 
+    escape-special-characters: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    id: 217051015516291605
+    chart: 
+      type: Bubble
+
+    layout: 
+      height: 400
+
+    data-cursor: 
+      cursor: Automatic
+      behavior: Automatic
+      dim-on-hover: true
+
+    multi-series-chart-data: 
+      fill-gaps-in-chart-data: true
+      sort-order: Label - Ascending
+
+    settings: 
+      zoom-and-scroll: No
+
+    animation: 
+      on-display: Automatic
+      on-data-change: Automatic
+
+    tooltip: 
+      show: true
+      show-series-name: true
+      show-group-name: true
+      show-value: true
+
+    legend: 
+      show: false
+
+    series: 
+    - # ====== Series: Dni Realizacji ==============================
+      id: 217051593449291606
+      identification: 
+        name: Dni Realizacji
+
+      execution: 
+        sequence: 10
+
+      source: 
+        location: Local Database
+        type: SQL Query
+        sql-query: |
+          SELECT 
+              NVL(DATA_REALIZACJI - DATA_WYSTAWIENIA + 1, 1) AS label, 
+              COUNT(*) AS value
+          FROM 
+              RECEPTY
+          WHERE 
+              STATUS = 'Zrealizowana'
+          GROUP BY 
+              NVL(DATA_REALIZACJI - DATA_WYSTAWIENIA + 1, 1)
+          ORDER BY 
+              label;
+          
+
+      column-mapping: 
+        label: LABEL
+        x: LABEL
+        y: VALUE
+
+      appearance: 
+        color: '#000000'
+
+      line: 
+        style: Dotted
+
+      marker: 
+        show: Automatic
+        shape: Automatic
+
+      label: 
+        show: true
+        position: Automatic
+
+      performance: 
+        maximum-rows-to-process: 20
+
+    axes: 
+    - # ====== Axis: x =============================================
+      id: 212636212061800117
+      identification: 
+        name: x
+        show-axis: true
+
+      value: 
+        format-scaling: Automatic
+        baseline-scaling: Zero
+        scale: Linear
+
+      major-ticks: 
+        show: Yes
+
+      minor-ticks: 
+        show: false
+
+      tick-label: 
+        show: true
+        rotation: true
+        position: Outside
+
+    - # ====== Axis: y =============================================
+      id: 212636393790800118
+      identification: 
+        name: y
+        show-axis: true
+
+      value: 
+        format-scaling: None
+        baseline-scaling: Zero
+        scale: Linear
+
+      appearance: 
+        position: Automatic
+
+      major-ticks: 
+        show: Yes
+
+      minor-ticks: 
+        show: false
+
+      tick-label: 
+        show: true
+
+- # ====== Region: Recepty Kwartalnie ==========================
+  id: 217052142932291606
+  identification: 
+    name: Recepty Kwartalnie
+    title: Recepty Kwartalnie
+    type: Chart
+
+  source: 
+    location: None
+
+  layout: 
+    sequence: 40
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: false
+    column: Automatic
+    new-column: false
+    column-span: Automatic
+
+  appearance: 
+    template: Standard
+    template-options: 
+    - '#DEFAULT#'
+    - t-Region--scrollBody
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  security: 
+    escape-special-characters: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    id: 217052510646291607
+    chart: 
+      type: Bar
+
+    appearance: 
+      orientation: Vertical
+      stack: false
+
+    data-cursor: 
+      cursor: Automatic
+      behavior: Automatic
+      dim-on-hover: true
+
+    multi-series-chart-data: 
+      fill-gaps-in-chart-data: true
+      sort-order: Label - Ascending
+      render-gap-as-zero: true
+
+    settings: 
+      zoom-and-scroll: No
+
+    animation: 
+      on-display: Automatic
+      on-data-change: Automatic
+
+    tooltip: 
+      show: true
+      show-series-name: true
+      show-group-name: true
+      show-value: true
+
+    legend: 
+      show: false
+
+    series: 
+    - # ====== Series: Recepty Kwartalnie ==========================
+      id: 217054208118291608
+      identification: 
+        name: Recepty Kwartalnie
+
+      execution: 
+        sequence: 10
+
+      source: 
+        location: Local Database
+        type: SQL Query
+        sql-query: |
+          SELECT
+              TO_CHAR(data_wystawienia, 'Q') AS KWARTAL,  -- Kolumna zawierająca numer kwartału (1,2,3,4)
+              COUNT(*)                       AS LICZBA_RECEPT
+          FROM Recepty
+          GROUP BY 
+              TO_CHAR(data_wystawienia, 'Q')
+          ORDER BY 
+              TO_CHAR(data_wystawienia, 'Q');
+          
+
+      column-mapping: 
+        series-name: KWARTAL
+        label: KWARTAL
+        value: LICZBA_RECEPT
+
+      appearance: 
+        assigned-to-y2-axis: false
+
+      label: 
+        show: false
+
+      performance: 
+        maximum-rows-to-process: 20
+
+    axes: 
+    - # ====== Axis: x =============================================
+      id: 217053018158291607
+      identification: 
+        name: x
+        show-axis: true
+
+      value: 
+        format-scaling: Automatic
+        baseline-scaling: Zero
+        scale: Linear
+
+      major-ticks: 
+        show: Automatic
+
+      minor-ticks: 
+
+      tick-label: 
+        show: true
+        rotation: true
+        position: Outside
+
+    - # ====== Axis: y =============================================
+      id: 217053692930291608
+      identification: 
+        name: y
+        show-axis: true
+
+      value: 
+        format-scaling: Automatic
+        baseline-scaling: Zero
+        scale: Linear
+
+      appearance: 
+        position: Automatic
+
+      major-ticks: 
+        show: Automatic
+
+      minor-ticks: 
+
+      tick-label: 
+        show: true
+
+buttons: 
+- # ====== Button: Miesięcznie =================================
+  id: 212636430287800119
+  identification: 
+    button-name: Miesięcznie
+    label: Miesięcznie
+
+  layout: 
+    sequence: 10
+    region: Recepty Kwartalnie # 217052142932291606
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    alignment: Left center
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Defined by Dynamic Action
+    execute-validations: true
+
+- # ====== Button: Kwartalnie ==================================
+  id: 212637426959800129
+  identification: 
+    button-name: Kwartalnie
+    label: Kwartalnie
+
+  layout: 
+    sequence: 10
+    region: Recepty Miesięcznie # 212636675118800121
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    alignment: Left center
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Defined by Dynamic Action
+    execute-validations: true
+
+dynamic-actions: 
+- # ====== Dynamic Action: Pokaż Miesięcznie ===================
+  id: 212637145018800126
+  identification: 
+    name: Pokaż Miesięcznie
+
+  execution: 
+    sequence: 10
+    event-scope: Static
+    type: Immediate
+
+  when: 
+    event: Click
+    selection-type: Button
+    button: Miesięcznie # 212636430287800119
+
+  actions: 
+  - # ====== Action: Show ========================================
+    id: 212637291274800127
+    identification: 
+      action: Show
+
+    affected-elements: 
+      selection-type: Region
+      region: Recepty Miesięcznie # 212636675118800121
+
+    execution: 
+      sequence: 10
+      event: Pokaż Miesięcznie # 212637145018800126
+      fire-when-event-result-is: True
+      fire-on-initialization: true
+
+  - # ====== Action: Hide ========================================
+    id: 212637351478800128
+    identification: 
+      action: Hide
+
+    affected-elements: 
+      selection-type: Region
+      region: Recepty Kwartalnie # 217052142932291606
+
+    execution: 
+      sequence: 10
+      event: Pokaż Miesięcznie # 212637145018800126
+      fire-when-event-result-is: True
+      fire-on-initialization: true
+
+- # ====== Dynamic Action: Pokaż kwartalnie ====================
+  id: 212637526611800130
+  identification: 
+    name: Pokaż kwartalnie
+
+  execution: 
+    sequence: 20
+    event-scope: Static
+    type: Immediate
+
+  when: 
+    event: Click
+    selection-type: Button
+    button: Kwartalnie # 212637426959800129
+
+  actions: 
+  - # ====== Action: Show ========================================
+    id: 212637678087800131
+    identification: 
+      action: Show
+
+    affected-elements: 
+      selection-type: Region
+      region: Recepty Kwartalnie # 217052142932291606
+
+    execution: 
+      sequence: 10
+      event: Pokaż kwartalnie # 212637526611800130
+      fire-when-event-result-is: True
+      fire-on-initialization: true
+
+  - # ====== Action: Hide ========================================
+    id: 212637733362800132
+    identification: 
+      action: Hide
+
+    affected-elements: 
+      selection-type: Region
+      region: Recepty Miesięcznie # 212636675118800121
+
+    execution: 
+      sequence: 20
+      event: Pokaż kwartalnie # 212637526611800130
+      fire-when-event-result-is: True
+      fire-on-initialization: true
+

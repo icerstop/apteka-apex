@@ -1,0 +1,1029 @@
+---
+# ====== Page: Recepty =======================================
+id: 15
+identification: 
+  name: Recepty
+  alias: RECEPTY
+  title: Recepty
+
+appearance: 
+  page-mode: Modal Dialog
+  dialog-template: Drawer
+  template-options: 
+  - '#DEFAULT#'
+  - js-dialog-class-t-Drawer--pullOutEnd
+
+dialog: 
+  chained: false
+
+navigation-menu: 
+  override-user-interface-level: false
+
+navigation: 
+  cursor-focus: Do not focus cursor
+  warn-on-unsaved-changes: true
+
+security: 
+  authentication: Page Requires Authentication
+  deep-linking: Application Default
+  page-access-protection: Arguments Must Have Checksum
+  form-auto-complete: Off
+  browser-cache: Application Default
+
+session-management: 
+  rejoin-sessions: Application Default
+
+advanced: 
+  enable-duplicate-page-submissions: Yes - Enable page to be re-posted
+  reload-on-submit: Only for Success
+
+server-cache: 
+  caching: Disabled
+
+regions: 
+- # ====== Region: Recepty =====================================
+  id: 181052345682958563
+  identification: 
+    name: Recepty
+    type: Form
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: RECEPTY
+    include-rowid-column: false
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Blank with Attributes
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    edit: 
+      enabled: true
+      allowed-operations: 
+      - Add Row
+      - Update Row
+      - Delete Row
+      lost-update-type: Row Values
+
+- # ====== Region: Buttons =====================================
+  id: 181058268750958571
+  identification: 
+    name: Buttons
+    type: Static Content
+
+  layout: 
+    sequence: 20
+    parent-region: No Parent
+    slot: REGION_POSITION_03
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Buttons Container
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    settings: 
+      output-as: Text (escape special characters)
+      show-line-breaks: true
+
+page-items: 
+- # ====== Page Item: P15_RECEPTA_ID ===========================
+  id: 181052725050958564
+  identification: 
+    name: P15_RECEPTA_ID
+    type: Hidden
+
+  settings: 
+    value-protected: true
+
+  layout: 
+    sequence: 10
+    region: Recepty # 181052345682958563
+    slot: BODY
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Recepty # 181052345682958563
+    column: RECEPTA_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: true
+
+  session-state: 
+    data-type: VARCHAR2
+    storage: Per Request (Memory Only)
+
+  security: 
+    session-state-protection: Checksum Required - Session Level
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P15_DATA_WYSTAWIENIA =====================
+  id: 181053136131958564
+  identification: 
+    name: P15_DATA_WYSTAWIENIA
+    type: Date Picker
+
+  label: 
+    label: Data Wystawienia
+    alignment: Left
+
+  settings: 
+    show-time: false
+    display-as: Popup
+    minimum-date: None
+    maximum-date: None
+    multiple-months: No
+    use-defaults: true
+
+  layout: 
+    sequence: 20
+    region: Recepty # 181052345682958563
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 255
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Recepty # 181052345682958563
+    column: DATA_WYSTAWIENIA
+    data-type: DATE
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P15_DATA_REALIZACJI ======================
+  id: 181053546307958565
+  identification: 
+    name: P15_DATA_REALIZACJI
+    type: Date Picker
+
+  label: 
+    label: Data Realizacji
+    alignment: Left
+
+  settings: 
+    show-time: false
+    display-as: Popup
+    minimum-date: None
+    maximum-date: None
+    multiple-months: No
+    use-defaults: true
+
+  layout: 
+    sequence: 30
+    region: Recepty # 181052345682958563
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Optional - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 255
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Recepty # 181052345682958563
+    column: DATA_REALIZACJI
+    data-type: DATE
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P15_STATUS ===============================
+  id: 181053922972958565
+  identification: 
+    name: P15_STATUS
+    type: Select List
+
+  label: 
+    label: Status
+    alignment: Left
+
+  settings: 
+    page-action-on-selection: None
+
+  multiple-values: 
+    type: No
+
+  layout: 
+    sequence: 40
+    region: Recepty # 181052345682958563
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    height: 1
+
+  validation: 
+    value-required: false
+
+  list-of-values: 
+    type: Shared Component
+    list-of-values: RECEPTY.STATUS # 181007497032958417
+    display-extra-values: true
+    display-null-value: true
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Recepty # 181052345682958563
+    column: STATUS
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P15_ILOSC ================================
+  id: 181054326249958566
+  identification: 
+    name: P15_ILOSC
+    type: Text Field
+
+  label: 
+    label: Ilosc
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: Leading and Trailing
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 60
+    region: Recepty # 181052345682958563
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: false
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 255
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Recepty # 181052345682958563
+    column: ILOSC
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P15_PACJENT_ID ===========================
+  id: 181054744824958566
+  identification: 
+    name: P15_PACJENT_ID
+    type: Select List
+
+  label: 
+    label: Pacjent
+    alignment: Left
+
+  settings: 
+    page-action-on-selection: None
+
+  multiple-values: 
+    type: No
+
+  layout: 
+    sequence: 70
+    region: Recepty # 181052345682958563
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    height: 1
+
+  validation: 
+    value-required: false
+
+  list-of-values: 
+    type: Shared Component
+    list-of-values: PACJENCI.IMIE # 181054884840958566
+    display-extra-values: true
+    display-null-value: true
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Recepty # 181052345682958563
+    column: PACJENT_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P15_LEKARZ_ID ============================
+  id: 181055401648958568
+  identification: 
+    name: P15_LEKARZ_ID
+    type: Select List
+
+  label: 
+    label: Lekarz
+    alignment: Left
+
+  settings: 
+    page-action-on-selection: None
+
+  multiple-values: 
+    type: No
+
+  layout: 
+    sequence: 80
+    region: Recepty # 181052345682958563
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    height: 1
+
+  validation: 
+    value-required: false
+
+  list-of-values: 
+    type: Shared Component
+    list-of-values: LEKARZE.IMIE # 181055566037958568
+    display-extra-values: true
+    display-null-value: true
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Recepty # 181052345682958563
+    column: LEKARZ_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P15_LEK_ID ===============================
+  id: 212635749155800112
+  identification: 
+    name: P15_LEK_ID
+    type: Select List
+
+  label: 
+    label: Lek
+    alignment: Left
+
+  settings: 
+    page-action-on-selection: None
+
+  multiple-values: 
+    type: No
+
+  layout: 
+    sequence: 50
+    region: Recepty # 181052345682958563
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    height: 1
+
+  validation: 
+    value-required: false
+
+  list-of-values: 
+    type: Shared Component
+    list-of-values: LEKI.NAZWA # 181101438371958715
+    display-extra-values: true
+    display-null-value: true
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Recepty # 181052345682958563
+    column: LEK_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+buttons: 
+- # ====== Button: CANCEL ======================================
+  id: 181058655633958571
+  identification: 
+    button-name: CANCEL
+    label: Anuluj
+
+  layout: 
+    sequence: 10
+    region: Buttons # 181058268750958571
+    slot: CLOSE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Defined by Dynamic Action
+    execute-validations: true
+
+- # ====== Button: DELETE ======================================
+  id: 181060026165958573
+  identification: 
+    button-name: DELETE
+    label: Usuń
+
+  layout: 
+    sequence: 20
+    region: Buttons # 181058268750958571
+    slot: DELETE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+    - t-Button--danger
+    - t-Button--simple
+
+  behavior: 
+    action: Submit Page
+    execute-validations: false
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL DELETE action
+
+  confirmation: 
+    message: '&APP_TEXT$DELETE_MSG!RAW.'
+    style: Danger
+
+  server-side-condition: 
+    type: Item is NOT NULL
+    item: P15_RECEPTA_ID
+
+- # ====== Button: SAVE ========================================
+  id: 181060418737958573
+  identification: 
+    button-name: SAVE
+    label: Zapisz Zmiany
+
+  layout: 
+    sequence: 30
+    region: Buttons # 181058268750958571
+    slot: NEXT
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: true
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: true
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL UPDATE action
+
+  server-side-condition: 
+    type: Item is NOT NULL
+    item: P15_RECEPTA_ID
+
+- # ====== Button: CREATE ======================================
+  id: 181060857535958573
+  identification: 
+    button-name: CREATE
+    label: Dodaj Receptę
+
+  layout: 
+    sequence: 40
+    region: Buttons # 181058268750958571
+    slot: NEXT
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: true
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: true
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL INSERT action
+
+  server-side-condition: 
+    type: Item is NULL
+    item: P15_RECEPTA_ID
+
+dynamic-actions: 
+- # ====== Dynamic Action: Cancel Dialog =======================
+  id: 181058739005958571
+  identification: 
+    name: Cancel Dialog
+
+  execution: 
+    sequence: 10
+    event-scope: Static
+    type: Immediate
+
+  when: 
+    event: Click
+    selection-type: Button
+    button: CANCEL # 181058655633958571
+
+  actions: 
+  - # ====== Action: Cancel Dialog ===============================
+    id: 181059529622958572
+    identification: 
+      action: Cancel Dialog
+
+    execution: 
+      sequence: 10
+      event: Cancel Dialog # 181058739005958571
+      fire-when-event-result-is: True
+      fire-on-initialization: false
+
+validations: 
+- # ====== Validation: niePuste3 ===============================
+  id: 212636196691800116
+  identification: 
+    name: niePuste3
+
+  execution: 
+    sequence: 10
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P15_LEK_ID IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Lek' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P15_LEK_ID # 212635749155800112
+
+- # ====== Validation: niepuste ================================
+  id: 283868299882945632
+  identification: 
+    name: niepuste
+
+  execution: 
+    sequence: 30
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P15_DATA_WYSTAWIENIA IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Data Wystawienia' nie może być puste.
+    display-location: Inline with Field and in Notification
+    associated-item: P15_DATA_WYSTAWIENIA # 181053136131958564
+
+- # ====== Validation: niepuste1 ===============================
+  id: 283868312886945633
+  identification: 
+    name: niepuste1
+
+  execution: 
+    sequence: 40
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P15_DATA_REALIZACJI IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Data realizacji' nie może być puste!
+    display-location: Inline with Field and in Notification
+    associated-item: P15_DATA_REALIZACJI # 181053546307958565
+
+- # ====== Validation: niepuste2 ===============================
+  id: 283868461440945634
+  identification: 
+    name: niepuste2
+
+  execution: 
+    sequence: 50
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P15_STATUS IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Status' nie może być puste!
+    display-location: Inline with Field and in Notification
+    associated-item: P15_STATUS # 181053922972958565
+
+- # ====== Validation: tylkoLitery =============================
+  id: 283868563392945635
+  identification: 
+    name: tylkoLitery
+
+  execution: 
+    sequence: 60
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P15_STATUS, '^[[:alpha:]]+$')"
+    always-execute: false
+
+  error: 
+    error-message: Pole 'status' może zawierać tylko litery!
+    display-location: Inline with Field and in Notification
+    associated-item: P15_STATUS # 181053922972958565
+
+- # ====== Validation: notnull4 ================================
+  id: 283868650430945636
+  identification: 
+    name: notnull4
+
+  execution: 
+    sequence: 70
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P15_ILOSC IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Ilość' nie może być puste.
+    display-location: Inline with Field and in Notification
+    associated-item: P15_ILOSC # 181054326249958566
+
+- # ====== Validation: notnull5 ================================
+  id: 283868750325945637
+  identification: 
+    name: notnull5
+
+  execution: 
+    sequence: 80
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P15_PACJENT_ID IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Pacjent' nie może być puste!
+    display-location: Inline with Field and in Notification
+    associated-item: P15_PACJENT_ID # 181054744824958566
+
+- # ====== Validation: notnull6 ================================
+  id: 283868807773945638
+  identification: 
+    name: notnull6
+
+  execution: 
+    sequence: 90
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P15_LEKARZ_ID IS NOT NULL'
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Lekarz' nie może być puste!
+    display-location: Inline with Field and in Notification
+    associated-item: P15_LEKARZ_ID # 181055401648958568
+
+- # ====== Validation: New =====================================
+  id: 341244833101118122
+  identification: 
+    name: New
+
+  execution: 
+    sequence: 100
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: 'NVL(:P15_DATA_REALIZACJI, SYSDATE) <= NVL(:P15_DATA_WYSTAWIENIA, SYSDATE)'
+    always-execute: false
+
+  error: 
+    error-message: Data realizacji nie może być wcześniejsza od daty wystawienia
+    display-location: Inline with Field and in Notification
+    associated-item: P15_DATA_REALIZACJI # 181053546307958565
+
+- # ====== Validation: New_2 ===================================
+  id: 341245129865118125
+  identification: 
+    name: New_2
+
+  execution: 
+    sequence: 120
+
+  validation: 
+    type: Item is numeric
+    item: P15_ILOSC
+    always-execute: false
+
+  error: 
+    error-message: W polu 'Ilość' wpisz liczbę
+    display-location: Inline with Field and in Notification
+    associated-item: P15_ILOSC # 181054326249958566
+
+- # ====== Validation: New_1 ===================================
+  id: 341245238815118126
+  identification: 
+    name: New_1
+
+  execution: 
+    sequence: 130
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: 'NVL(:P15_DATA_REALIZACJI, SYSDATE) <= NVL(:P15_DATA_WYSTAWIENIA, SYSDATE)'
+    always-execute: false
+
+  error: 
+    error-message: Data realizacji nie może być wcześniejsza od daty wystawienia
+    display-location: Inline with Field and in Notification
+    associated-item: P15_DATA_WYSTAWIENIA # 181053136131958564
+
+processes: 
+- # ====== Process: Initialize form Recepty ====================
+  id: 181061233648958574
+  identification: 
+    name: Initialize form Recepty
+    type: Form - Initialization
+    execution-chain: None
+    form-region: Recepty # 181052345682958563
+
+  execution: 
+    sequence: 10
+    point: Before Header
+    run-process: Once Per Page Visit (default)
+
+- # ====== Process: Process form Recepty =======================
+  id: 181061615770958574
+  identification: 
+    name: Process form Recepty
+    type: Form - Automatic Row Processing (DML)
+    execution-chain: None
+    form-region: Recepty # 181052345682958563
+
+  settings: 
+    target-type: Region Source
+    prevent-lost-updates: true
+    lock-row: Yes
+    return-primary-key(s)-after-insert: true
+
+  execution: 
+    sequence: 10
+    point: Processing
+    run-process: Once Per Page Visit (default)
+
+  error: 
+    display-location: Inline in Notification
+
+- # ====== Process: Close Dialog ===============================
+  id: 181062064193958574
+  identification: 
+    name: Close Dialog
+    type: Close Dialog
+    execution-chain: None
+
+  settings: 
+    show-success-messages: true
+
+  execution: 
+    sequence: 50
+    point: Processing
+    run-process: Once Per Page Visit (default)
+
+  error: 
+    display-location: Inline in Notification
+
+  server-side-condition: 
+    type: Request is contained in Value
+    value: CREATE,SAVE,DELETE
+

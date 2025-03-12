@@ -1,0 +1,983 @@
+---
+# ====== Page: Pacjenci ======================================
+id: 11
+identification: 
+  name: Pacjenci
+  alias: PACJENCI
+  title: Pacjenci
+
+appearance: 
+  page-mode: Modal Dialog
+  dialog-template: Drawer
+  template-options: 
+  - '#DEFAULT#'
+  - js-dialog-class-t-Drawer--pullOutEnd
+
+dialog: 
+  chained: false
+
+navigation-menu: 
+  override-user-interface-level: false
+
+navigation: 
+  cursor-focus: Do not focus cursor
+  warn-on-unsaved-changes: true
+
+security: 
+  authentication: Page Requires Authentication
+  deep-linking: Application Default
+  page-access-protection: Arguments Must Have Checksum
+  form-auto-complete: Off
+  browser-cache: Application Default
+
+session-management: 
+  rejoin-sessions: Application Default
+
+advanced: 
+  enable-duplicate-page-submissions: Yes - Enable page to be re-posted
+  reload-on-submit: Only for Success
+
+server-cache: 
+  caching: Disabled
+
+regions: 
+- # ====== Region: Pacjenci ====================================
+  id: 181021392210958464
+  identification: 
+    name: Pacjenci
+    type: Form
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: PACJENCI
+    include-rowid-column: false
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Blank with Attributes
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    edit: 
+      enabled: true
+      allowed-operations: 
+      - Add Row
+      - Update Row
+      - Delete Row
+      lost-update-type: Row Values
+
+- # ====== Region: Buttons =====================================
+  id: 181026691594958471
+  identification: 
+    name: Buttons
+    type: Static Content
+
+  layout: 
+    sequence: 20
+    parent-region: No Parent
+    slot: REGION_POSITION_03
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Buttons Container
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    settings: 
+      output-as: Text (escape special characters)
+      show-line-breaks: true
+
+page-items: 
+- # ====== Page Item: P11_PACJENT_ID ===========================
+  id: 181021733135958464
+  identification: 
+    name: P11_PACJENT_ID
+    type: Hidden
+
+  settings: 
+    value-protected: true
+
+  layout: 
+    sequence: 20
+    region: Pacjenci # 181021392210958464
+    slot: BODY
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Pacjenci # 181021392210958464
+    column: PACJENT_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: true
+
+  session-state: 
+    data-type: VARCHAR2
+    storage: Per Request (Memory Only)
+
+  security: 
+    session-state-protection: Checksum Required - Session Level
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P11_IMIE =================================
+  id: 181022197595958465
+  identification: 
+    name: P11_IMIE
+    type: Text Field
+
+  label: 
+    label: Imie
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: None
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 10
+    region: Pacjenci # 181021392210958464
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 100
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Pacjenci # 181021392210958464
+    column: IMIE
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P11_NAZWISKO =============================
+  id: 181022541545958465
+  identification: 
+    name: P11_NAZWISKO
+    type: Text Field
+
+  label: 
+    label: Nazwisko
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: None
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 40
+    region: Pacjenci # 181021392210958464
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: false
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 100
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Pacjenci # 181021392210958464
+    column: NAZWISKO
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P11_DATA_URODZENIA =======================
+  id: 181022942758958466
+  identification: 
+    name: P11_DATA_URODZENIA
+    type: Date Picker
+
+  label: 
+    label: Data Urodzenia
+    alignment: Left
+
+  settings: 
+    show-time: false
+    display-as: Popup
+    minimum-date: None
+    maximum-date: None
+    multiple-months: No
+    use-defaults: true
+
+  layout: 
+    sequence: 70
+    region: Pacjenci # 181021392210958464
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 255
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Pacjenci # 181021392210958464
+    column: DATA_URODZENIA
+    data-type: DATE
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P11_ADRES ================================
+  id: 181023342155958467
+  identification: 
+    name: P11_ADRES
+    type: Text Field
+
+  label: 
+    label: Adres
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: None
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 60
+    region: Pacjenci # 181021392210958464
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 100
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Pacjenci # 181021392210958464
+    column: ADRES
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P11_TELEFON ==============================
+  id: 181023752730958468
+  identification: 
+    name: P11_TELEFON
+    type: Text Field
+
+  label: 
+    label: Telefon
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: Leading and Trailing
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 80
+    region: Pacjenci # 181021392210958464
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 255
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Pacjenci # 181021392210958464
+    column: TELEFON
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P11_PESEL ================================
+  id: 181024114566958468
+  identification: 
+    name: P11_PESEL
+    type: Text Field
+
+  label: 
+    label: Pesel
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: Leading and Trailing
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 90
+    region: Pacjenci # 181021392210958464
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 255
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Pacjenci # 181021392210958464
+    column: PESEL
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+buttons: 
+- # ====== Button: CANCEL ======================================
+  id: 181027065029958471
+  identification: 
+    button-name: CANCEL
+    label: Anuluj
+
+  layout: 
+    sequence: 10
+    region: Buttons # 181026691594958471
+    slot: CLOSE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Defined by Dynamic Action
+    execute-validations: true
+
+- # ====== Button: DELETE ======================================
+  id: 181028477444958473
+  identification: 
+    button-name: DELETE
+    label: Usuń
+
+  layout: 
+    sequence: 20
+    region: Buttons # 181026691594958471
+    slot: DELETE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+    - t-Button--danger
+    - t-Button--simple
+
+  behavior: 
+    action: Submit Page
+    execute-validations: false
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL DELETE action
+
+  confirmation: 
+    message: '&APP_TEXT$DELETE_MSG!RAW.'
+    style: Danger
+
+  server-side-condition: 
+    type: Item is NOT NULL
+    item: P11_PACJENT_ID
+
+- # ====== Button: SAVE ========================================
+  id: 181028896567958473
+  identification: 
+    button-name: SAVE
+    label: Zapisz zmiany
+
+  layout: 
+    sequence: 30
+    region: Buttons # 181026691594958471
+    slot: NEXT
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: true
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: true
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL UPDATE action
+
+  server-side-condition: 
+    type: Item is NOT NULL
+    item: P11_PACJENT_ID
+
+- # ====== Button: CREATE ======================================
+  id: 181029240559958474
+  identification: 
+    button-name: CREATE
+    label: Dodaj pacjenta
+
+  layout: 
+    sequence: 40
+    region: Buttons # 181026691594958471
+    slot: NEXT
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: true
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: true
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL INSERT action
+
+  server-side-condition: 
+    type: Item is NULL
+    item: P11_PACJENT_ID
+
+dynamic-actions: 
+- # ====== Dynamic Action: Cancel Dialog =======================
+  id: 181027191094958471
+  identification: 
+    name: Cancel Dialog
+
+  execution: 
+    sequence: 10
+    event-scope: Static
+    type: Immediate
+
+  when: 
+    event: Click
+    selection-type: Button
+    button: CANCEL # 181027065029958471
+
+  actions: 
+  - # ====== Action: Cancel Dialog ===============================
+    id: 181027925659958472
+    identification: 
+      action: Cancel Dialog
+
+    execution: 
+      sequence: 10
+      event: Cancel Dialog # 181027191094958471
+      fire-when-event-result-is: True
+      fire-on-initialization: false
+
+validations: 
+- # ====== Validation: niemozebycpuste =========================
+  id: 183283532350062113
+  identification: 
+    name: niemozebycpuste
+
+  execution: 
+    sequence: 10
+
+  validation: 
+    type: Item is NOT NULL
+    item: P11_IMIE
+    always-execute: true
+
+  error: 
+    error-message: Pole 'Imię' nie może być puste
+    display-location: Inline with Field
+    associated-item: P11_IMIE # 181022197595958465
+
+- # ====== Validation: isntNULL_ ===============================
+  id: 183283847688062116
+  identification: 
+    name: isntNULL_
+
+  execution: 
+    sequence: 20
+
+  validation: 
+    type: Item is NOT NULL
+    item: P11_NAZWISKO
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Nazwisko' nie może być puste!
+    display-location: Inline with Field and in Notification
+    associated-item: P11_NAZWISKO # 181022541545958465
+
+- # ====== Validation: NOTnull =================================
+  id: 183283926305062117
+  identification: 
+    name: NOTnull
+
+  execution: 
+    sequence: 30
+
+  validation: 
+    type: Item is NOT NULL
+    item: P11_ADRES
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Adres' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P11_ADRES # 181023342155958467
+
+- # ====== Validation: isntNULL ================================
+  id: 183284004081062118
+  identification: 
+    name: isntNULL
+
+  execution: 
+    sequence: 40
+
+  validation: 
+    type: Item is NOT NULL
+    item: P11_DATA_URODZENIA
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Data Urodzenia' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P11_DATA_URODZENIA # 181022942758958466
+
+- # ====== Validation: przyszlosc ==============================
+  id: 183284144997062119
+  identification: 
+    name: przyszlosc
+
+  execution: 
+    sequence: 50
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P11_DATA_URODZENIA <= SYSDATE'
+    always-execute: false
+
+  error: 
+    error-message: Niepoprawna data urodzenia
+    display-location: Inline with Field and in Notification
+    associated-item: P11_DATA_URODZENIA # 181022942758958466
+
+- # ====== Validation: Pole 'Telefon' nie może być puste =======
+  id: 183284251606062120
+  identification: 
+    name: Pole 'Telefon' nie może być puste
+
+  execution: 
+    sequence: 60
+
+  validation: 
+    type: Item is NOT NULL
+    item: P11_TELEFON
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Telefon' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P11_TELEFON # 181023752730958468
+
+- # ====== Validation: Pole 'Telefon' musi zawierać wyłącznie cy
+  id: 183284380422062121
+  identification: 
+    name: Pole 'Telefon' musi zawierać wyłącznie cyfry
+
+  execution: 
+    sequence: 50
+
+  validation: 
+    type: Item is numeric
+    item: P11_TELEFON
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Telefon' musi zawierać wyłącznie cyfry
+    display-location: Inline with Field and in Notification
+    associated-item: P11_TELEFON # 181023752730958468
+
+- # ====== Validation: Pole 'PESEL' nie może być puste =========
+  id: 183284490657062122
+  identification: 
+    name: Pole 'PESEL' nie może być puste
+
+  execution: 
+    sequence: 80
+
+  validation: 
+    type: Item is NOT NULL
+    item: P11_PESEL
+    always-execute: false
+
+  error: 
+    error-message: Pole 'PESEL' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P11_PESEL # 181024114566958468
+
+- # ====== Validation: Niepoprawne znaki w polu 'PESEL' ========
+  id: 183284541805062123
+  identification: 
+    name: Niepoprawne znaki w polu 'PESEL'
+
+  execution: 
+    sequence: 90
+
+  validation: 
+    type: Item is numeric
+    item: P11_PESEL
+    always-execute: false
+
+  error: 
+    error-message: Niepoprawne znaki w polu 'PESEL'
+    display-location: Inline with Field and in Notification
+    associated-item: P11_PESEL # 181024114566958468
+
+- # ====== Validation: wylacznieLitery =========================
+  id: 194524639328862727
+  identification: 
+    name: wylacznieLitery
+
+  execution: 
+    sequence: 100
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P11_IMIE, '^[A-Za-z]+$')"
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Imię' musi zawierać wyłącznie litery
+    display-location: Inline with Field and in Notification
+    associated-item: P11_IMIE # 181022197595958465
+
+- # ====== Validation: tylkoLitery =============================
+  id: 194524743837862728
+  identification: 
+    name: tylkoLitery
+
+  execution: 
+    sequence: 110
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P11_NAZWISKO, '^[A-Za-z]+$')"
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Nazwisko' musi zawierać wyłącznie litery
+    display-location: Inline with Field and in Notification
+    associated-item: P11_NAZWISKO # 181022541545958465
+
+- # ====== Validation: 11cyfr ==================================
+  id: 283867406927945624
+  identification: 
+    name: 11cyfr
+
+  execution: 
+    sequence: 120
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P11_PESEL, '^[0-9]{11}$')"
+    always-execute: false
+
+  error: 
+    error-message: Pole 'PESEL' musi składać się tylko i wyłącznie z 11 cyfr.
+    display-location: Inline with Field and in Notification
+    associated-item: P11_PESEL # 181024114566958468
+
+- # ====== Validation: 9cyfr ===================================
+  id: 283867524696945625
+  identification: 
+    name: 9cyfr
+
+  execution: 
+    sequence: 130
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P11_TELEFON, '^[0-9]{9}$')"
+    always-execute: false
+
+  error: 
+    error-message: Pole 'TELEFON' musi składać się z 9 cyfr.
+    display-location: Inline with Field and in Notification
+    associated-item: P11_TELEFON # 181023752730958468
+
+processes: 
+- # ====== Process: Initialize form Pacjenci ===================
+  id: 181029604628958474
+  identification: 
+    name: Initialize form Pacjenci
+    type: Form - Initialization
+    execution-chain: None
+    form-region: Pacjenci # 181021392210958464
+
+  execution: 
+    sequence: 10
+    point: Before Header
+    run-process: Once Per Page Visit (default)
+
+- # ====== Process: Process form Pacjenci ======================
+  id: 181030004425958474
+  identification: 
+    name: Process form Pacjenci
+    type: Form - Automatic Row Processing (DML)
+    execution-chain: None
+    form-region: Pacjenci # 181021392210958464
+
+  settings: 
+    target-type: Region Source
+    prevent-lost-updates: true
+    lock-row: Yes
+    return-primary-key(s)-after-insert: true
+
+  execution: 
+    sequence: 10
+    point: Processing
+    run-process: Once Per Page Visit (default)
+
+  error: 
+    display-location: Inline in Notification
+
+- # ====== Process: Close Dialog ===============================
+  id: 181030458099958475
+  identification: 
+    name: Close Dialog
+    type: Close Dialog
+    execution-chain: None
+
+  settings: 
+    show-success-messages: true
+
+  execution: 
+    sequence: 50
+    point: Processing
+    run-process: Once Per Page Visit (default)
+
+  error: 
+    display-location: Inline in Notification
+
+  server-side-condition: 
+    type: Request is contained in Value
+    value: CREATE,SAVE,DELETE
+

@@ -1,0 +1,31 @@
+---
+- # ====== Text Message: SYS_C00134461 =========================
+  id: 349982728847686926
+  identification: 
+    name: SYS_C00134461
+
+  message: 
+    text: Nie można usunąć, ponieważ recepta jest wykorzystana w innej tabeli
+
+  attributes: 
+    language: Polish (pl)
+    used-in-javascript: false
+
+  subscription: 
+    version-number: 472718796
+
+- # ====== Text Message: SYS_C00134461 =========================
+  id: 349984928939694236
+  identification: 
+    name: SYS_C00134461
+
+  message: 
+    text: Nie można usunąć, ponieważ recepta jest wykorzystana w innej tabeli
+
+  attributes: 
+    language: English (en)
+    used-in-javascript: false
+
+  subscription: 
+    version-number: 472719316
+

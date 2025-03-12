@@ -1,0 +1,861 @@
+---
+# ====== Page: Lekarze =======================================
+id: 7
+identification: 
+  name: Lekarze
+  alias: LEKARZE
+  title: Lekarze
+
+appearance: 
+  page-mode: Modal Dialog
+  dialog-template: Drawer
+  template-options: 
+  - '#DEFAULT#'
+  - js-dialog-class-t-Drawer--pullOutEnd
+
+dialog: 
+  chained: false
+
+navigation-menu: 
+  override-user-interface-level: false
+
+navigation: 
+  cursor-focus: Do not focus cursor
+  warn-on-unsaved-changes: true
+
+security: 
+  authentication: Page Requires Authentication
+  deep-linking: Application Default
+  page-access-protection: Arguments Must Have Checksum
+  form-auto-complete: Off
+  browser-cache: Application Default
+
+session-management: 
+  rejoin-sessions: Application Default
+
+advanced: 
+  enable-duplicate-page-submissions: Yes - Enable page to be re-posted
+  reload-on-submit: Only for Success
+
+server-cache: 
+  caching: Disabled
+
+regions: 
+- # ====== Region: Lekarze =====================================
+  id: 180988902904958361
+  identification: 
+    name: Lekarze
+    type: Form
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: LEKARZE
+    include-rowid-column: false
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Blank with Attributes
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    edit: 
+      enabled: true
+      allowed-operations: 
+      - Add Row
+      - Update Row
+      - Delete Row
+      lost-update-type: Row Values
+
+- # ====== Region: Buttons =====================================
+  id: 180993846785958368
+  identification: 
+    name: Buttons
+    type: Static Content
+
+  layout: 
+    sequence: 20
+    parent-region: No Parent
+    slot: REGION_POSITION_03
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Buttons Container
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    settings: 
+      output-as: Text (escape special characters)
+      show-line-breaks: true
+
+page-items: 
+- # ====== Page Item: P7_LEKARZ_ID =============================
+  id: 180989336650958362
+  identification: 
+    name: P7_LEKARZ_ID
+    type: Hidden
+
+  settings: 
+    value-protected: true
+
+  layout: 
+    sequence: 10
+    region: Lekarze # 180988902904958361
+    slot: BODY
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Lekarze # 180988902904958361
+    column: LEKARZ_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: true
+
+  session-state: 
+    data-type: VARCHAR2
+    storage: Per Request (Memory Only)
+
+  security: 
+    session-state-protection: Checksum Required - Session Level
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P7_IMIE ==================================
+  id: 180989706709958362
+  identification: 
+    name: P7_IMIE
+    type: Text Field
+
+  label: 
+    label: Imie
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: None
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 20
+    region: Lekarze # 180988902904958361
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 100
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Lekarze # 180988902904958361
+    column: IMIE
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P7_NAZWISKO ==============================
+  id: 180990130012958363
+  identification: 
+    name: P7_NAZWISKO
+    type: Text Field
+
+  label: 
+    label: Nazwisko
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: None
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 30
+    region: Lekarze # 180988902904958361
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 100
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Lekarze # 180988902904958361
+    column: NAZWISKO
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P7_SPECJALIZACJA =========================
+  id: 180990552842958363
+  identification: 
+    name: P7_SPECJALIZACJA
+    type: Select List
+
+  label: 
+    label: Specjalizacja
+    alignment: Left
+
+  settings: 
+    page-action-on-selection: None
+
+  multiple-values: 
+    type: No
+
+  layout: 
+    sequence: 40
+    region: Lekarze # 180988902904958361
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    height: 1
+
+  validation: 
+    value-required: false
+
+  list-of-values: 
+    type: Shared Component
+    list-of-values: LEKARZE.SPECJALIZACJE # 259585116310439713
+    display-extra-values: true
+    display-null-value: true
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Lekarze # 180988902904958361
+    column: SPECJALIZACJA
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P7_NUMER_TELEFONU ========================
+  id: 180990979193958364
+  identification: 
+    name: P7_NUMER_TELEFONU
+    type: Text Field
+
+  label: 
+    label: Numer Telefonu
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: Leading and Trailing
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 50
+    region: Lekarze # 180988902904958361
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 32
+
+  validation: 
+    value-required: false
+    maximum-length: 255
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Lekarze # 180988902904958361
+    column: NUMER_TELEFONU
+    data-type: VARCHAR2
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P7_SZPITAL_ID ============================
+  id: 180991399408958365
+  identification: 
+    name: P7_SZPITAL_ID
+    type: Select List
+
+  label: 
+    label: Szpital
+    alignment: Left
+
+  settings: 
+    page-action-on-selection: None
+
+  multiple-values: 
+    type: No
+
+  layout: 
+    sequence: 60
+    region: Lekarze # 180988902904958361
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Required - Floating
+    template-options: 
+    - '#DEFAULT#'
+    height: 1
+
+  validation: 
+    value-required: false
+
+  list-of-values: 
+    type: Shared Component
+    list-of-values: SZPITALE.NAZWA # 180991455985958365
+    display-extra-values: true
+    display-null-value: true
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    form-region: Lekarze # 180988902904958361
+    column: SZPITAL_ID
+    data-type: NUMBER
+    query-only: false
+    primary-key: false
+
+  session-state: 
+    storage: Per Request (Memory Only)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+buttons: 
+- # ====== Button: CANCEL ======================================
+  id: 180994231005958368
+  identification: 
+    button-name: CANCEL
+    label: Anuluj
+
+  layout: 
+    sequence: 10
+    region: Buttons # 180993846785958368
+    slot: CLOSE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Defined by Dynamic Action
+    execute-validations: true
+
+- # ====== Button: DELETE ======================================
+  id: 180995687336958370
+  identification: 
+    button-name: DELETE
+    label: Usuń
+
+  layout: 
+    sequence: 20
+    region: Buttons # 180993846785958368
+    slot: DELETE
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+    - t-Button--danger
+    - t-Button--simple
+
+  behavior: 
+    action: Submit Page
+    execute-validations: false
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL DELETE action
+
+  confirmation: 
+    message: '&APP_TEXT$DELETE_MSG!RAW.'
+    style: Danger
+
+  server-side-condition: 
+    type: Item is NOT NULL
+    item: P7_LEKARZ_ID
+
+- # ====== Button: SAVE ========================================
+  id: 180996099864958370
+  identification: 
+    button-name: SAVE
+    label: Zapisz zmiany
+
+  layout: 
+    sequence: 30
+    region: Buttons # 180993846785958368
+    slot: NEXT
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: true
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: true
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL UPDATE action
+
+  server-side-condition: 
+    type: Item is NOT NULL
+    item: P7_LEKARZ_ID
+
+- # ====== Button: CREATE ======================================
+  id: 180996425215958370
+  identification: 
+    button-name: CREATE
+    label: Dodaj lekarza
+
+  layout: 
+    sequence: 40
+    region: Buttons # 180993846785958368
+    slot: NEXT
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    button-template: Text
+    hot: true
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Submit Page
+    execute-validations: true
+    show-processing: false
+    warn-on-unsaved-changes: Do Not Check
+    database-action: SQL INSERT action
+
+  server-side-condition: 
+    type: Item is NULL
+    item: P7_LEKARZ_ID
+
+dynamic-actions: 
+- # ====== Dynamic Action: Cancel Dialog =======================
+  id: 180994330658958368
+  identification: 
+    name: Cancel Dialog
+
+  execution: 
+    sequence: 10
+    event-scope: Static
+    type: Immediate
+
+  when: 
+    event: Click
+    selection-type: Button
+    button: CANCEL # 180994231005958368
+
+  actions: 
+  - # ====== Action: Cancel Dialog ===============================
+    id: 180995130444958369
+    identification: 
+      action: Cancel Dialog
+
+    execution: 
+      sequence: 10
+      event: Cancel Dialog # 180994330658958368
+      fire-when-event-result-is: True
+      fire-on-initialization: false
+
+validations: 
+- # ====== Validation: is_not_null_ ============================
+  id: 212635041272800105
+  identification: 
+    name: is_not_null_
+
+  execution: 
+    sequence: 10
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P7_IMIE IS NOT NULL'
+    always-execute: true
+
+  error: 
+    error-message: Pole 'Imię' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P7_IMIE # 180989706709958362
+
+- # ====== Validation: isnotnull ===============================
+  id: 212635164234800106
+  identification: 
+    name: isnotnull
+
+  execution: 
+    sequence: 30
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P7_NAZWISKO IS NOT NULL'
+    always-execute: true
+
+  error: 
+    error-message: Pole 'Nazwisko' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P7_NAZWISKO # 180990130012958363
+
+- # ====== Validation: nie może być puste ======================
+  id: 212635297665800107
+  identification: 
+    name: nie może być puste
+
+  execution: 
+    sequence: 10
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P7_NUMER_TELEFONU IS NOT NULL'
+    always-execute: true
+
+  error: 
+    error-message: Pole 'Numer Telefonu' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P7_NUMER_TELEFONU # 180990979193958364
+
+- # ====== Validation: IS NOT NULL =============================
+  id: 212635363931800108
+  identification: 
+    name: IS NOT NULL
+
+  execution: 
+    sequence: 50
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P7_SPECJALIZACJA IS NOT NULL'
+    always-execute: true
+
+  error: 
+    error-message: Pole 'Specjalizacja' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P7_SPECJALIZACJA # 180990552842958363
+
+- # ====== Validation: isNotNull1 ==============================
+  id: 212635496782800109
+  identification: 
+    name: isNotNull1
+
+  execution: 
+    sequence: 60
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: ':P7_SZPITAL_ID IS NOT NULL'
+    always-execute: true
+
+  error: 
+    error-message: Pole 'Szpital' nie może być puste
+    display-location: Inline with Field and in Notification
+    associated-item: P7_SZPITAL_ID # 180991399408958365
+
+- # ====== Validation: wyłącznie_z_liter =======================
+  id: 220195689673588533
+  identification: 
+    name: wyłącznie_z_liter
+
+  execution: 
+    sequence: 20
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P7_IMIE, '^[[:alpha:]]+$')"
+    always-execute: false
+
+  error: 
+    error-message: "Pole 'Imię' musi składać się wyłącznie z liter "
+    display-location: Inline with Field and in Notification
+    associated-item: P7_IMIE # 180989706709958362
+
+- # ====== Validation: wyłącznie z liter =======================
+  id: 220195712731588534
+  identification: 
+    name: wyłącznie z liter
+
+  execution: 
+    sequence: 70
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P7_NAZWISKO, '^[[:alpha:]]+$')"
+    always-execute: false
+
+  error: 
+    error-message: "Pole 'Nazwisko' musi składać się wyłącznie z liter "
+    display-location: Inline with Field and in Notification
+    associated-item: P7_NAZWISKO # 180990130012958363
+
+- # ====== Validation: wyłącznie z cyfr ========================
+  id: 220195804836588535
+  identification: 
+    name: wyłącznie z cyfr
+
+  execution: 
+    sequence: 5
+
+  validation: 
+    type: Item is numeric
+    item: P7_NUMER_TELEFONU
+    always-execute: false
+
+  error: 
+    error-message: Pole 'Numer Telefonu' musi składać się wyłącznie z cyfr
+    display-location: Inline with Field and in Notification
+    associated-item: P7_NUMER_TELEFONU # 180990979193958364
+
+- # ====== Validation: 9_cyfr ==================================
+  id: 283865513891945605
+  identification: 
+    name: 9_cyfr
+
+  execution: 
+    sequence: 80
+
+  validation: 
+    type: Expression
+    language: PL/SQL
+    pl/sql-expression: "REGEXP_LIKE(:P7_NUMER_TELEFONU, '^[0-9]{9}$')"
+    always-execute: false
+
+  error: 
+    error-message: Numer telefonu musi mieć 9 cyfr!
+    display-location: Inline with Field and in Notification
+    associated-item: P7_NUMER_TELEFONU # 180990979193958364
+
+processes: 
+- # ====== Process: Initialize form Lekarze ====================
+  id: 180996855829958371
+  identification: 
+    name: Initialize form Lekarze
+    type: Form - Initialization
+    execution-chain: None
+    form-region: Lekarze # 180988902904958361
+
+  execution: 
+    sequence: 10
+    point: Before Header
+    run-process: Once Per Page Visit (default)
+
+- # ====== Process: Process form Lekarze =======================
+  id: 180997201367958371
+  identification: 
+    name: Process form Lekarze
+    type: Form - Automatic Row Processing (DML)
+    execution-chain: None
+    form-region: Lekarze # 180988902904958361
+
+  settings: 
+    target-type: Region Source
+    prevent-lost-updates: true
+    lock-row: Yes
+    return-primary-key(s)-after-insert: true
+
+  execution: 
+    sequence: 10
+    point: Processing
+    run-process: Once Per Page Visit (default)
+
+  error: 
+    display-location: Inline in Notification
+
+- # ====== Process: Close Dialog ===============================
+  id: 180997659399958371
+  identification: 
+    name: Close Dialog
+    type: Close Dialog
+    execution-chain: None
+
+  settings: 
+    show-success-messages: true
+
+  execution: 
+    sequence: 50
+    point: Processing
+    run-process: Once Per Page Visit (default)
+
+  error: 
+    display-location: Inline in Notification
+
+  server-side-condition: 
+    type: Request is contained in Value
+    value: CREATE,SAVE,DELETE
+

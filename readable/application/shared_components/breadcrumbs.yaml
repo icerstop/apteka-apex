@@ -1,0 +1,311 @@
+---
+- # ====== Breadcrumb: Breadcrumb ==============================
+  id: 180651755834957693
+  identification: 
+    name: Breadcrumb
+
+  entries: 
+  - # ====== Entry: Home =========================================
+    id: 180651925938957693
+    identification: 
+      name: Home
+      page-number: 1
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
+        page: 1 # Home
+
+  - # ====== Entry: Apteki =======================================
+    id: 180973069734958279
+    identification: 
+      name: Apteki
+      page-number: 2
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:::'
+        page: 2 # Apteki
+
+  - # ====== Entry: Farmaceuci ===================================
+    id: 180987510307958329
+    identification: 
+      name: Farmaceuci
+      page-number: 4
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:4:&APP_SESSION.::&DEBUG.:::'
+        page: 4 # Farmaceuci
+
+  - # ====== Entry: Lekarze ======================================
+    id: 181003279840958382
+    identification: 
+      name: Lekarze
+      page-number: 6
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:6:&APP_SESSION.::&DEBUG.:::'
+        page: 6 # Lekarze
+
+  - # ====== Entry: Leki =========================================
+    id: 181019913667958431
+    identification: 
+      name: Leki
+      page-number: 8
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:8:&APP_SESSION.::&DEBUG.:::'
+        page: 8 # Leki
+
+  - # ====== Entry: Pacjenci =====================================
+    id: 181036450539958482
+    identification: 
+      name: Pacjenci
+      page-number: 10
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:10:&APP_SESSION.::&DEBUG.:::'
+        page: 10 # Pacjenci
+
+  - # ====== Entry: RealizacjeRecept =============================
+    id: 181050903833958531
+    identification: 
+      name: RealizacjeRecept
+      page-number: 12
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:12:&SESSION.::&DEBUG.:::'
+        page: 12 # Realizacjerecept
+
+  - # ====== Entry: Recepty ======================================
+    id: 181068067840958582
+    identification: 
+      name: Recepty
+      page-number: 14
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:14:&APP_SESSION.::&DEBUG.:::'
+        page: 14 # Recepty
+
+  - # ====== Entry: RodzicePacjentów =============================
+    id: 181083387467958633
+    identification: 
+      name: RodzicePacjentów
+      page-number: 16
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:16:&SESSION.::&DEBUG.:::'
+        page: 16 # Rodzicepacjentow
+
+  - # ====== Entry: Szpitale =====================================
+    id: 181097698250958679
+    identification: 
+      name: Szpitale
+      page-number: 18
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:18:&APP_SESSION.::&DEBUG.:::'
+        page: 18 # Szpitale
+
+  - # ====== Entry: Zamówienia ===================================
+    id: 181114321249958731
+    identification: 
+      name: Zamówienia
+      page-number: 20
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:20:&SESSION.::&DEBUG.:::'
+        page: 20 # Zamowienia
+
+  - # ====== Entry: Statystyki Recept ============================
+    id: 217047683606291594
+    identification: 
+      name: Statystyki Recept
+      page-number: 22
+
+    execution: 
+      sequence: 10
+
+    appearance: 
+      parent-entry: Recepty # 181068067840958582
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:22:&APP_SESSION.::&DEBUG.:::'
+        page: 22 # Statystyki Recept
+
+  - # ====== Entry: Statystyki Pacjenci ==========================
+    id: 219075353026236832
+    identification: 
+      name: Statystyki Pacjenci
+      page-number: 24
+
+    execution: 
+      sequence: 10
+
+    appearance: 
+      parent-entry: Pacjenci # 181036450539958482
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:24:&APP_SESSION.::&DEBUG.:::'
+        page: 24 # Statystyki Pacjentów
+
+  - # ====== Entry: Statystyki Leków =============================
+    id: 219104113636285457
+    identification: 
+      name: Statystyki Leków
+      page-number: 25
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:25:&APP_SESSION.::&DEBUG.:::'
+        page: 25 # Statystyki Leków
+
+  - # ====== Entry: Mapa Szpitali ================================
+    id: 219252735287334393
+    identification: 
+      name: Mapa Szpitali
+      page-number: 26
+
+    execution: 
+      sequence: 10
+
+    appearance: 
+      parent-entry: Szpitale # 181097698250958679
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:26:&APP_SESSION.::&DEBUG.:::'
+        page: 26 # Mapa Szpitali
+
+  - # ====== Entry: Mapa Aptek ===================================
+    id: 219384456587464703
+    identification: 
+      name: Mapa Aptek
+      page-number: 27
+
+    execution: 
+      sequence: 10
+
+    appearance: 
+      parent-entry: Apteki # 180973069734958279
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:27:&APP_SESSION.::&DEBUG.:::'
+        page: 27 # Mapa Aptek
+
+  - # ====== Entry: Składanie Zamówienia =========================
+    id: 249646442567819239
+    identification: 
+      name: Składanie Zamówienia
+      page-number: 28
+
+    execution: 
+      sequence: 10
+
+    appearance: 
+      parent-entry: Zamówienia # 181114321249958731
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:28:&APP_SESSION.::&DEBUG.:::'
+        page: 28 # Składanie Zamówienia
+
+  - # ====== Entry: Statystyki Zamówień ==========================
+    id: 255333044792876683
+    identification: 
+      name: Statystyki Zamówień
+      page-number: 30
+
+    execution: 
+      sequence: 10
+
+    appearance: 
+      parent-entry: Zamówienia # 181114321249958731
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:30:&APP_SESSION.::&DEBUG.:::'
+        page: 30 # Statystyki Zamówień
+
+  - # ====== Entry: Informacje Pacjenta ==========================
+    id: 306382832309554829
+    identification: 
+      name: Informacje Pacjenta
+      page-number: 32
+
+    execution: 
+      sequence: 10
+
+    appearance: 
+      parent-entry: Pacjenci # 181036450539958482
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:32:&APP_SESSION.::&DEBUG.:::'
+        page: 32 # Informacje Pacjenta
+
+  - # ====== Entry: Terminy Realizacji Recept ====================
+    id: 349336049847463243
+    identification: 
+      name: Terminy Realizacji Recept
+      page-number: 29
+
+    execution: 
+      sequence: 10
+
+    appearance: 
+      parent-entry: Recepty # 181068067840958582
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:29:&APP_SESSION.::&DEBUG.:::'
+        page: 29 # Terminy Realizacji Recept
+

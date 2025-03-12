@@ -1,0 +1,113 @@
+prompt --application/shared_components/user_interface/lovs/lekarze_specjalizacje
+begin
+--   Manifest
+--     LEKARZE.SPECJALIZACJE
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2024.05.31'
+,p_release=>'24.1.4'
+,p_default_workspace_id=>67541494403004847
+,p_default_application_id=>292
+,p_default_id_offset=>0
+,p_default_owner=>'WKSP_WS155865'
+);
+wwv_flow_imp_shared.create_list_of_values(
+ p_id=>wwv_flow_imp.id(259585116310439713)
+,p_lov_name=>'LEKARZE.SPECJALIZACJE'
+,p_lov_query=>'.'||wwv_flow_imp.id(259585116310439713)||'.'
+,p_location=>'STATIC'
+,p_version_scn=>458795785
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(259585470298439724)
+,p_lov_disp_sequence=>1
+,p_lov_disp_value=>'Kardiologia'
+,p_lov_return_value=>'Kardiologia'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(259585846261439725)
+,p_lov_disp_sequence=>2
+,p_lov_disp_value=>'Onkologia'
+,p_lov_return_value=>'Onkologia'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(259586282821439725)
+,p_lov_disp_sequence=>3
+,p_lov_disp_value=>'Fizjoterapia'
+,p_lov_return_value=>'Fizjoterapia'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(259586646721439726)
+,p_lov_disp_sequence=>4
+,p_lov_disp_value=>'Ortopedia'
+,p_lov_return_value=>'Ortopedia'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(259587003415439726)
+,p_lov_disp_sequence=>5
+,p_lov_disp_value=>'Pediatria'
+,p_lov_return_value=>'Pediatria'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(259587450761439726)
+,p_lov_disp_sequence=>6
+,p_lov_disp_value=>'Chirurgia'
+,p_lov_return_value=>'Chirurgia'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(259587822528439727)
+,p_lov_disp_sequence=>7
+,p_lov_disp_value=>'Endokrynologia'
+,p_lov_return_value=>'Endokrynologia'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(259588288573439727)
+,p_lov_disp_sequence=>8
+,p_lov_disp_value=>'Neurologia'
+,p_lov_return_value=>'Neurologia'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(259588689538439727)
+,p_lov_disp_sequence=>9
+,p_lov_disp_value=>'Dermatologia'
+,p_lov_return_value=>'Dermatologia'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(259589086095439728)
+,p_lov_disp_sequence=>10
+,p_lov_disp_value=>'Gastroenterologia'
+,p_lov_return_value=>'Gastroenterologia'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(259589441198439728)
+,p_lov_disp_sequence=>11
+,p_lov_disp_value=>'Ginekologia'
+,p_lov_return_value=>'Ginekologia'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(259589864356439728)
+,p_lov_disp_sequence=>12
+,p_lov_disp_value=>'Urologia'
+,p_lov_return_value=>'Urologia'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(259590253666439729)
+,p_lov_disp_sequence=>13
+,p_lov_disp_value=>'Anestezjologia'
+,p_lov_return_value=>'Anestezjologia'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(259590654168439729)
+,p_lov_disp_sequence=>14
+,p_lov_disp_value=>'Geriatria'
+,p_lov_return_value=>'Geriatria'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(259591007733439729)
+,p_lov_disp_sequence=>15
+,p_lov_disp_value=>'Okulistyka'
+,p_lov_return_value=>'Okulistyka'
+);
+wwv_flow_imp.component_end;
+end;
+/
